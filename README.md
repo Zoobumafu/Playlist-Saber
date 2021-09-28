@@ -7,4 +7,4 @@ This is a playlist editor for BeatSaber.
 
 ## Credit 
 
-Ofek365 - Massive help in designing the program and testing for bugs.
+- Ofek365 - Massive help in designing the program and testing for bugs.
