@@ -19,18 +19,6 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_31FC3B7E82A84EFCA4049C9355CDCB68"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DCD59C8F02534651BFA5F50D86CD8FDB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -49,6 +37,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -59,12 +63,48 @@
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
-        "Compression" = "3:2"
+        "Compression" = "3:1"
         "SignOutput" = "11:FALSE"
         "CertificateFile" = "8:"
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.5.0.x64"
+                    {
+                    "Name" = "8:.NET Runtime 5.0.10 (x64)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.5.0.x64"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.5.0.x86"
+                    {
+                    "Name" = "8:.NET Runtime 5.0.10 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.5.0.x86"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.5.0.x64"
+                    {
+                    "Name" = "8:.NET Desktop Runtime 5.0.10 (x64)"
+                    "ProductCode" = "8:Microsoft.NetCore.DesktopRuntime.5.0.x64"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.5.0.x86"
+                    {
+                    "Name" = "8:.NET Desktop Runtime 5.0.10 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.DesktopRuntime.5.0.x86"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -102,46 +142,6 @@
             "TargetName" = "8:light-saber.ico"
             "Tag" = "8:"
             "Folder" = "8:_CCE6E979F2A94571ACF28194BD4ECF62"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_31FC3B7E82A84EFCA4049C9355CDCB68"
-            {
-            "SourcePath" = "8:..\\BeatSaber Playlist Master V2\\light-saber.ico"
-            "TargetName" = "8:light-saber.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_5CA5A4D6126B417A9A07D0F601FB0D74"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCD59C8F02534651BFA5F50D86CD8FDB"
-            {
-            "SourcePath" = "8:..\\BeatSaber Playlist Master V2\\light-saber.ico"
-            "TargetName" = "8:light-saber.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_343B14DE027E4A4C8DF79FD9CC8294F7"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -212,15 +212,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Playlist Saber"
-        "ProductCode" = "8:{F5D68819-BB79-481F-9E9C-10D5AC5F567E}"
-        "PackageCode" = "8:{E395D690-2A2E-4B6D-831C-1FBD07B77B4F}"
+        "ProductCode" = "8:{ACF12627-A8E1-4F06-8407-2624286CD96B}"
+        "PackageCode" = "8:{A0FB7800-2951-408A-9E62-F56D2E78CAF0}"
         "UpgradeCode" = "8:{E47C17DE-FD4F-41E5-9C67-9F220011C6B6}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.0.1"
+        "ProductVersion" = "8:0.0.2"
         "Manufacturer" = "8:Zubumafu"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -344,7 +344,7 @@
             "Target" = "8:_938C7502B55D4A5493273D45B4572D0E"
             "Folder" = "8:_5CA5A4D6126B417A9A07D0F601FB0D74"
             "WorkingFolder" = "8:_CCE6E979F2A94571ACF28194BD4ECF62"
-            "Icon" = "8:_31FC3B7E82A84EFCA4049C9355CDCB68"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D39B06BF93C643D5A2E200F9D7822792"
@@ -358,7 +358,7 @@
             "Target" = "8:_938C7502B55D4A5493273D45B4572D0E"
             "Folder" = "8:_343B14DE027E4A4C8DF79FD9CC8294F7"
             "WorkingFolder" = "8:_CCE6E979F2A94571ACF28194BD4ECF62"
-            "Icon" = "8:_DCD59C8F02534651BFA5F50D86CD8FDB"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }

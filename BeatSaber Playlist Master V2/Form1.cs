@@ -425,9 +425,9 @@ namespace BeatSaber_Playlist_Master_V2
             songAuthorLabel.Text = "by " + currentSong.uploader;
 
 
-            // Set Image
             if (currentSong.file != null)
             {
+                // Set Image
                 hashLabel.Text = currentSong.hash;
                 lastModifiedLabel.Text = currentSong.file.lastModified.ToString();
                 if (currentSong.file._coverImageFilename != null)
@@ -444,13 +444,36 @@ namespace BeatSaber_Playlist_Master_V2
                         Console.WriteLine("Error finding image in " + currentSong.songName + "\n" + e.Message);
                     }
                 }
+
+                // Get and display difficulties - 
+
+                string difficultiesString = "";
+                for (int i = 0; i < currentSong.file._difficultyBeatmapSets.Length; i++)
+                {
+                    difficultiesString += currentSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ": ";
+                    difficultiesString += currentSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[0]._difficulty + "\n";
+                    for (int j = 1; j < currentSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length; j++)
+                    {
+                        for (int k = 0; k < currentSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName.Length + 10; k++)
+                        {
+                            difficultiesString += " ";
+                        }
+                        difficultiesString += currentSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + "\n";
+                    }
+                }
+
+                difficultiesLabel.Text = difficultiesString;
+                
             }
             else
             {
                 lastModifiedLabel.Text = "";
                 hashLabel.Text = "";
                 songPictureBox.Image = null;
+                difficultiesLabel.Text = "";
             }
+
+            
         }
 
         private void clearPlaylistButton_Click(object sender, EventArgs e)
@@ -541,18 +564,38 @@ namespace BeatSaber_Playlist_Master_V2
             _dragging = false;
         }
 
-        // Change the coloring of selected treenode
 
         private void allSongsTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
-             
+            // Change the coloring of selected treenode
             if (e.Node.IsSelected)
             {
                 if (allSongsTreeView.Focused)
                     e.Graphics.FillRectangle(brush, e.Bounds);
             }
-            /*else
-                e.Graphics.FillRectangle(Brushes.White, e.Bounds);*/
+
+            // Change the coloring of the selected treenode when the treeview isn't focused
+
+            if (e.Node == null) return;
+
+            // if treeview's HideSelection property is "True", 
+            // this will always returns "False" on unfocused treeview
+            var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+            var unfocused = !e.Node.TreeView.Focused;
+
+            // we need to do owner drawing only on a selected node
+            // and when the treeview is unfocused, else let the OS do it for us
+            if (selected && unfocused)
+            {
+                var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                e.Graphics.FillRectangle(SystemBrushes.WindowText, e.Bounds);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, nodeForeColor);
+            }
+            else
+            {
+                e.DrawDefault = true;
+            }
+
 
             TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
         }
@@ -566,18 +609,46 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void songsInPlaylistTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
+            // Change the coloring of selected treenode
             if (e.Node.IsSelected)
             {
                 if (songsInPlaylistTreeView.Focused)
                     e.Graphics.FillRectangle(brush, e.Bounds);
             }
-            /*else
-                e.Graphics.FillRectangle(Brushes.White, e.Bounds);*/
+
+            // Change the coloring of the selected treenode when the treeview isn't focused
+
+
+                if (e.Node == null) return;
+
+                // if treeview's HideSelection property is "True", 
+                // this will always returns "False" on unfocused treeview
+                var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+                var unfocused = !e.Node.TreeView.Focused;
+
+                // we need to do owner drawing only on a selected node
+                // and when the treeview is unfocused, else let the OS do it for us
+                if (selected && unfocused)
+                {
+                    var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                    e.Graphics.FillRectangle(SystemBrushes.WindowText, e.Bounds);
+                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, nodeForeColor);
+                }
+                else
+                {
+                    e.DrawDefault = true;
+                }
 
             TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // TO - DO - pop up a dialog box which shows the name, author, difficulty of a level, hash code, etc.
+        private void moreInfoButton_Click(object sender, EventArgs e)
         {
 
         }
