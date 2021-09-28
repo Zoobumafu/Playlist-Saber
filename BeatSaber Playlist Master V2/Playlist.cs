@@ -90,19 +90,28 @@ namespace BeatSaber_Playlist_Master_V2
         {
             System.Drawing.Color color;
 
-            switch (count % 5)
+            switch (count % 8)
             {
                 case 1:
                     color = System.Drawing.Color.Red;
                     break;
                 case 2:
-                    color = System.Drawing.Color.Blue;
+                    color = System.Drawing.Color.AliceBlue;
                     break;
                 case 3:
                     color = System.Drawing.Color.Green;
                     break;
                 case 4:
-                    color = System.Drawing.Color.Firebrick;
+                    color = System.Drawing.Color.PaleVioletRed;
+                    break;
+                case 5:
+                    color = System.Drawing.Color.Orange;
+                    break;
+                case 6:
+                    color = System.Drawing.Color.MediumPurple;
+                    break;
+                case 7:
+                    color = System.Drawing.Color.BlueViolet;
                     break;
                 case 0:
                     color = System.Drawing.Color.DodgerBlue;

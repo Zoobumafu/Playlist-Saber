@@ -32,8 +32,10 @@ namespace BeatSaber_Playlist_Master_V2
         // UI helper values to enable dragging of the form
         Point _start_point;
         bool _dragging;
-        Point location;
 
+        // Helper value for brush, to change the marking color of a treenode
+        SolidBrush brush;
+        Color nodeForeColor;
 
         public Form1()
         {
@@ -64,16 +66,25 @@ namespace BeatSaber_Playlist_Master_V2
             // Assaigning BeatSaverSharp parameters
             options = new HttpOptions(Data.appName, Data.version);
             beatSaver = new BeatSaver(options);
-
+            
             // UI 
             // Removing top bar
             this.ControlBox = false;
             this.Text = String.Empty;
 
+            // Coloring the treenodes - 
+            // Background color
+            brush = new SolidBrush(Color.FromArgb(21, 60, 151));
+            // Text color
+            //nodeForeColor = Color.FromArgb(116, 118, 124); // Yellowish
+            nodeForeColor = Color.FromArgb(247, 244, 234); // Grayish
+
+            // Change the back color of the form so disabled controls inherit it
+            playlistAuthorTextBox.BackColor = Color.FromArgb(32, 34, 37);
 
         }
 
-        
+
         /// <summary>
         /// Add playlists to the treeview control
         /// </summary>
@@ -248,7 +259,7 @@ namespace BeatSaber_Playlist_Master_V2
 
             playlistNameTextBox.Enabled = true;
             playlistAuthorTextBox.Enabled = true;
-            playlistDescriptionTextBox.Enabled = true;
+            playlistDescriptionTextBox.ReadOnly = false;
             playlistPictureBox.Enabled = true;
 
             playlistNameTextBox.Text = selectedPlaylist.playlistTitle;
@@ -315,7 +326,7 @@ namespace BeatSaber_Playlist_Master_V2
             if (playlistTreeView.SelectedNode != null)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the playlist " + selectedPlaylist.playlistTitle
-                + "? This cannot be undone!", "Warning", MessageBoxButtons.YesNo);
+                + "? \n This cannot be undone!", "Warning", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     File.Delete(selectedPlaylist.filePath);
@@ -528,6 +539,47 @@ namespace BeatSaber_Playlist_Master_V2
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             _dragging = false;
+        }
+
+        // Change the coloring of selected treenode
+
+        private void allSongsTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+             
+            if (e.Node.IsSelected)
+            {
+                if (allSongsTreeView.Focused)
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+            /*else
+                e.Graphics.FillRectangle(Brushes.White, e.Bounds);*/
+
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
+        }
+
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            allSongsTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
+            songsInPlaylistTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
+        }
+
+        private void songsInPlaylistTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            if (e.Node.IsSelected)
+            {
+                if (songsInPlaylistTreeView.Focused)
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+            /*else
+                e.Graphics.FillRectangle(Brushes.White, e.Bounds);*/
+
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

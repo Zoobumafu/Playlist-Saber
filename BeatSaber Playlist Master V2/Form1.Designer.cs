@@ -34,7 +34,6 @@ namespace BeatSaber_Playlist_Master_V2
             this.newPlaylistButton = new System.Windows.Forms.Button();
             this.songsInPlaylistTreeView = new System.Windows.Forms.TreeView();
             this.allSongsTreeView = new System.Windows.Forms.TreeView();
-            this.saveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,9 +60,16 @@ namespace BeatSaber_Playlist_Master_V2
             this.nameRadioButton = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playlistPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // playlistTreeView
@@ -106,8 +112,9 @@ namespace BeatSaber_Playlist_Master_V2
             this.songsInPlaylistTreeView.ShowLines = false;
             this.songsInPlaylistTreeView.ShowPlusMinus = false;
             this.songsInPlaylistTreeView.ShowRootLines = false;
-            this.songsInPlaylistTreeView.Size = new System.Drawing.Size(496, 369);
+            this.songsInPlaylistTreeView.Size = new System.Drawing.Size(496, 386);
             this.songsInPlaylistTreeView.TabIndex = 3;
+            this.songsInPlaylistTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.songsInPlaylistTreeView_DrawNode);
             this.songsInPlaylistTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.songsInPlaylistTreeView_AfterSelect);
             this.songsInPlaylistTreeView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.songsInPlaylistTreeView_MouseDoubleClick);
             // 
@@ -117,29 +124,16 @@ namespace BeatSaber_Playlist_Master_V2
             this.allSongsTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.allSongsTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(118)))), ((int)(((byte)(124)))));
             this.allSongsTreeView.HideSelection = false;
-            this.allSongsTreeView.Location = new System.Drawing.Point(532, 175);
+            this.allSongsTreeView.Location = new System.Drawing.Point(532, 77);
             this.allSongsTreeView.Name = "allSongsTreeView";
             this.allSongsTreeView.ShowLines = false;
             this.allSongsTreeView.ShowPlusMinus = false;
             this.allSongsTreeView.ShowRootLines = false;
-            this.allSongsTreeView.Size = new System.Drawing.Size(462, 528);
+            this.allSongsTreeView.Size = new System.Drawing.Size(462, 626);
             this.allSongsTreeView.TabIndex = 0;
+            this.allSongsTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.allSongsTreeView_DrawNode);
             this.allSongsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.allSongsTreeView_AfterSelect);
             this.allSongsTreeView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.allSongsTreeView_MouseDoubleClick);
-            // 
-            // saveButton
-            // 
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saveButton.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(532, 12);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(462, 133);
-            this.saveButton.TabIndex = 4;
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label1
             // 
@@ -175,10 +169,10 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.playlistDescriptionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.playlistDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playlistDescriptionTextBox.Enabled = false;
-            this.playlistDescriptionTextBox.ForeColor = System.Drawing.Color.Transparent;
+            this.playlistDescriptionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(118)))), ((int)(((byte)(124)))));
             this.playlistDescriptionTextBox.Location = new System.Drawing.Point(12, 404);
             this.playlistDescriptionTextBox.Name = "playlistDescriptionTextBox";
+            this.playlistDescriptionTextBox.ReadOnly = true;
             this.playlistDescriptionTextBox.Size = new System.Drawing.Size(496, 50);
             this.playlistDescriptionTextBox.TabIndex = 9;
             this.playlistDescriptionTextBox.Text = "";
@@ -242,7 +236,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songNameLabel.AutoSize = true;
             this.songNameLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songNameLabel.Location = new System.Drawing.Point(532, 756);
+            this.songNameLabel.Location = new System.Drawing.Point(608, 745);
             this.songNameLabel.Name = "songNameLabel";
             this.songNameLabel.Size = new System.Drawing.Size(0, 15);
             this.songNameLabel.TabIndex = 14;
@@ -251,7 +245,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songAuthorLabel.AutoSize = true;
             this.songAuthorLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songAuthorLabel.Location = new System.Drawing.Point(532, 774);
+            this.songAuthorLabel.Location = new System.Drawing.Point(608, 767);
             this.songAuthorLabel.Name = "songAuthorLabel";
             this.songAuthorLabel.Size = new System.Drawing.Size(0, 15);
             this.songAuthorLabel.TabIndex = 15;
@@ -259,10 +253,10 @@ namespace BeatSaber_Playlist_Master_V2
             // songPictureBox
             // 
             this.songPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("songPictureBox.Image")));
-            this.songPictureBox.Location = new System.Drawing.Point(816, 748);
+            this.songPictureBox.Location = new System.Drawing.Point(844, 767);
             this.songPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.songPictureBox.Name = "songPictureBox";
-            this.songPictureBox.Size = new System.Drawing.Size(173, 148);
+            this.songPictureBox.Size = new System.Drawing.Size(150, 150);
             this.songPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.songPictureBox.TabIndex = 16;
             this.songPictureBox.TabStop = false;
@@ -270,7 +264,7 @@ namespace BeatSaber_Playlist_Master_V2
             // searchTextBox
             // 
             this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchTextBox.Location = new System.Drawing.Point(853, 148);
+            this.searchTextBox.Location = new System.Drawing.Point(583, 48);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(141, 23);
             this.searchTextBox.TabIndex = 17;
@@ -280,7 +274,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Linen;
-            this.label2.Location = new System.Drawing.Point(532, 151);
+            this.label2.Location = new System.Drawing.Point(834, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 18;
@@ -289,7 +283,7 @@ namespace BeatSaber_Playlist_Master_V2
             // lastModifiedLabel
             // 
             this.lastModifiedLabel.AutoSize = true;
-            this.lastModifiedLabel.Location = new System.Drawing.Point(532, 878);
+            this.lastModifiedLabel.Location = new System.Drawing.Point(532, 891);
             this.lastModifiedLabel.Name = "lastModifiedLabel";
             this.lastModifiedLabel.Size = new System.Drawing.Size(0, 15);
             this.lastModifiedLabel.TabIndex = 20;
@@ -310,18 +304,18 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.unplaylistedCheckbox.AutoSize = true;
             this.unplaylistedCheckbox.ForeColor = System.Drawing.Color.Linen;
-            this.unplaylistedCheckbox.Location = new System.Drawing.Point(532, 712);
+            this.unplaylistedCheckbox.Location = new System.Drawing.Point(532, 713);
             this.unplaylistedCheckbox.Name = "unplaylistedCheckbox";
-            this.unplaylistedCheckbox.Size = new System.Drawing.Size(199, 19);
+            this.unplaylistedCheckbox.Size = new System.Drawing.Size(242, 19);
             this.unplaylistedCheckbox.TabIndex = 22;
-            this.unplaylistedCheckbox.Text = "Show Songs with no playlist only";
+            this.unplaylistedCheckbox.Text = "Only show songs that are not in a playlist";
             this.unplaylistedCheckbox.UseVisualStyleBackColor = true;
             this.unplaylistedCheckbox.CheckedChanged += new System.EventHandler(this.unplaylistedCheckbox_CheckedChanged);
             // 
             // hashLabel
             // 
             this.hashLabel.AutoSize = true;
-            this.hashLabel.Location = new System.Drawing.Point(532, 878);
+            this.hashLabel.Location = new System.Drawing.Point(532, 891);
             this.hashLabel.Name = "hashLabel";
             this.hashLabel.Size = new System.Drawing.Size(0, 15);
             this.hashLabel.TabIndex = 23;
@@ -330,7 +324,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Linen;
-            this.label5.Location = new System.Drawing.Point(757, 713);
+            this.label5.Location = new System.Drawing.Point(863, 735);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 15);
             this.label5.TabIndex = 24;
@@ -340,7 +334,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.NumOfSongsLabel.AutoSize = true;
             this.NumOfSongsLabel.ForeColor = System.Drawing.Color.Linen;
-            this.NumOfSongsLabel.Location = new System.Drawing.Point(831, 713);
+            this.NumOfSongsLabel.Location = new System.Drawing.Point(937, 735);
             this.NumOfSongsLabel.Name = "NumOfSongsLabel";
             this.NumOfSongsLabel.Size = new System.Drawing.Size(0, 15);
             this.NumOfSongsLabel.TabIndex = 25;
@@ -349,7 +343,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.clearPlaylistButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.clearPlaylistButton.ForeColor = System.Drawing.Color.LightCoral;
-            this.clearPlaylistButton.Location = new System.Drawing.Point(12, 874);
+            this.clearPlaylistButton.Location = new System.Drawing.Point(12, 891);
             this.clearPlaylistButton.Name = "clearPlaylistButton";
             this.clearPlaylistButton.Size = new System.Drawing.Size(129, 23);
             this.clearPlaylistButton.TabIndex = 26;
@@ -361,7 +355,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.openSongFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.openSongFolderButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.openSongFolderButton.Location = new System.Drawing.Point(532, 845);
+            this.openSongFolderButton.Location = new System.Drawing.Point(532, 862);
             this.openSongFolderButton.Name = "openSongFolderButton";
             this.openSongFolderButton.Size = new System.Drawing.Size(131, 23);
             this.openSongFolderButton.TabIndex = 27;
@@ -373,7 +367,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.removeDuplicatesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeDuplicatesButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.removeDuplicatesButton.Location = new System.Drawing.Point(147, 874);
+            this.removeDuplicatesButton.Location = new System.Drawing.Point(147, 891);
             this.removeDuplicatesButton.Name = "removeDuplicatesButton";
             this.removeDuplicatesButton.Size = new System.Drawing.Size(129, 23);
             this.removeDuplicatesButton.TabIndex = 28;
@@ -411,7 +405,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.panel1.Controls.Add(this.nameRadioButton);
             this.panel1.Controls.Add(this.dateRadioButton);
-            this.panel1.Location = new System.Drawing.Point(583, 146);
+            this.panel1.Location = new System.Drawing.Point(885, 46);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(108, 25);
             this.panel1.TabIndex = 29;
@@ -420,18 +414,89 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Linen;
-            this.label6.Location = new System.Drawing.Point(802, 151);
+            this.label6.Location = new System.Drawing.Point(532, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 15);
             this.label6.TabIndex = 30;
             this.label6.Text = "Search:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(364, 108);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 32;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Linen;
+            this.label7.Location = new System.Drawing.Point(532, 745);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 15);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Song name:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Linen;
+            this.label8.Location = new System.Drawing.Point(532, 767);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 15);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Map maker:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.Linen;
+            this.label9.Location = new System.Drawing.Point(12, 463);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(235, 33);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Songs in this playlist -";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.Linen;
+            this.label10.Location = new System.Drawing.Point(532, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(127, 33);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "All songs - ";
+            // 
+            // saveButton
+            // 
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.saveButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(844, 15);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(150, 25);
+            this.saveButton.TabIndex = 4;
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1006, 908);
+            this.ClientSize = new System.Drawing.Size(1006, 926);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.removeDuplicatesButton);
@@ -465,6 +530,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Playlist Saber";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -472,6 +538,7 @@ namespace BeatSaber_Playlist_Master_V2
             ((System.ComponentModel.ISupportInitialize)(this.songPictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,7 +549,6 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.Button newPlaylistButton;
         private System.Windows.Forms.TreeView songsInPlaylistTreeView;
         private System.Windows.Forms.TreeView allSongsTreeView;
-        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -509,6 +575,12 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.RadioButton nameRadioButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 
