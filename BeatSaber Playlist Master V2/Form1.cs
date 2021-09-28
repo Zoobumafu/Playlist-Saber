@@ -29,6 +29,12 @@ namespace BeatSaber_Playlist_Master_V2
         Playlist selectedPlaylist = null;
         PlaylistSong lastSelectedSong = null;
 
+        // UI helper values to enable dragging of the form
+        Point _start_point;
+        bool _dragging;
+        Point location;
+
+
         public Form1()
         {
 
@@ -499,6 +505,29 @@ namespace BeatSaber_Playlist_Master_V2
         private void playlistDeleteButton_MouseLeave(object sender, EventArgs e)
         {
             playlistDeleteButton.BackColor = Color.FromArgb(255, 192, 192);
+        }
+
+        // The next 3 events allow the form to be dragged and dropped
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            _dragging = true;
+            _start_point = new Point(e.X, e.Y);
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_dragging)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - this._start_point.X, p.Y - this._start_point.Y);
+
+            }
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            _dragging = false;
         }
     }
 }

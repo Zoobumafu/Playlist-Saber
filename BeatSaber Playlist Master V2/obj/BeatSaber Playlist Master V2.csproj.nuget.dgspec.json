@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {}
+    "C:\\Users\\atart\\Documents\\GitHub\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {
+    "C:\\Users\\atart\\Documents\\GitHub\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+        "projectUniqueName": "C:\\Users\\atart\\Documents\\GitHub\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
         "projectName": "BeatSaber Playlist Master V2",
-        "projectPath": "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+        "projectPath": "C:\\Users\\atart\\Documents\\GitHub\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
         "packagesPath": "C:\\Users\\atart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\obj\\",
+        "outputPath": "C:\\Users\\atart\\Documents\\GitHub\\Playlist-Saber\\BeatSaber Playlist Master V2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\atart\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"
@@ -77,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
