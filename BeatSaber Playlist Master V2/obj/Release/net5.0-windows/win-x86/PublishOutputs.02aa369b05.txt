@@ -1,0 +1,11 @@
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\BeatSaber Playlist Master V2.pdb
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\clrcompression.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\clrjit.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\coreclr.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\mscordaccore.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\D3DCompiler_47_cor3.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\PenImc_cor3.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\PresentationNative_cor3.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\vcruntime140_cor3.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\wpfgfx_cor3.dll
+C:\Users\atart\source\repos\BeatSaber Playlist Master V2\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\BeatSaber Playlist Master V2.exe

@@ -1,0 +1,11 @@
+C:\PlaylistMasterV2\BeatSaber Playlist Master V2.pdb
+C:\PlaylistMasterV2\clrcompression.dll
+C:\PlaylistMasterV2\clrjit.dll
+C:\PlaylistMasterV2\coreclr.dll
+C:\PlaylistMasterV2\mscordaccore.dll
+C:\PlaylistMasterV2\D3DCompiler_47_cor3.dll
+C:\PlaylistMasterV2\PenImc_cor3.dll
+C:\PlaylistMasterV2\PresentationNative_cor3.dll
+C:\PlaylistMasterV2\vcruntime140_cor3.dll
+C:\PlaylistMasterV2\wpfgfx_cor3.dll
+C:\PlaylistMasterV2\BeatSaber Playlist Master V2.exe
