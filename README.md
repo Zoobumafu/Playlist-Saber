@@ -3,7 +3,11 @@ This is a playlist editor for BeatSaber.
 
 ## Features
 
-- Create and edit playlist details such as name description, and containing songs, with the **Ability of changing the image of a playlist**
+- Create and edit playlist details such as name, description, containing songs, and **image**
+
+## Download && Usage
+Simply go to the release page and download the latest version, than install.
+Adding and removing songs from playlist is done by doubleclicking on the song name.
 
 ## Credit 
 
