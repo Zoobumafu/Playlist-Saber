@@ -90,8 +90,10 @@ namespace BeatSaber_Playlist_Master_V2
                     mainform.populatePlaylists(mainform.playlists);
                     this.Close();
                 }
+            Data.isSaved = false;
 
-            }
+
         }
+    }
     }
 

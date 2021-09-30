@@ -336,7 +336,7 @@ namespace BeatSaber_Playlist_Master_V2
                     node.Text = currentSong.songName;
                     songsInPlaylistTreeView.Nodes.Add(node);
                 }
-            
+
 
             // Don't know why this paragraph exists, but I am too scared to delete it
 
@@ -346,7 +346,8 @@ namespace BeatSaber_Playlist_Master_V2
             //    PlaylistSong currentSong = (PlaylistSong)allSongsTreeView.SelectedNode.Tag;
             //    currentPlaylist.songs.Add((PlaylistSong)allSongsTreeView.SelectedNode.Tag);
             //}
-            
+
+            Data.isSaved = false;
         }
 
         public void RemoveSong()
@@ -357,6 +358,8 @@ namespace BeatSaber_Playlist_Master_V2
                 currentPlaylist.songs.Remove((PlaylistSong)songsInPlaylistTreeView.SelectedNode.Tag);
                 songsInPlaylistTreeView.SelectedNode.Remove();
             }
+            Data.isSaved = false;
+
         }
 
         void saveAll()
@@ -378,6 +381,8 @@ namespace BeatSaber_Playlist_Master_V2
                 playlists[i].setImage();
             }
 
+            Data.isSaved = true;
+
         }
 
          void setImage()
@@ -392,16 +397,10 @@ namespace BeatSaber_Playlist_Master_V2
                       selectedPlaylist.image = @"data:image/gif;base64," + Convert.ToBase64String(File.ReadAllBytes(@dlg.FileName));
                       selectedPlaylist.setImage();
                       playlistPictureBox.Image = selectedPlaylist.imageFile;
+                      Data.isSaved = true;
+
                 }
             }
-        }
-
-        
-
-        string[] GetDifficulties()
-        {
-            
-            return null;
         }
     }
 

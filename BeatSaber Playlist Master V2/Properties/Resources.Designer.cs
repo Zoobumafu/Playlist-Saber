@@ -63,9 +63,89 @@ namespace BeatSaber_Playlist_Master_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _38537d7f770f46341321a53ed988c219 {
+            get {
+                object obj = ResourceManager.GetObject("38537d7f770f46341321a53ed988c219", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClickMe {
             get {
                 object obj = ResourceManager.GetObject("ClickMe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clipart2195449 {
+            get {
+                object obj = ResourceManager.GetObject("clipart2195449", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngfind_com_playlist_png_4990026 {
+            get {
+                object obj = ResourceManager.GetObject("pngfind.com-playlist-png-4990026", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngfind1 {
+            get {
+                object obj = ResourceManager.GetObject("pngfind1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PngItem_1680548 {
+            get {
+                object obj = ResourceManager.GetObject("PngItem_1680548", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PngItem_16805481 {
+            get {
+                object obj = ResourceManager.GetObject("PngItem_16805481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PngItem_16805482 {
+            get {
+                object obj = ResourceManager.GetObject("PngItem_16805482", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap toppng_com_folder_icon_png_transparent_black_and_white_folder_ico_1589x1366 {
+            get {
+                object obj = ResourceManager.GetObject("toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

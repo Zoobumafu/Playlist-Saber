@@ -213,7 +213,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Playlist Saber"
         "ProductCode" = "8:{ACF12627-A8E1-4F06-8407-2624286CD96B}"
-        "PackageCode" = "8:{A0FB7800-2951-408A-9E62-F56D2E78CAF0}"
+        "PackageCode" = "8:{724FE4C9-2B02-4242-9735-025BA7D073FE}"
         "UpgradeCode" = "8:{E47C17DE-FD4F-41E5-9C67-9F220011C6B6}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -227,7 +227,7 @@
         "Title" = "8:Playlist Saber Installer"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Zubumafu"
-        "Keywords" = "8:"
+        "Keywords" = "8:Beatsaber, Playlist Saber"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:_2B7C1C000EAB4EBAA5E2FA081E3F2BEA"
@@ -358,7 +358,7 @@
             "Target" = "8:_938C7502B55D4A5493273D45B4572D0E"
             "Folder" = "8:_343B14DE027E4A4C8DF79FD9CC8294F7"
             "WorkingFolder" = "8:_CCE6E979F2A94571ACF28194BD4ECF62"
-            "Icon" = "8:"
+            "Icon" = "8:_2B7C1C000EAB4EBAA5E2FA081E3F2BEA"
             "Feature" = "8:"
             }
         }

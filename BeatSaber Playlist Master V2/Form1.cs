@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 using BeatSaverSharp;
 using System.Drawing;
+using System.Diagnostics;
+
 
 namespace BeatSaber_Playlist_Master_V2
 {
@@ -81,6 +83,11 @@ namespace BeatSaber_Playlist_Master_V2
 
             // Change the back color of the form so disabled controls inherit it
             playlistAuthorTextBox.BackColor = Color.FromArgb(32, 34, 37);
+
+            // Set the image of the 'Launch in Windows mode' option properly
+            runInDesktopButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            runInDesktopButton.TextAlign = ContentAlignment.MiddleCenter;
+            runInDesktopButton.ImageAlign = ContentAlignment.MiddleCenter;
 
         }
 
@@ -287,7 +294,13 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            saveAll();
+            DialogResult dialogResult = MessageBox.Show("Do you want to save the playlists before leaving?", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                saveAll();
+                MessageBox.Show("SAVED");
+            }
+            
         }
 
         // Save textbox input into playlist
@@ -333,6 +346,7 @@ namespace BeatSaber_Playlist_Master_V2
                     playlists.Remove(selectedPlaylist);
                     playlistTreeView.SelectedNode.Remove();
                     populatePlaylists(playlists);
+                    Data.isSaved = false;
                 }
             }
             else
@@ -430,39 +444,15 @@ namespace BeatSaber_Playlist_Master_V2
                 // Set Image
                 hashLabel.Text = currentSong.hash;
                 lastModifiedLabel.Text = currentSong.file.lastModified.ToString();
-                if (currentSong.file._coverImageFilename != null)
+                
+                if (currentSong.getSongImage() != null)
                 {
-                    //System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(allSongs[i].file.filePath + @"\" + allSongs[i].file._coverImageFilename);
-                    try
-                    {
-                        System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(currentSong.file.folderPath + @"\" + currentSong.file._coverImageFilename);
-                        songPictureBox.Image = bitmap;
-                    }
-                    catch (Exception e)
-                    {
-                        songPictureBox.Image = null;
-                        Console.WriteLine("Error finding image in " + currentSong.songName + "\n" + e.Message);
-                    }
+                    songPictureBox.Image = currentSong.getSongImage();
                 }
-
-                // Get and display difficulties - 
-
-                string difficultiesString = "";
-                for (int i = 0; i < currentSong.file._difficultyBeatmapSets.Length; i++)
+                else
                 {
-                    difficultiesString += currentSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ": ";
-                    difficultiesString += currentSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[0]._difficulty + "\n";
-                    for (int j = 1; j < currentSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length; j++)
-                    {
-                        for (int k = 0; k < currentSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName.Length + 10; k++)
-                        {
-                            difficultiesString += " ";
-                        }
-                        difficultiesString += currentSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + "\n";
-                    }
+                    songPictureBox.Image = null;
                 }
-
-                difficultiesLabel.Text = difficultiesString;
                 
             }
             else
@@ -470,7 +460,6 @@ namespace BeatSaber_Playlist_Master_V2
                 lastModifiedLabel.Text = "";
                 hashLabel.Text = "";
                 songPictureBox.Image = null;
-                difficultiesLabel.Text = "";
             }
 
             
@@ -650,7 +639,13 @@ namespace BeatSaber_Playlist_Master_V2
         // TO - DO - pop up a dialog box which shows the name, author, difficulty of a level, hash code, etc.
         private void moreInfoButton_Click(object sender, EventArgs e)
         {
+            SongDetailsForm songDetailsForm = new SongDetailsForm(lastSelectedSong, nodeForeColor, playlists);
+            songDetailsForm.Show();
+        }
 
+        private void runInDesktopButton_Click(object sender, EventArgs e)
+        {
+            Process.Start(Data.installPath + @"\Beat Saber.exe", "fpfc");
         }
     }
 }

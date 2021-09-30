@@ -13,6 +13,9 @@ namespace BeatSaber_Playlist_Master_V2
         public string _songAuthorName { set; get; }
         public string _beatsPerMinute { set; get; }
         public string _coverImageFilename { set; get; }
+        public string _environmentName { set; get; }
+        public string _version { set; get; }
+
         public string key;
         //public _difficultyBeatmapSets _difficultyBeatmaps { set; get; }
         public _difficultyBeatmapSets[] _difficultyBeatmapSets { set; get; }

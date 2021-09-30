@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lh4wmoamFtQf0HeHjfm04jB3CYzYQFSmTcu8icKYnvJ5FFAgAJZIDh8GGO8us53DAAPvcjpajBczY/sGjgro1w==",
+  "dgSpecHash": "wu3KAgqaql5nZgGHMT7cKXdEG0N6sYbtZ8Z7q/ovMMHHcCfnSyzlnQqQsFn26X56eerciziY49ANwI2HyySfGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+  "projectFilePath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2 - Copy - Copy - Copy\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\atart\\.nuget\\packages\\beatsaversharp\\2.0.1\\beatsaversharp.2.0.1.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\materialskin.2\\2.1.3\\materialskin.2.2.1.3.nupkg.sha512",
