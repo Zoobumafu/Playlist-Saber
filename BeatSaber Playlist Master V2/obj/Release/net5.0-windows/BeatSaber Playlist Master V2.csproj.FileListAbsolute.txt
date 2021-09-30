@@ -71,3 +71,28 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Cop
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\ref\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.pdb
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.exe
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.deps.json
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.runtimeconfig.json
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.runtimeconfig.dev.json
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\ref\BeatSaber Playlist Master V2.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.pdb
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaverSharp.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\MaterialSkin.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.Form1.resources
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.NewPlaylistForm.resources
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.Properties.Resources.resources
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.SongDetailsForm.resources
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.csproj.GenerateResource.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.AssemblyInfoInputs.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.AssemblyInfo.cs
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.csproj.CoreCompileInputs.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.csproj.CopyComplete
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\ref\BeatSaber Playlist Master V2.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.pdb
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V21\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
