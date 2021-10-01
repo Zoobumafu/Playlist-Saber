@@ -17,10 +17,11 @@ Adding and removing songs from playlist is done by doubleclicking on the song na
 
 ## Future Plans - 
 # Near Future -
-In the comming days and weeks, I will likely only work on bug fixes (if any are found) and on small requested features
+- Switch control positions so the software can run on smaller screens.
+- In the comming days and weeks, I will likely only work on bug fixes (if any are found) and on requested features.
 
-# Allot in the Future - 
-I will attempt to create a BeatSaver search menu with the option to download songs into a specificied playlist right from there.
+# Far Future - 
+Add a search and download functionality (Since I am starting college soon, this feature may never come to fruition)
 
 ## Credit 
 
