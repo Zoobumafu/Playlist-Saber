@@ -15,17 +15,17 @@ Adding and removing songs from playlist is done by doubleclicking on the song na
 
 ![image](https://user-images.githubusercontent.com/81674290/135576115-2dc28c7c-0578-47ec-ba3f-103a58e5bb8e.png)
 
-## Future Plans - 
-# Near Future -
+# Future Plans - 
+## Near Future -
 - Switch control positions so the software can run on smaller screens.
 - In the comming days and weeks, I will likely only work on bug fixes (if any are found) and on requested features.
 
-# Far Future - 
+## Far Future - 
 Add a search and download functionality (Since I am starting college soon, this feature may never come to fruition)
 
-## Credit 
+# Credit 
 
 - Ofek365 - Massive help in designing the program and testing for bugs.
 
-## Contact
+# Contact
 You can contact me on Zubumafu#2107 or open a ticket here on Github.
