@@ -26,3 +26,6 @@ Add a search and download functionality (Since I am starting college soon, this 
 ## Credit 
 
 - Ofek365 - Massive help in designing the program and testing for bugs.
+
+## Contact
+You can contact me on Zubumafu#2107 or open a ticket here on Github.
