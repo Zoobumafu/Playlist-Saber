@@ -1,5 +1,5 @@
 # Playlist-Saber
-This is a playlist editor for BeatSaber.
+This is a fully featured playlist editor for BeatSaber, meant to replace the out of order BeatList.
 
 ## Features
 
