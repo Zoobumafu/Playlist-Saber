@@ -1,0 +1,11 @@
+C:\more junk\BeatSaber Playlist Master V2.pdb
+C:\more junk\clrcompression.dll
+C:\more junk\clrjit.dll
+C:\more junk\coreclr.dll
+C:\more junk\mscordaccore.dll
+C:\more junk\D3DCompiler_47_cor3.dll
+C:\more junk\PenImc_cor3.dll
+C:\more junk\PresentationNative_cor3.dll
+C:\more junk\vcruntime140_cor3.dll
+C:\more junk\wpfgfx_cor3.dll
+C:\more junk\BeatSaber Playlist Master V2.exe

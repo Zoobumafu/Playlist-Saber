@@ -1,0 +1,2 @@
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\publish\BeatSaber Playlist Master V2.pdb
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\publish\BeatSaber Playlist Master V2.exe

@@ -294,13 +294,8 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Do you want to save the playlists before leaving?", "Warning", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                saveAll();
-                MessageBox.Show("SAVED");
-            }
-            
+            saveAll();
+            MessageBox.Show("All playlists saved successfully");
         }
 
         // Save textbox input into playlist
@@ -645,7 +640,35 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void runInDesktopButton_Click(object sender, EventArgs e)
         {
-            Process.Start(Data.installPath + @"\Beat Saber.exe", "fpfc");
+            MessageBox.Show("\"" + Data.installPath + @"\Beat Saber.exe" + "\"" + "fpfc");
+            Process.Start("\"" + Data.installPath + @"\Beat Saber.exe" + "\"", "fpfc");
+        }
+
+        public void Exit()
+        {
+            if (Data.isSaved == false)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you want to save before leaving?", "You have unsaved data!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    saveAll();
+                    Application.Exit();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Exit();
         }
     }
 }

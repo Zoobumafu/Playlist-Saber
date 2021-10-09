@@ -1,0 +1,11 @@
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\BeatSaber Playlist Master V2.pdb
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\clrcompression.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\clrjit.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\coreclr.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\mscordaccore.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\D3DCompiler_47_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\PenImc_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\PresentationNative_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\vcruntime140_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\wpfgfx_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\win-x64\publish\BeatSaber Playlist Master V2.exe

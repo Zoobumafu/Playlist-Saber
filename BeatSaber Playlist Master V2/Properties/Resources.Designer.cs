@@ -93,6 +93,36 @@ namespace BeatSaber_Playlist_Master_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eba3aeb057bd0a5401d2dcd3ba6271a9 {
+            get {
+                object obj = ResourceManager.GetObject("eba3aeb057bd0a5401d2dcd3ba6271a9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eba3aeb057bd0a5401d2dcd3ba6271a91 {
+            get {
+                object obj = ResourceManager.GetObject("eba3aeb057bd0a5401d2dcd3ba6271a91", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exit_icon_icons_com_70975 {
+            get {
+                object obj = ResourceManager.GetObject("exit_icon-icons.com_70975", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngfind_com_playlist_png_4990026 {
             get {
                 object obj = ResourceManager.GetObject("pngfind.com-playlist-png-4990026", resourceCulture);
@@ -136,6 +166,16 @@ namespace BeatSaber_Playlist_Master_V2.Properties {
         internal static System.Drawing.Bitmap PngItem_16805482 {
             get {
                 object obj = ResourceManager.GetObject("PngItem_16805482", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_icon_icon_with_png_and_vector_format_for_free_unlimited_270528 {
+            get {
+                object obj = ResourceManager.GetObject("save-icon-icon-with-png-and-vector-format-for-free-unlimited-270528", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

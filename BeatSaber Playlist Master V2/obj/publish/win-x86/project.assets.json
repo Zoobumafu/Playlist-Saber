@@ -16,6 +16,15 @@
           "lib/netstandard2.1/BeatSaverSharp.dll": {}
         }
       },
+      "MaterialSkin.2/2.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/net461/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net461/MaterialSkin.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.1": {
         "type": "package",
         "compile": {
@@ -78,6 +87,15 @@
         },
         "runtime": {
           "lib/netstandard2.1/BeatSaverSharp.dll": {}
+        }
+      },
+      "MaterialSkin.2/2.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/net461/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net461/MaterialSkin.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.1": {
@@ -180,6 +198,19 @@
         "lib/netstandard2.0/BeatSaverSharp.xml",
         "lib/netstandard2.1/BeatSaverSharp.dll",
         "lib/netstandard2.1/BeatSaverSharp.xml"
+      ]
+    },
+    "MaterialSkin.2/2.1.3": {
+      "sha512": "06DeBtO2q89sWK9GFcV9Toc71LUUtBoxP62WUvPZG8ZtP261p3jKaNspMIYJcUdaSoyZ7v428CgVvb45uWn8mw==",
+      "type": "package",
+      "path": "materialskin.2/2.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/nugetIcon.png",
+        "lib/net461/MaterialSkin.dll",
+        "materialskin.2.2.1.3.nupkg.sha512",
+        "materialskin.2.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
@@ -475,6 +506,7 @@
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
       "BeatSaverSharp >= 2.0.1",
+      "MaterialSkin.2 >= 2.1.3",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
@@ -486,11 +518,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+      "projectUniqueName": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2 - Copy - Copy - Copy\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
       "projectName": "BeatSaber Playlist Master V2",
-      "projectPath": "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+      "projectPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2 - Copy - Copy - Copy\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
       "packagesPath": "C:\\Users\\atart\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\atart\\source\\repos\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2\\obj\\publish\\win-x86\\",
+      "outputPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2 - Copy - Copy - Copy\\Playlist-Saber\\BeatSaber Playlist Master V2\\obj\\publish\\win-x86\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -528,6 +560,10 @@
           "BeatSaverSharp": {
             "target": "Package",
             "version": "[2.0.1, )"
+          },
+          "MaterialSkin.2": {
+            "target": "Package",
+            "version": "[2.1.3, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -574,5 +610,17 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MaterialSkin.2 2.1.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MaterialSkin.2",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

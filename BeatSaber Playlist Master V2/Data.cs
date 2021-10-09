@@ -20,6 +20,6 @@ namespace BeatSaber_Playlist_Master_V2
         public static string installPath = null;
 
         // Flag to track if there should be prompt to save the changes
-        public static bool isSaved = false;
+        public static bool isSaved = true;
     }
 }

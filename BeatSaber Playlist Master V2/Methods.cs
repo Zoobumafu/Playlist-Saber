@@ -81,24 +81,39 @@ namespace BeatSaber_Playlist_Master_V2
 
             else
             {
-                MessageBox.Show("Could not find BeatSaber installation manually, can you please locate it?");
-                bool located = false;
-                while (!located)
+                DialogResult dialogResult = MessageBox.Show("Could not find the BeatSaber directory automatically, can you locate it?", "Oops!, BeatSaber was not found", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    // If the registry key cannot be found, prompt the user to input details
-                    FolderBrowserDialog dlg = new FolderBrowserDialog();
-                    dlg.Description = "Locate BeatSaber directory";
-                    dlg.ShowDialog();
-                    if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
+                    bool located = false;
+                    while (!located)
                     {
-                        located = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Could not BeatSaber.exe in the selected path, please try again");
+                        // If the registry key cannot be found, prompt the user to input details
+                        FolderBrowserDialog dlg = new FolderBrowserDialog();
+                        dlg.Description = "Locate BeatSaber directory";
                         dlg.ShowDialog();
+                        if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
+                        {
+                            located = true;
+                        }
+                        else
+                        {
+                            DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe", ":=(", MessageBoxButtons.YesNo);
+                            if (dialogResult2 == DialogResult.Yes)
+                            {
+                                dlg.ShowDialog();
+                            }
+                            else
+                            {
+                                Application.Exit();
+                            }
+                        }
                     }
                 }
+                else
+                {
+                    Application.Exit();
+                }
+                
             }
         }
 
@@ -113,43 +128,52 @@ namespace BeatSaber_Playlist_Master_V2
             DirectoryInfo filesDirectory = new DirectoryInfo(Data.installPath + @"\Beat Saber_Data\CustomLevels");
             DirectoryInfo[] files = filesDirectory.GetDirectories();
 
-
-            //Create songFile object from the files
-            List<SongFile> songsInDirectory = new List<SongFile>();
-
-            string paths = "";
-            for (int i = 0; i < files.Length; i++)
+            try
             {
-                string jsonString = File.ReadAllText(files[i].FullName + @"\info.dat");
-                paths += files[i].FullName + @"\info.dat" + "\n";
+                //Create songFile object from the files
+                List<SongFile> songsInDirectory = new List<SongFile>();
 
-                SongFile newSong = JsonConvert.DeserializeObject<SongFile>(jsonString);
-                newSong.folderPath = files[i].FullName;
-                newSong.lastModified = files[i].LastWriteTime;
-                songsInDirectory.Add(newSong);
+                string paths = "";
+                for (int i = 0; i < files.Length; i++)
+                {
+                    string jsonString = File.ReadAllText(files[i].FullName + @"\info.dat");
+                    paths += files[i].FullName + @"\info.dat" + "\n";
 
-                //songsInDirectory.Add(JsonConvert.DeserializeObject<SongFile>(jsonString));
-                //songsInDirectory[songsInDirectory.Count - 1].folderPath = files[i].FullName;
-                //songsInDirectory[songsInDirectory.Count - 1].lastModified = files[i].LastWriteTime;
+                    SongFile newSong = JsonConvert.DeserializeObject<SongFile>(jsonString);
+                    newSong.folderPath = files[i].FullName;
+                    newSong.lastModified = files[i].LastWriteTime;
+                    songsInDirectory.Add(newSong);
 
-                //MessageBox.Show(songsInDirectory[songsInDirectory.Count - 1]._difficultyBeatmapSets[0]._difficultyBeatmaps[0]._difficulty);
+                    //songsInDirectory.Add(JsonConvert.DeserializeObject<SongFile>(jsonString));
+                    //songsInDirectory[songsInDirectory.Count - 1].folderPath = files[i].FullName;
+                    //songsInDirectory[songsInDirectory.Count - 1].lastModified = files[i].LastWriteTime;
+
+                    //MessageBox.Show(songsInDirectory[songsInDirectory.Count - 1]._difficultyBeatmapSets[0]._difficultyBeatmaps[0]._difficulty);
+                }
+
+                //MessageBox.Show(paths);
+
+                //Create a playlistSong object from songFile object
+                for (int i = 0; i < songsInDirectory.Count; i++)
+                {
+                    PlaylistSong newSong = new PlaylistSong();
+                    newSong.songName = songsInDirectory[i]._songName;
+                    newSong.uploader = songsInDirectory[i]._levelAuthorName;
+                    newSong.artist = songsInDirectory[i]._songAuthorName;
+                    newSong.filePath = songsInDirectory[i].folderPath;
+                    newSong.file = songsInDirectory[i];
+                    newSong.hash = CreateHash(newSong);
+                    //MessageBox.Show(newSong.songName + newSong.filePath +"\n" + newSong.hash);
+                    allSongs.Add(newSong);
+                }
             }
 
-            //MessageBox.Show(paths);
-
-            //Create a playlistSong object from songFile object
-            for (int i = 0; i < songsInDirectory.Count; i++)
+            catch (Exception e)
             {
-                PlaylistSong newSong = new PlaylistSong();
-                newSong.songName = songsInDirectory[i]._songName;
-                newSong.uploader = songsInDirectory[i]._levelAuthorName;
-                newSong.artist = songsInDirectory[i]._songAuthorName;
-                newSong.filePath = songsInDirectory[i].folderPath;
-                newSong.file = songsInDirectory[i];
-                newSong.hash = CreateHash(newSong);
-                //MessageBox.Show(newSong.songName + newSong.filePath +"\n" + newSong.hash);
-                allSongs.Add(newSong);
+                Console.WriteLine("Error detecting song\n" + e.Message); 
             }
+
+            
         }
 
         // Create hash for playlist songs, and than check if they already exist in AllSongs
@@ -203,9 +227,13 @@ namespace BeatSaber_Playlist_Master_V2
                     {
                         for (int j = 0; j < thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length; j++)
                         {
-                            if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat"))
+                            if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._beatmapFilename))
                             {
                                 fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._beatmapFilename);
+                            }
+                            else
+                            {
+                                MessageBox.Show(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat");
                             }
 
                             // THIS IS THE OLD WAY, I FOUND A BETTER ONE (right above this line).
@@ -374,7 +402,6 @@ namespace BeatSaber_Playlist_Master_V2
                     string jsonText = JsonConvert.SerializeObject(playlists[i], Formatting.Indented);
                     File.WriteAllText(playlists[i].filePath, jsonText);
                 }
-                MessageBox.Show("All playlists saved successfully");
 
             for (int i = 0; i < playlists.Count; i++)
             {

@@ -69,6 +69,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.moreInfoButton = new System.Windows.Forms.Button();
             this.runInDesktopButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playlistPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
@@ -130,12 +131,12 @@ namespace BeatSaber_Playlist_Master_V2
             this.allSongsTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.allSongsTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(118)))), ((int)(((byte)(124)))));
             this.allSongsTreeView.HideSelection = false;
-            this.allSongsTreeView.Location = new System.Drawing.Point(532, 111);
+            this.allSongsTreeView.Location = new System.Drawing.Point(532, 137);
             this.allSongsTreeView.Name = "allSongsTreeView";
             this.allSongsTreeView.ShowLines = false;
             this.allSongsTreeView.ShowPlusMinus = false;
             this.allSongsTreeView.ShowRootLines = false;
-            this.allSongsTreeView.Size = new System.Drawing.Size(462, 592);
+            this.allSongsTreeView.Size = new System.Drawing.Size(462, 566);
             this.allSongsTreeView.TabIndex = 0;
             this.allSongsTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.allSongsTreeView_DrawNode);
             this.allSongsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.allSongsTreeView_AfterSelect);
@@ -276,7 +277,7 @@ namespace BeatSaber_Playlist_Master_V2
             // searchTextBox
             // 
             this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchTextBox.Location = new System.Drawing.Point(583, 82);
+            this.searchTextBox.Location = new System.Drawing.Point(582, 108);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(141, 23);
             this.searchTextBox.TabIndex = 17;
@@ -286,7 +287,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Linen;
-            this.label2.Location = new System.Drawing.Point(825, 85);
+            this.label2.Location = new System.Drawing.Point(810, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 18;
@@ -305,11 +306,13 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.addResultsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addResultsButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.addResultsButton.Location = new System.Drawing.Point(863, 709);
+            this.addResultsButton.Image = global::BeatSaber_Playlist_Master_V2.Properties.Resources.eba3aeb057bd0a5401d2dcd3ba6271a91;
+            this.addResultsButton.Location = new System.Drawing.Point(844, 709);
             this.addResultsButton.Name = "addResultsButton";
-            this.addResultsButton.Size = new System.Drawing.Size(131, 23);
+            this.addResultsButton.Size = new System.Drawing.Size(150, 23);
             this.addResultsButton.TabIndex = 21;
             this.addResultsButton.Text = "Add Results to Playlist";
+            this.addResultsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addResultsButton.UseVisualStyleBackColor = true;
             this.addResultsButton.Click += new System.EventHandler(this.addResultsButton_Click);
             // 
@@ -376,7 +379,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.openSongFolderButton.Image = global::BeatSaber_Playlist_Master_V2.Properties.Resources.toppng_com_folder_icon_png_transparent_black_and_white_folder_ico_1589x1366;
             this.openSongFolderButton.Location = new System.Drawing.Point(532, 887);
             this.openSongFolderButton.Name = "openSongFolderButton";
-            this.openSongFolderButton.Size = new System.Drawing.Size(131, 23);
+            this.openSongFolderButton.Size = new System.Drawing.Size(126, 23);
             this.openSongFolderButton.TabIndex = 27;
             this.openSongFolderButton.Text = "Open Song Folder";
             this.openSongFolderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -414,7 +417,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.nameRadioButton.AutoSize = true;
             this.nameRadioButton.Checked = true;
             this.nameRadioButton.ForeColor = System.Drawing.Color.Linen;
-            this.nameRadioButton.Location = new System.Drawing.Point(48, 3);
+            this.nameRadioButton.Location = new System.Drawing.Point(59, 3);
             this.nameRadioButton.Name = "nameRadioButton";
             this.nameRadioButton.Size = new System.Drawing.Size(57, 19);
             this.nameRadioButton.TabIndex = 1;
@@ -427,16 +430,16 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.panel1.Controls.Add(this.nameRadioButton);
             this.panel1.Controls.Add(this.dateRadioButton);
-            this.panel1.Location = new System.Drawing.Point(886, 80);
+            this.panel1.Location = new System.Drawing.Point(874, 106);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(108, 25);
+            this.panel1.Size = new System.Drawing.Size(120, 25);
             this.panel1.TabIndex = 29;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Linen;
-            this.label6.Location = new System.Drawing.Point(532, 85);
+            this.label6.Location = new System.Drawing.Point(531, 111);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 15);
             this.label6.TabIndex = 30;
@@ -488,7 +491,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.Linen;
-            this.label10.Location = new System.Drawing.Point(532, 40);
+            this.label10.Location = new System.Drawing.Point(531, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 33);
             this.label10.TabIndex = 36;
@@ -500,11 +503,13 @@ namespace BeatSaber_Playlist_Master_V2
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.saveButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.saveButton.Location = new System.Drawing.Point(911, 15);
+            this.saveButton.Image = global::BeatSaber_Playlist_Master_V2.Properties.Resources.save_icon_icon_with_png_and_vector_format_for_free_unlimited_270528;
+            this.saveButton.Location = new System.Drawing.Point(890, 41);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(83, 25);
+            this.saveButton.Size = new System.Drawing.Size(104, 25);
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save All";
+            this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -529,11 +534,12 @@ namespace BeatSaber_Playlist_Master_V2
             this.runInDesktopButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.runInDesktopButton.Image = ((System.Drawing.Image)(resources.GetObject("runInDesktopButton.Image")));
             this.runInDesktopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.runInDesktopButton.Location = new System.Drawing.Point(834, 46);
+            this.runInDesktopButton.Location = new System.Drawing.Point(788, 72);
             this.runInDesktopButton.Name = "runInDesktopButton";
-            this.runInDesktopButton.Size = new System.Drawing.Size(160, 27);
+            this.runInDesktopButton.Size = new System.Drawing.Size(206, 27);
             this.runInDesktopButton.TabIndex = 41;
-            this.runInDesktopButton.Text = "Run BS in desktop mode";
+            this.runInDesktopButton.Text = "Run BeatSaber in desktop mode";
+            this.runInDesktopButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.runInDesktopButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.runInDesktopButton.UseVisualStyleBackColor = true;
             this.runInDesktopButton.Click += new System.EventHandler(this.runInDesktopButton_Click);
@@ -548,12 +554,28 @@ namespace BeatSaber_Playlist_Master_V2
             this.label11.TabIndex = 42;
             this.label11.Text = "Added:";
             // 
+            // exitButton
+            // 
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exitButton.ForeColor = System.Drawing.Color.Red;
+            this.exitButton.Image = global::BeatSaber_Playlist_Master_V2.Properties.Resources.exit_icon_icons_com_70975;
+            this.exitButton.Location = new System.Drawing.Point(919, 12);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 43;
+            this.exitButton.Text = "Exit";
+            this.exitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1006, 926);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.runInDesktopButton);
             this.Controls.Add(this.moreInfoButton);
@@ -649,6 +671,7 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.Button moreInfoButton;
         private System.Windows.Forms.Button runInDesktopButton;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

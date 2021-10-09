@@ -124,11 +124,20 @@
   <data name="ClickMe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\ClickMe.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="38537d7f770f46341321a53ed988c219" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\38537d7f770f46341321a53ed988c219.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save-icon-icon-with-png-and-vector-format-for-free-unlimited-270528" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\save-icon-icon-with-png-and-vector-format-for-free-unlimited-270528.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PngItem_16805482" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\PngItem_1680548.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="38537d7f770f46341321a53ed988c219" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\38537d7f770f46341321a53ed988c219.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngfind1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\pngfind.com-playlist-png-4990026.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eba3aeb057bd0a5401d2dcd3ba6271a9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\eba3aeb057bd0a5401d2dcd3ba6271a9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PngItem_16805481" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\PngItem_1680548.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,10 +148,13 @@
   <data name="PngItem_1680548" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\PngItem_1680548.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eba3aeb057bd0a5401d2dcd3ba6271a91" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\eba3aeb057bd0a5401d2dcd3ba6271a9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngfind1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\pngfind.com-playlist-png-4990026.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit_icon-icons.com_70975" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\exit_icon-icons.com_70975.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
