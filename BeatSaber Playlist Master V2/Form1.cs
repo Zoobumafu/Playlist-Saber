@@ -23,6 +23,10 @@ namespace BeatSaber_Playlist_Master_V2
     // Distance the icons from the text in the buttons
     // Change the playlist image icon to upload icon 
     
+
+    //*** Functionality ***
+    // Allow running the app with another path
+    // Add a label that a song is missing it's file.
     
     public partial class Form1 : Form
     {
