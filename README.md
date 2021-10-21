@@ -21,12 +21,17 @@ In the short term no changes are planned as I don't have much time currently, I 
 In the long term, these are some things I thought worth adding - 
 ## UI
     Keep colorings saved in a text file, in order to keep playlists coloring the same from session to session.
+    
     Help Button on top with screenshots explain how to use the software, the same pop up will be opened on first startup as well.
+    
     Add missing / corrupted songs to song list, with the message that their files are missing and need to be redownloaded
+    
 
 ## Functionality
     Allow running the app with another path (in case you have got a few versions of BeatSaber)
+    
     Add an option to download songs that are already inside the playlist, but are missing their files
+    
    
 # Credit 
 
