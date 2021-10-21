@@ -45,7 +45,6 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\Beat
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.AssemblyInfoInputs.cache
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.AssemblyInfo.cs
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.csproj.CoreCompileInputs.cache
-C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.csproj.CopyComplete
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\ref\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.pdb

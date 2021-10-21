@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2.OLD\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {}
+    "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2.OLD\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {
+    "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2.OLD\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+        "projectUniqueName": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
         "projectName": "BeatSaber Playlist Master V2",
-        "projectPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2.OLD\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+        "projectPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
         "packagesPath": "C:\\Users\\atart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2.OLD\\Playlist-Saber\\BeatSaber Playlist Master V2\\obj\\",
+        "outputPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,20 +69,8 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Host.win-x64",
               "version": "[5.0.9, 5.0.9]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
             }
           ],
           "frameworkReferences": {

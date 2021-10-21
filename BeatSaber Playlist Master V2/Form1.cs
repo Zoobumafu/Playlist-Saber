@@ -16,9 +16,12 @@ using System.Diagnostics;
 namespace BeatSaber_Playlist_Master_V2
 {
     // *** UI ***
-    // Make the selected playlist text bigger OR the background different
     // Keep colorings saved in a text file, in order to keep playlists coloring the same from session to session.
     // Help Button on top with screenshots
+    // Add missing / corrupted songs to song list, with the message that their files are missing and need to be redownloaded
+    // Add some colorings to top buttons
+    // Distance the icons from the text in the buttons
+    // Change the playlist image icon to upload icon 
     
     
     public partial class Form1 : Form
@@ -640,8 +643,9 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void runInDesktopButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("\"" + Data.installPath + @"\Beat Saber.exe" + "\"" + "fpfc");
-            Process.Start("\"" + Data.installPath + @"\Beat Saber.exe" + "\"", "fpfc");
+            // This is currently bugged and therefore invisible.
+            MessageBox.Show("\"" + Data.installPath + @"\Beat Saber.exe" + "\"" + " fpfc");
+            Process.Start("\"" + Data.installPath + @"\Beat Saber.exe" + "\"", " fpfc");
         }
 
         public void Exit()

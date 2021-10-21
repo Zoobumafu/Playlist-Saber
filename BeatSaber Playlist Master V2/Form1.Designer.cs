@@ -542,6 +542,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.runInDesktopButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.runInDesktopButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.runInDesktopButton.UseVisualStyleBackColor = true;
+            this.runInDesktopButton.Visible = false;
             this.runInDesktopButton.Click += new System.EventHandler(this.runInDesktopButton_Click);
             // 
             // label11

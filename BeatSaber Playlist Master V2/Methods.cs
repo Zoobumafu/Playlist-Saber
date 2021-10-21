@@ -35,17 +35,26 @@ namespace BeatSaber_Playlist_Master_V2
 
             for (int i = 0; i < playlistFiles.Length; i++)
             {
-                string tempString = System.IO.File.ReadAllText(playlistFiles[i].FullName);
-                string myString = tempString.Substring(tempString.IndexOf('{'));
-                playlists.Add(JsonConvert.DeserializeObject<Playlist>(myString));
-
-                playlists[i].filePath = playlistFiles[i].FullName;
-
-                //Save an image, if exists
-                if (playlists[i].image != null)
+                try
                 {
-                    playlists[i].setImage();
+                    string tempString = System.IO.File.ReadAllText(playlistFiles[i].FullName);
+                    string myString = tempString.Substring(tempString.IndexOf('{'));
+                    playlists.Add(JsonConvert.DeserializeObject<Playlist>(myString));
+
+                    playlists[i].filePath = playlistFiles[i].FullName;
+
+                    //Save an image, if exists
+                    if (playlists[i].image != null)
+                    {
+                        playlists[i].setImage();
+                    }
                 }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine("Could not read playlist\n" + e.Message);
+                }
+                
 
                 //Recreate Hashes, incase they were not created properly the last time
                 //foreach (PlaylistSong song in playlists[i].songs)
@@ -113,7 +122,7 @@ namespace BeatSaber_Playlist_Master_V2
                 {
                     Application.Exit();
                 }
-                
+
             }
         }
 
@@ -128,13 +137,13 @@ namespace BeatSaber_Playlist_Master_V2
             DirectoryInfo filesDirectory = new DirectoryInfo(Data.installPath + @"\Beat Saber_Data\CustomLevels");
             DirectoryInfo[] files = filesDirectory.GetDirectories();
 
-            try
-            {
-                //Create songFile object from the files
-                List<SongFile> songsInDirectory = new List<SongFile>();
+            //Create songFile object from the files
+            List<SongFile> songsInDirectory = new List<SongFile>();
 
-                string paths = "";
-                for (int i = 0; i < files.Length; i++)
+            string paths = "";
+            for (int i = 0; i < files.Length; i++)
+            {
+                try
                 {
                     string jsonString = File.ReadAllText(files[i].FullName + @"\info.dat");
                     paths += files[i].FullName + @"\info.dat" + "\n";
@@ -151,10 +160,18 @@ namespace BeatSaber_Playlist_Master_V2
                     //MessageBox.Show(songsInDirectory[songsInDirectory.Count - 1]._difficultyBeatmapSets[0]._difficultyBeatmaps[0]._difficulty);
                 }
 
-                //MessageBox.Show(paths);
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error detecting song\n" + e.Message);
+                }
+            }
 
-                //Create a playlistSong object from songFile object
-                for (int i = 0; i < songsInDirectory.Count; i++)
+            //MessageBox.Show(paths);
+
+            //Create a playlistSong object from songFile object
+            for (int i = 0; i < songsInDirectory.Count; i++)
+            {
+                try
                 {
                     PlaylistSong newSong = new PlaylistSong();
                     newSong.songName = songsInDirectory[i]._songName;
@@ -166,18 +183,18 @@ namespace BeatSaber_Playlist_Master_V2
                     //MessageBox.Show(newSong.songName + newSong.filePath +"\n" + newSong.hash);
                     allSongs.Add(newSong);
                 }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error converting song file to song object\n" + e.Message);
+                }
             }
 
-            catch (Exception e)
-            {
-                Console.WriteLine("Error detecting song\n" + e.Message); 
-            }
 
-            
+
         }
 
         // Create hash for playlist songs, and than check if they already exist in AllSongs
-        public void MergeSongs (List<PlaylistSong> myAllSongs, List<Playlist> myPlaylists)
+        public void MergeSongs(List<PlaylistSong> myAllSongs, List<Playlist> myPlaylists)
         {
             for (int i = 0; i < myPlaylists.Count; i++)
             {
@@ -189,7 +206,7 @@ namespace BeatSaber_Playlist_Master_V2
                     }
                 }
             }
-            
+
             for (int i = 0; i < playlists.Count; i++)
             {
                 for (int j = 0; j < playlists[i].songs.Count; j++)
@@ -200,8 +217,8 @@ namespace BeatSaber_Playlist_Master_V2
                         {
                             playlists[i].songs[j] = allSongs[k];
                         }
-                            //if (playlists[i].songs[j].hash == allSongs[k].hash)
-                        
+                        //if (playlists[i].songs[j].hash == allSongs[k].hash)
+
                     }
                 }
             }
@@ -219,49 +236,66 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 List<string> fileNames = new List<string>();
                 fileNames.Add("info.dat");
-                for (int i = 0; i < thisSong.file._difficultyBeatmapSets.Length; i++)
+                try
                 {
-                    
-                    //detect and add difficulties accordingly
-                    if (thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length != 0)
+                    if (thisSong.file._difficultyBeatmapSets != null)
                     {
-                        for (int j = 0; j < thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length; j++)
+                        for (int i = 0; i < thisSong.file._difficultyBeatmapSets.Length; i++)
                         {
-                            if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._beatmapFilename))
+
+                            //detect and add difficulties accordingly
+                            if (thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length != 0)
                             {
-                                fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._beatmapFilename);
+                                for (int j = 0; j < thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps.Length; j++)
+                                {
+                                    if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._beatmapFilename))
+                                    {
+                                        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._beatmapFilename);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat");
+                                    }
+
+                                    // THIS IS THE OLD WAY, I FOUND A BETTER ONE (right above this line).
+
+                                    ////STANDARD
+                                    //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "Standard")
+                                    //{
+                                    //    // Check if file exists with the addition of "Standard" to it's name
+                                    //    if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat"))
+                                    //    {
+                                    //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
+                                    //    }
+                                    //    // If not, add the song file without the difficulty name
+                                    //    else
+                                    //    {
+                                    //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty);
+                                    //    }
+                                    //}
+
+                                    ////ONE SABER
+                                    //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "OneSaber")
+                                    //{
+                                    //    fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
+                                    //}
+                                }
+                                //MessageBox.Show(String.Join("\n", fileNames));
                             }
-                            else
-                            {
-                                MessageBox.Show(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat");
-                            }
 
-                            // THIS IS THE OLD WAY, I FOUND A BETTER ONE (right above this line).
 
-                            ////STANDARD
-                            //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "Standard")
-                            //{
-                            //    // Check if file exists with the addition of "Standard" to it's name
-                            //    if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat"))
-                            //    {
-                            //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
-                            //    }
-                            //    // If not, add the song file without the difficulty name
-                            //    else
-                            //    {
-                            //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty);
-                            //    }
-                            //}
-
-                            ////ONE SABER
-                            //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "OneSaber")
-                            //{
-                            //    fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
-                            //}
                         }
-                        //MessageBox.Show(String.Join("\n", fileNames));
                     }
+                    
                 }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error in creating hash in\n" + e.Message);
+                    return null;
+                }
+
+
 
                 thisSong.file.difficulties = fileNames.ToArray();
 
@@ -302,12 +336,12 @@ namespace BeatSaber_Playlist_Master_V2
 
                 return hash;
             }
-            
+
             else if (thisSong.hash != null)
             {
                 MessageBox.Show(thisSong.hash);
                 return thisSong.hash;
-                
+
             }
             else
             {
@@ -354,16 +388,16 @@ namespace BeatSaber_Playlist_Master_V2
             }
 
             if (playlistTreeView.SelectedNode != null)
-                {
-                    // Add song to playlist
-                    currentPlaylist.songs.Add(currentSong);
+            {
+                // Add song to playlist
+                currentPlaylist.songs.Add(currentSong);
 
-                    // Add song to UI
-                    TreeNode node = new TreeNode();
-                    node.Tag = currentSong;
-                    node.Text = currentSong.songName;
-                    songsInPlaylistTreeView.Nodes.Add(node);
-                }
+                // Add song to UI
+                TreeNode node = new TreeNode();
+                node.Tag = currentSong;
+                node.Text = currentSong.songName;
+                songsInPlaylistTreeView.Nodes.Add(node);
+            }
 
 
             // Don't know why this paragraph exists, but I am too scared to delete it
@@ -393,15 +427,15 @@ namespace BeatSaber_Playlist_Master_V2
         void saveAll()
         {
             // NewtonSoft cant save image file properly, therefore it is deleted before saving
-            
-                for (int i = 0; i < playlists.Count; i++)
-                {
-                    //@"data:image/gif;base64," + Convert.ToBase64String(File.ReadAllBytes
-                    //playlists[i].image = @"data:image/gif;base64," + Convert.ToBase64String(playlists[i].imageFile);
-                    playlists[i].imageFile = null;
-                    string jsonText = JsonConvert.SerializeObject(playlists[i], Formatting.Indented);
-                    File.WriteAllText(playlists[i].filePath, jsonText);
-                }
+
+            for (int i = 0; i < playlists.Count; i++)
+            {
+                //@"data:image/gif;base64," + Convert.ToBase64String(File.ReadAllBytes
+                //playlists[i].image = @"data:image/gif;base64," + Convert.ToBase64String(playlists[i].imageFile);
+                playlists[i].imageFile = null;
+                string jsonText = JsonConvert.SerializeObject(playlists[i], Formatting.Indented);
+                File.WriteAllText(playlists[i].filePath, jsonText);
+            }
 
             for (int i = 0; i < playlists.Count; i++)
             {
@@ -412,7 +446,7 @@ namespace BeatSaber_Playlist_Master_V2
 
         }
 
-         void setImage()
+        void setImage()
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
@@ -421,10 +455,10 @@ namespace BeatSaber_Playlist_Master_V2
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                      selectedPlaylist.image = @"data:image/gif;base64," + Convert.ToBase64String(File.ReadAllBytes(@dlg.FileName));
-                      selectedPlaylist.setImage();
-                      playlistPictureBox.Image = selectedPlaylist.imageFile;
-                      Data.isSaved = true;
+                    selectedPlaylist.image = @"data:image/gif;base64," + Convert.ToBase64String(File.ReadAllBytes(@dlg.FileName));
+                    selectedPlaylist.setImage();
+                    playlistPictureBox.Image = selectedPlaylist.imageFile;
+                    Data.isSaved = true;
 
                 }
             }
