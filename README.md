@@ -16,13 +16,18 @@ Adding and removing songs from playlist is done by doubleclicking on the song na
 ![image](https://user-images.githubusercontent.com/81674290/135576115-2dc28c7c-0578-47ec-ba3f-103a58e5bb8e.png)
 
 # Future Plans - 
-## Near Future -
-- Switch control positions so the software can run on smaller screens.
-- In the comming days and weeks, I will likely only work on bug fixes (if any are found) and on requested features.
+In the short term no changes are planned as I don't have much time currently, I will fix bugs that pop up though.
 
-## Far Future - 
-- Add a search and download functionality (Since I am starting college soon, this feature may never come to fruition)
+In the long term, these are some things I thought worth adding - 
+// *** UI ***
+    // Keep colorings saved in a text file, in order to keep playlists coloring the same from session to session.
+    // Help Button on top with screenshots explain how to use the software, the same pop up will be opened on first startup as well.
+    // Add missing / corrupted songs to song list, with the message that their files are missing and need to be redownloaded
 
+//*** Functionality ***
+    // Allow running the app with another path (in case you have got a few versions of BeatSaber)
+    // Add an option to download songs that are already inside the playlist, but are missing their files
+   
 # Credit 
 
 Ofek365 - Massive help in designing the program and testing for bugs.
