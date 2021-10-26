@@ -119,7 +119,7 @@ namespace BeatSaber_Playlist_Master_V2
         /// <summary>
         /// Helper function for getting search results
         /// </summary>
-        public List<PlaylistSong> searchResults(string searchKey = null)
+        public List<PlaylistSong> searchResults(string searchKey = null, string[] modes = null)
         {
             List<PlaylistSong> songsToList = new List<PlaylistSong>();
             for (int i = 0; i < allSongs.Count; i++)
@@ -143,6 +143,37 @@ namespace BeatSaber_Playlist_Master_V2
                     {
                         addSong = false;
                     }
+                }
+
+                if (modes != null)
+                {
+                    bool hasMode = false;
+                    if (allSongs[i].file != null)
+                    {
+                        for (int j = 0; j < modes.Length; j++)
+                        {
+                            for (int k = 0; k < allSongs[i].file._difficultyBeatmapSets.Length; k++)
+                            {
+                                if (modes[j] == allSongs[i].file._difficultyBeatmapSets[k]._beatmapCharacteristicName)
+                                {
+                                    hasMode = true;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        addSong = false;
+                    }
+
+                    if (!hasMode)
+                    {
+                        addSong = false;
+                    }
+
+                    
+
+                    
                 }
                 
                 if (addSong)
@@ -190,10 +221,69 @@ namespace BeatSaber_Playlist_Master_V2
             return false;
         }
 
+        public string[] getModeFilter(PlaylistSong song)
+        {
+            List<string> difficulties = new List<string>();
+
+            if (Data.standardMode)
+            {
+                difficulties.Add("Standard");
+            }
+            if (Data.OneSaberMode)
+            {
+                difficulties.Add("OneSaber");
+            }
+            if (Data.ninetyDegreesMode)
+            {
+                difficulties.Add("90Degree");
+            }
+            if (Data.threeSixtyDegreesMode)
+            {
+                difficulties.Add("360Degree");
+            }
+            if (Data.lightShowMode)
+            {
+                difficulties.Add("Lightshow");
+            }
+            if (Data.noArrowsMode)
+            {
+                difficulties.Add("NoArrows");
+            }
+            if (Data.otherMode)
+            {
+                difficulties.Add("Lightshow");
+            }
+            bool hasOtherMode = false;
+            if (song.file != null)
+            {
+                for (int i = 0; i < song.file._difficultyBeatmapSets.Length; i++)
+                {
+                    if (!Data.modeNames.Contains(song.file._difficultyBeatmapSets[i]._beatmapCharacteristicName))
+                    {
+                        hasOtherMode = true;
+                    }
+
+                }
+            }
+
+            // THE LINES BELOW CANNOT BE IMPLEMENTED THIS WAY - TO-DO
+
+            /*
+            if (hasOtherMode)
+            {
+                difficulties.Add("Other");
+            }
+            */
+            return difficulties.ToArray();
+        }
+
         public List<PlaylistSong> populateAllSongsForm(string searchKey = null)
         {
             // Clear TreeView
             allSongsTreeView.Nodes.Clear();
+
+            // Check for difficulties filter, and send them in as parameter
+            
 
             List<PlaylistSong> songsToList = searchResults(searchKey);
 

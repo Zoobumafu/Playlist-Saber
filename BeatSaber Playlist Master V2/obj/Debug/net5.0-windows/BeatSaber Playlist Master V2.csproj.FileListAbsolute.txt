@@ -119,3 +119,5 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2.OLD\Playlist-Saber\
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2.OLD\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.AssemblyInfo.cs
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2.OLD\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.CoreCompileInputs.cache
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2.OLD\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
+C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.DownloadForm.resources
+C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.SongDetailsForm.resources
