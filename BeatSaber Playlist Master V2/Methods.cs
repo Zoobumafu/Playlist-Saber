@@ -76,7 +76,6 @@ namespace BeatSaber_Playlist_Master_V2
             //bool correctDirectory = false; TO DELETE AFTER TESTING
 
             Properties.Settings.Default.Reload();
-            MessageBox.Show(Properties.Settings.Default.InstallPath);
             if (Properties.Settings.Default.InstallPath == "" || !File.Exists(Properties.Settings.Default.InstallPath + @"\Beat Saber.exe"))
             {
                 // Check installation location by registry key
@@ -135,7 +134,6 @@ namespace BeatSaber_Playlist_Master_V2
             else
             {
                 Data.installPath = Properties.Settings.Default.InstallPath;
-                MessageBox.Show(Properties.Settings.Default.InstallPath);
             }
 
             Properties.Settings.Default.InstallPath = Data.installPath;

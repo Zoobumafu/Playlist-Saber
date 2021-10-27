@@ -942,24 +942,37 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void changeInstallLocation_Click(object sender, EventArgs e)
         {
-            string input =
-            Microsoft.VisualBasic.Interaction.InputBox("Warning - requires application restart!",
-                                               "Change BeatSaber Installation Location",
-                                               Data.installPath,
-                                               -1, -1);
-            int listSize;
-            bool success = int.TryParse(input, out listSize);
 
-            if (File.Exists(input + @"\Beat Saber.exe"))
+            using (var pathSelectionDialog = new FolderBrowserDialog())
             {
-                Properties.Settings.Default.InstallPath = input;
-                Properties.Settings.Default.Save();
-                Application.Restart();
+                DialogResult result = pathSelectionDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(pathSelectionDialog.SelectedPath))
+                {
+                    if (File.Exists(pathSelectionDialog.SelectedPath + @"\Beat Saber.exe"))
+                    {
+                        Properties.Settings.Default.InstallPath = pathSelectionDialog.SelectedPath;
+                        Properties.Settings.Default.Save();
+                        MessageBox.Show("Path changed successfuly, application will now restart");
+                        Application.Restart();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid path - Please enter the path that contains Beat Saber.exe");
+                    }
+                }
             }
-            else
-            {
-                MessageBox.Show("Invalid path - Please enter the path that contains Beat Saber.exe");
-            }
+
+        }
+
+        private void linkLabel1_ControlAdded(object sender, ControlEventArgs e)
+        {
+
+        }
+
+        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Zoobumafu/Playlist-Saber");
         }
     }
 }

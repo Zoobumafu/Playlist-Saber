@@ -77,6 +77,8 @@ namespace BeatSaber_Playlist_Master_V2
             this.threeSixyModeButton = new System.Windows.Forms.Button();
             this.lightShowModeButton = new System.Windows.Forms.Button();
             this.changeInstallLocation = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.linkLabelGithub = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.playlistPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
@@ -384,7 +386,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.openSongFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.openSongFolderButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.openSongFolderButton.Image = global::BeatSaber_Playlist_Master_V2.Properties.Resources.toppng_com_folder_icon_png_transparent_black_and_white_folder_ico_1589x1366;
-            this.openSongFolderButton.Location = new System.Drawing.Point(532, 887);
+            this.openSongFolderButton.Location = new System.Drawing.Point(531, 828);
             this.openSongFolderButton.Name = "openSongFolderButton";
             this.openSongFolderButton.Size = new System.Drawing.Size(126, 23);
             this.openSongFolderButton.TabIndex = 27;
@@ -525,7 +527,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.moreInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.moreInfoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.moreInfoButton.Image = global::BeatSaber_Playlist_Master_V2.Properties.Resources._38537d7f770f46341321a53ed988c219;
-            this.moreInfoButton.Location = new System.Drawing.Point(532, 835);
+            this.moreInfoButton.Location = new System.Drawing.Point(532, 799);
             this.moreInfoButton.Name = "moreInfoButton";
             this.moreInfoButton.Size = new System.Drawing.Size(84, 23);
             this.moreInfoButton.TabIndex = 40;
@@ -541,7 +543,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.runInDesktopButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.runInDesktopButton.Image = ((System.Drawing.Image)(resources.GetObject("runInDesktopButton.Image")));
             this.runInDesktopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.runInDesktopButton.Location = new System.Drawing.Point(788, 72);
+            this.runInDesktopButton.Location = new System.Drawing.Point(608, 8);
             this.runInDesktopButton.Name = "runInDesktopButton";
             this.runInDesktopButton.Size = new System.Drawing.Size(206, 27);
             this.runInDesktopButton.TabIndex = 41;
@@ -639,7 +641,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // changeInstallLocation
             // 
-            this.changeInstallLocation.Location = new System.Drawing.Point(383, 13);
+            this.changeInstallLocation.Location = new System.Drawing.Point(801, 74);
             this.changeInstallLocation.Name = "changeInstallLocation";
             this.changeInstallLocation.Size = new System.Drawing.Size(193, 23);
             this.changeInstallLocation.TabIndex = 50;
@@ -647,12 +649,36 @@ namespace BeatSaber_Playlist_Master_V2
             this.changeInstallLocation.UseVisualStyleBackColor = true;
             this.changeInstallLocation.Click += new System.EventHandler(this.changeInstallLocation_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(532, 895);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 19);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "V0.2";
+            // 
+            // linkLabelGithub
+            // 
+            this.linkLabelGithub.AutoSize = true;
+            this.linkLabelGithub.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.linkLabelGithub.Location = new System.Drawing.Point(582, 895);
+            this.linkLabelGithub.Name = "linkLabelGithub";
+            this.linkLabelGithub.Size = new System.Drawing.Size(72, 15);
+            this.linkLabelGithub.TabIndex = 53;
+            this.linkLabelGithub.TabStop = true;
+            this.linkLabelGithub.Text = "Github Page";
+            this.linkLabelGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGithub_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1006, 926);
+            this.Controls.Add(this.linkLabelGithub);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.changeInstallLocation);
             this.Controls.Add(this.lightShowModeButton);
             this.Controls.Add(this.threeSixyModeButton);
@@ -765,6 +791,8 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.Button threeSixyModeButton;
         private System.Windows.Forms.Button lightShowModeButton;
         private System.Windows.Forms.Button changeInstallLocation;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.LinkLabel linkLabelGithub;
     }
 }
 
