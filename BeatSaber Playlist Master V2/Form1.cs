@@ -972,13 +972,20 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string urlEncoded = @"https://github.com/Zoobumafu/Playlist-Saber";
             try
             {
-                System.Diagnostics.Process.Start(@"https://github.com/Zoobumafu/Playlist-Saber");
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = @"https://github.com/Zoobumafu/Playlist-Saber",
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+                //System.Diagnostics.Process.Start(urlEncoded);
             }
             catch(System.ComponentModel.Win32Exception ex)
             {
-                System.Diagnostics.Process.Start("IExplore.exe", @"https://github.com/Zoobumafu/Playlist-Saber");
+                System.Diagnostics.Process.Start(urlEncoded);
             }
 
             //System.ComponentModel.Win32Exception: 'The system cannot find the file specified.'
