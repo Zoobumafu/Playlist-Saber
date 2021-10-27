@@ -76,6 +76,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.ninetyDegreeModeButton = new System.Windows.Forms.Button();
             this.threeSixyModeButton = new System.Windows.Forms.Button();
             this.lightShowModeButton = new System.Windows.Forms.Button();
+            this.changeInstallLocation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playlistPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
@@ -636,12 +637,23 @@ namespace BeatSaber_Playlist_Master_V2
             this.lightShowModeButton.UseVisualStyleBackColor = true;
             this.lightShowModeButton.Click += new System.EventHandler(this.lightShowModeButton_Click);
             // 
+            // changeInstallLocation
+            // 
+            this.changeInstallLocation.Location = new System.Drawing.Point(383, 13);
+            this.changeInstallLocation.Name = "changeInstallLocation";
+            this.changeInstallLocation.Size = new System.Drawing.Size(193, 23);
+            this.changeInstallLocation.TabIndex = 50;
+            this.changeInstallLocation.Text = "Change BeatSaber Directory";
+            this.changeInstallLocation.UseVisualStyleBackColor = true;
+            this.changeInstallLocation.Click += new System.EventHandler(this.changeInstallLocation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1006, 926);
+            this.Controls.Add(this.changeInstallLocation);
             this.Controls.Add(this.lightShowModeButton);
             this.Controls.Add(this.threeSixyModeButton);
             this.Controls.Add(this.ninetyDegreeModeButton);
@@ -752,6 +764,7 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.Button ninetyDegreeModeButton;
         private System.Windows.Forms.Button threeSixyModeButton;
         private System.Windows.Forms.Button lightShowModeButton;
+        private System.Windows.Forms.Button changeInstallLocation;
     }
 }
 

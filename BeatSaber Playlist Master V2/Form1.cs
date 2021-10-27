@@ -939,5 +939,27 @@ namespace BeatSaber_Playlist_Master_V2
         {
             Properties.Settings.Default.Save();
         }
+
+        private void changeInstallLocation_Click(object sender, EventArgs e)
+        {
+            string input =
+            Microsoft.VisualBasic.Interaction.InputBox("Warning - requires application restart!",
+                                               "Change BeatSaber Installation Location",
+                                               Data.installPath,
+                                               -1, -1);
+            int listSize;
+            bool success = int.TryParse(input, out listSize);
+
+            if (File.Exists(input + @"\Beat Saber.exe"))
+            {
+                Properties.Settings.Default.InstallPath = input;
+                Properties.Settings.Default.Save();
+                Application.Restart();
+            }
+            else
+            {
+                MessageBox.Show("Invalid path - Please enter the path that contains Beat Saber.exe");
+            }
+        }
     }
 }

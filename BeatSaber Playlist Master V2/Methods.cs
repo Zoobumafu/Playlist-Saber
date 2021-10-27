@@ -134,6 +134,7 @@ namespace BeatSaber_Playlist_Master_V2
             else
             {
                 Data.installPath = Properties.Settings.Default.InstallPath;
+                MessageBox.Show(Properties.Settings.Default.InstallPath);
             }
 
             Properties.Settings.Default.InstallPath = Data.installPath;
