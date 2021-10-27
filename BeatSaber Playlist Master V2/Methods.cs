@@ -75,10 +75,11 @@ namespace BeatSaber_Playlist_Master_V2
             //string previousDirectory = "";  TO DELETE AFTER TESTING
             //bool correctDirectory = false; TO DELETE AFTER TESTING
 
-            // Check installation location by registry key
-
+            Properties.Settings.Default.Reload();
+            MessageBox.Show(Properties.Settings.Default.InstallPath);
             if (Properties.Settings.Default.InstallPath == "" || !File.Exists(Properties.Settings.Default.InstallPath + @"\Beat Saber.exe"))
             {
+                // Check installation location by registry key
                 var hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
                 var myKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 620980");
 
