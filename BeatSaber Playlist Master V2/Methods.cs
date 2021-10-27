@@ -12,6 +12,7 @@ using BeatSaverSharp;
 using System.Security.Cryptography;
 
 
+
 namespace BeatSaber_Playlist_Master_V2
 {
     public partial class Form1
@@ -75,55 +76,68 @@ namespace BeatSaber_Playlist_Master_V2
             //bool correctDirectory = false; TO DELETE AFTER TESTING
 
             // Check installation location by registry key
-            var hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
-            var myKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 620980");
 
-            if (myKey != null)
+            if (Properties.Settings.Default.InstallPath == "" || !File.Exists(Properties.Settings.Default.InstallPath + @"\Beat Saber.exe"))
             {
-                string value = (string)(myKey.GetValue("InstallLocation"));
-                if (File.Exists(@value + @"\Beat Saber.exe"))
+                var hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+                var myKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 620980");
+
+                if (myKey != null)
                 {
-                    //correctDirectory = true; TO DELETE AFTER TESTING
-                    Data.installPath = @value;
+                    string value = (string)(myKey.GetValue("InstallLocation"));
+                    if (File.Exists(@value + @"\Beat Saber.exe"))
+                    {
+                        //correctDirectory = true; TO DELETE AFTER TESTING
+                        Data.installPath = @value;
+                    }
+                }
+
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Could not find the BeatSaber directory automatically, can you locate it?", "Oops!, BeatSaber was not found", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        bool located = false;
+                        while (!located)
+                        {
+                            // If the registry key cannot be found, prompt the user to input details
+                            FolderBrowserDialog dlg = new FolderBrowserDialog();
+                            dlg.Description = "Locate BeatSaber directory";
+                            dlg.ShowDialog();
+                            if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
+                            {
+                                located = true;
+                            }
+                            else
+                            {
+                                DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe", ":=(", MessageBoxButtons.YesNo);
+                                if (dialogResult2 == DialogResult.Yes)
+                                {
+                                    dlg.ShowDialog();
+                                }
+                                else
+                                {
+                                    Application.Exit();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+
+
                 }
             }
 
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Could not find the BeatSaber directory automatically, can you locate it?", "Oops!, BeatSaber was not found", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    bool located = false;
-                    while (!located)
-                    {
-                        // If the registry key cannot be found, prompt the user to input details
-                        FolderBrowserDialog dlg = new FolderBrowserDialog();
-                        dlg.Description = "Locate BeatSaber directory";
-                        dlg.ShowDialog();
-                        if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
-                        {
-                            located = true;
-                        }
-                        else
-                        {
-                            DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe", ":=(", MessageBoxButtons.YesNo);
-                            if (dialogResult2 == DialogResult.Yes)
-                            {
-                                dlg.ShowDialog();
-                            }
-                            else
-                            {
-                                Application.Exit();
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    Application.Exit();
-                }
-
+                Data.installPath = Properties.Settings.Default.InstallPath;
             }
+
+            Properties.Settings.Default.InstallPath = Data.installPath;
+            
         }
 
 

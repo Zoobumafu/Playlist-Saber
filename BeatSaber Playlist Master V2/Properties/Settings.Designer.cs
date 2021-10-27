@@ -23,12 +23,15 @@ namespace BeatSaber_Playlist_Master_V2.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string InstallLocation {
+        public string InstallPath {
             get {
-                return ((string)(this["InstallLocation"]));
+                return ((string)(this["InstallPath"]));
+            }
+            set {
+                this["InstallPath"] = value;
             }
         }
     }

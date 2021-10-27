@@ -933,5 +933,11 @@ namespace BeatSaber_Playlist_Master_V2
         }
 
         #endregion
+
+        // Event to run when the application exits - saves the user path setting
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
     }
 }
