@@ -34,5 +34,9 @@ namespace BeatSaber_Playlist_Master_V2
         public static bool otherMode = false; // 
 
         public static string[] modeNames = { "Standard", "OneSaber", "90Degree", "360Degree", "Lightshow", "NoArrows" };
+           
+
     }
+
+
 }

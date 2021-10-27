@@ -55,7 +55,6 @@ C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\bin\
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaverSharp.dll
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\MaterialSkin.dll
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
-C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.Form1.resources
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.NewPlaylistForm.resources
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.Properties.Resources.resources
@@ -121,3 +120,4 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2.OLD\Playlist-Saber\
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2.OLD\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.DownloadForm.resources
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.SongDetailsForm.resources
+C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache

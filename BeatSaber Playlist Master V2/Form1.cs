@@ -99,6 +99,8 @@ namespace BeatSaber_Playlist_Master_V2
         }
 
 
+        #region Search and treeview populate functions
+
         /// <summary>
         /// Add playlists to the treeview control
         /// </summary>
@@ -115,6 +117,7 @@ namespace BeatSaber_Playlist_Master_V2
                 playlistTreeView.Nodes.Add(treeNode);
             }
         }
+
 
         /// <summary>
         /// Helper function for getting search results
@@ -147,17 +150,33 @@ namespace BeatSaber_Playlist_Master_V2
 
                 if (modes != null)
                 {
-                    bool hasMode = false;
+                    bool hasMode = true;
                     if (allSongs[i].file != null)
                     {
-                        for (int j = 0; j < modes.Length; j++)
+                        /*for (int j = 0; j < modes.Length; j++)
                         {
                             for (int k = 0; k < allSongs[i].file._difficultyBeatmapSets.Length; k++)
                             {
                                 if (modes[j] == allSongs[i].file._difficultyBeatmapSets[k]._beatmapCharacteristicName)
                                 {
-                                    hasMode = true;
+                                    hasMode = false;
                                 }
+                            }
+                        }*/
+
+                        for (int j = 0; j < modes.Length; j++)
+                        {
+                            bool modeFound = false;
+                            for (int k = 0; k < allSongs[i].file._difficultyBeatmapSets.Length; k++)
+                            {
+                                if (allSongs[i].file._difficultyBeatmapSets[k]._beatmapCharacteristicName == modes[j])
+                                {
+                                    modeFound = true;
+                                }
+                            }
+                            if (!modeFound)
+                            {
+                                addSong = false;
                             }
                         }
                     }
@@ -170,12 +189,8 @@ namespace BeatSaber_Playlist_Master_V2
                     {
                         addSong = false;
                     }
-
-                    
-
-                    
                 }
-                
+
                 if (addSong)
                 {
                     songsToList.Add(allSongs[i]);
@@ -185,15 +200,39 @@ namespace BeatSaber_Playlist_Master_V2
             return songsToList;
         }
 
-        // Check if song is already in playlist
-        // TO DO - This method is FINE!, the objects in allSongs are not the same as the ones inside the playlists
+
+
+        // Populate playlist information textboxes, and enable them on first use.
+        private void playlistTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            PopulateSongsInPlaylist();
+            selectedPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
+
+            playlistNameTextBox.Enabled = true;
+            playlistAuthorTextBox.Enabled = true;
+            playlistDescriptionTextBox.ReadOnly = false;
+            playlistPictureBox.Enabled = true;
+
+            playlistNameTextBox.Text = selectedPlaylist.playlistTitle;
+            playlistAuthorTextBox.Text = selectedPlaylist.playlistAuthor;
+            playlistDescriptionTextBox.Text = selectedPlaylist.description;
+            if (selectedPlaylist.imageFile != null)
+            {
+                playlistPictureBox.Image = selectedPlaylist.imageFile;
+            }
+            else
+            {
+                playlistPictureBox.Image = Properties.Resources.ClickMe;
+            }
+        }
+
         bool isAlreadyInPlaylist(PlaylistSong song)
         {
             for (int i = 0; i < playlists.Count; i++)
-                {
+            {
                 // Start checking from precise measurements if they are available, if not, move on to less precise ones
                 for (int j = 0; j < playlists[i].songs.Count; j++)
-                    {
+                {
                     if (song.Equals(playlists[i].songs[j]))
                     {
                         return true;
@@ -205,7 +244,7 @@ namespace BeatSaber_Playlist_Master_V2
                         if (song.hash == playlists[i].songs[j].hash)
                             return true;
                     }
-                    
+
                     // Check by unique Key
                     if (song.key != null && playlists[i].songs[j].key != null)
                     {
@@ -221,7 +260,7 @@ namespace BeatSaber_Playlist_Master_V2
             return false;
         }
 
-        public string[] getModeFilter(PlaylistSong song)
+        public string[] getModeFilter()
         {
             List<string> difficulties = new List<string>();
 
@@ -253,7 +292,7 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 difficulties.Add("Lightshow");
             }
-            bool hasOtherMode = false;
+            /*bool hasOtherMode = false;
             if (song.file != null)
             {
                 for (int i = 0; i < song.file._difficultyBeatmapSets.Length; i++)
@@ -264,7 +303,7 @@ namespace BeatSaber_Playlist_Master_V2
                     }
 
                 }
-            }
+            }*/
 
             // THE LINES BELOW CANNOT BE IMPLEMENTED THIS WAY - TO-DO
 
@@ -274,6 +313,7 @@ namespace BeatSaber_Playlist_Master_V2
                 difficulties.Add("Other");
             }
             */
+
             return difficulties.ToArray();
         }
 
@@ -283,9 +323,9 @@ namespace BeatSaber_Playlist_Master_V2
             allSongsTreeView.Nodes.Clear();
 
             // Check for difficulties filter, and send them in as parameter
-            
+            string[] modeFilter = getModeFilter();
 
-            List<PlaylistSong> songsToList = searchResults(searchKey);
+            List<PlaylistSong> songsToList = searchResults(searchKey, modeFilter);
 
             // Populate TreeView
 
@@ -348,105 +388,6 @@ namespace BeatSaber_Playlist_Master_V2
             }
         }
 
-        // Create a playlist by opening the New Playlist Form
-        private void CreatePlaylistButton_Click(object sender, EventArgs e)
-        {
-            NewPlaylistForm form = new NewPlaylistForm(this);
-            form.ShowDialog();
-        }
-
-        // Populate playlist information textboxes, and enable them on first use.
-        private void playlistTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            PopulateSongsInPlaylist();
-            selectedPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
-
-            playlistNameTextBox.Enabled = true;
-            playlistAuthorTextBox.Enabled = true;
-            playlistDescriptionTextBox.ReadOnly = false;
-            playlistPictureBox.Enabled = true;
-
-            playlistNameTextBox.Text = selectedPlaylist.playlistTitle;
-            playlistAuthorTextBox.Text = selectedPlaylist.playlistAuthor;
-            playlistDescriptionTextBox.Text = selectedPlaylist.description;
-            if (selectedPlaylist.imageFile != null)
-            {
-                playlistPictureBox.Image = selectedPlaylist.imageFile;
-            }
-            else
-            {
-                playlistPictureBox.Image = Properties.Resources.ClickMe;
-            }
-        }
-
-        private void allSongsTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            AddSong();
-        }
-
-        private void songsInPlaylistTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            RemoveSong();
-        }
-
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            saveAll();
-            MessageBox.Show("All playlists saved successfully");
-        }
-
-        // Save textbox input into playlist
-        private void playlistNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrWhiteSpace(playlistNameTextBox.Text))
-            {
-                selectedPlaylist.playlistTitle = playlistNameTextBox.Text;
-                playlistTreeView.SelectedNode.Text = playlistNameTextBox.Text;
-            }
-        }
-
-        private void playlistAuthorTextBox_TextChanged(object sender, EventArgs e)
-        {
-            selectedPlaylist.playlistAuthor = playlistAuthorTextBox.Text;
-        }
-
-        private void playlistDescriptionTextBox_TextChanged(object sender, EventArgs e)
-        {
-            selectedPlaylist.description = playlistDescriptionTextBox.Text;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            setImage();
-        }
-
-        private void newPlaylistButton_Click(object sender, EventArgs e)
-        {
-            NewPlaylistForm playlistForm = new NewPlaylistForm(this);
-            playlistForm.ShowDialog();
-        }
-
-        private void playlistDeleteButton_Click(object sender, EventArgs e)
-        {
-            if (playlistTreeView.SelectedNode != null)
-            {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the playlist " + selectedPlaylist.playlistTitle
-                + "? \n This cannot be undone!", "Warning", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    File.Delete(selectedPlaylist.filePath);
-                    playlists.Remove(selectedPlaylist);
-                    playlistTreeView.SelectedNode.Remove();
-                    populatePlaylists(playlists);
-                    Data.isSaved = false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a playlist first");
-            }
-            
-        }
 
         private void allSongsTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -557,6 +498,99 @@ namespace BeatSaber_Playlist_Master_V2
             
         }
 
+
+
+        #endregion
+
+        #region Other miscellaneous button functions 
+
+
+        // Check if song is already in playlist        
+        // Create a playlist by opening the New Playlist Form
+        private void CreatePlaylistButton_Click(object sender, EventArgs e)
+        {
+            NewPlaylistForm form = new NewPlaylistForm(this);
+            form.ShowDialog();
+        }
+
+        private void allSongsTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            AddSong();
+        }
+
+        private void songsInPlaylistTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            RemoveSong();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            saveAll();
+            MessageBox.Show("All playlists saved successfully");
+        }
+
+        // Save textbox input into playlist
+        private void playlistNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(playlistNameTextBox.Text))
+            {
+                selectedPlaylist.playlistTitle = playlistNameTextBox.Text;
+                playlistTreeView.SelectedNode.Text = playlistNameTextBox.Text;
+            }
+        }
+
+        private void playlistAuthorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            selectedPlaylist.playlistAuthor = playlistAuthorTextBox.Text;
+        }
+
+        private void playlistDescriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            selectedPlaylist.description = playlistDescriptionTextBox.Text;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            setImage();
+        }
+
+        private void newPlaylistButton_Click(object sender, EventArgs e)
+        {
+            NewPlaylistForm playlistForm = new NewPlaylistForm(this);
+            playlistForm.ShowDialog();
+        }
+
+        private void playlistDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (playlistTreeView.SelectedNode != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the playlist " + selectedPlaylist.playlistTitle
+                + "? \n This cannot be undone!", "Warning", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    File.Delete(selectedPlaylist.filePath);
+                    playlists.Remove(selectedPlaylist);
+                    playlistTreeView.SelectedNode.Remove();
+                    populatePlaylists(playlists);
+                    Data.isSaved = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a playlist first");
+            }
+
+        }
+
+        private void removeDuplicatesButton_Click(object sender, EventArgs e)
+        {
+            if (selectedPlaylist != null)
+            {
+                selectedPlaylist.songs = selectedPlaylist.songs.Distinct().ToList();
+                PopulateSongsInPlaylist();
+            }
+        }
+
         private void clearPlaylistButton_Click(object sender, EventArgs e)
         {
             if (playlistTreeView.SelectedNode != null)
@@ -584,16 +618,7 @@ namespace BeatSaber_Playlist_Master_V2
                     MessageBox.Show("Could not find the location of this song \nIt is likely that this song exists in the playlist, but not in your songs folder");
                 }
             }
-            
-        }
 
-        private void removeDuplicatesButton_Click(object sender, EventArgs e)
-        {
-            if (selectedPlaylist != null)
-            {
-                selectedPlaylist.songs = selectedPlaylist.songs.Distinct().ToList();
-                PopulateSongsInPlaylist();
-            }
         }
 
         private void playlistTreeView_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
@@ -646,82 +671,10 @@ namespace BeatSaber_Playlist_Master_V2
         }
 
 
-        private void allSongsTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            // Change the coloring of selected treenode
-            if (e.Node.IsSelected)
-            {
-                if (allSongsTreeView.Focused)
-                    e.Graphics.FillRectangle(brush, e.Bounds);
-            }
-
-            // Change the coloring of the selected treenode when the treeview isn't focused
-
-            if (e.Node == null) return;
-
-            // if treeview's HideSelection property is "True", 
-            // this will always returns "False" on unfocused treeview
-            var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
-            var unfocused = !e.Node.TreeView.Focused;
-
-            // we need to do owner drawing only on a selected node
-            // and when the treeview is unfocused, else let the OS do it for us
-            if (selected && unfocused)
-            {
-                var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
-                e.Graphics.FillRectangle(SystemBrushes.WindowText, e.Bounds);
-                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, nodeForeColor);
-            }
-            else
-            {
-                e.DrawDefault = true;
-            }
-
-
-            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
-        }
+        
 
         
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            allSongsTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
-            songsInPlaylistTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
-        }
 
-        private void songsInPlaylistTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            // Change the coloring of selected treenode
-            if (e.Node.IsSelected)
-            {
-                if (songsInPlaylistTreeView.Focused)
-                    e.Graphics.FillRectangle(brush, e.Bounds);
-            }
-
-            // Change the coloring of the selected treenode when the treeview isn't focused
-
-
-                if (e.Node == null) return;
-
-                // if treeview's HideSelection property is "True", 
-                // this will always returns "False" on unfocused treeview
-                var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
-                var unfocused = !e.Node.TreeView.Focused;
-
-                // we need to do owner drawing only on a selected node
-                // and when the treeview is unfocused, else let the OS do it for us
-                if (selected && unfocused)
-                {
-                    var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
-                    e.Graphics.FillRectangle(SystemBrushes.WindowText, e.Bounds);
-                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, nodeForeColor);
-                }
-                else
-                {
-                    e.DrawDefault = true;
-                }
-
-            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
-        }
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
@@ -768,5 +721,217 @@ namespace BeatSaber_Playlist_Master_V2
         {
             Exit();
         }
+
+        #endregion
+
+        #region code to design the look of the treeviews
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            allSongsTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
+            songsInPlaylistTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
+        }
+
+        private void allSongsTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            // Change the coloring of selected treenode
+            if (e.Node.IsSelected)
+            {
+                if (allSongsTreeView.Focused)
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+
+            // Change the coloring of the selected treenode when the treeview isn't focused
+
+            if (e.Node == null) return;
+
+            // if treeview's HideSelection property is "True", 
+            // this will always returns "False" on unfocused treeview
+            var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+            var unfocused = !e.Node.TreeView.Focused;
+
+            // we need to do owner drawing only on a selected node
+            // and when the treeview is unfocused, else let the OS do it for us
+            if (selected && unfocused)
+            {
+                var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                e.Graphics.FillRectangle(SystemBrushes.WindowText, e.Bounds);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, nodeForeColor);
+            }
+            else
+            {
+                e.DrawDefault = true;
+            }
+
+
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
+        }
+
+        private void songsInPlaylistTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            // Change the coloring of selected treenode
+            if (e.Node.IsSelected)
+            {
+                if (songsInPlaylistTreeView.Focused)
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+
+            // Change the coloring of the selected treenode when the treeview isn't focused
+
+
+                if (e.Node == null) return;
+
+                // if treeview's HideSelection property is "True", 
+                // this will always returns "False" on unfocused treeview
+                var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+                var unfocused = !e.Node.TreeView.Focused;
+
+                // we need to do owner drawing only on a selected node
+                // and when the treeview is unfocused, else let the OS do it for us
+                if (selected && unfocused)
+                {
+                    var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                    e.Graphics.FillRectangle(SystemBrushes.WindowText, e.Bounds);
+                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, nodeForeColor);
+                }
+                else
+                {
+                    e.DrawDefault = true;
+                }
+
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, nodeForeColor);
+        }
+
+        #endregion
+
+        #region Buttons to control mode filter flags.
+
+        private void standardModeButton_Click(object sender, EventArgs e)
+        {
+            if (!Data.standardMode)
+            {
+                Data.standardMode = true;
+
+                standardModeButton.BackColor = Color.Red;
+
+            }
+            else
+            {
+                Data.standardMode = false;
+
+                standardModeButton.BackColor = Color.Gray;
+
+            }
+
+            populateAllSongsForm(searchTextBox.Text);
+
+            // Add code to change the image of the button.
+        }
+
+        private void noArrowsModeButton_Click(object sender, EventArgs e)
+        {
+            if (!Data.noArrowsMode)
+            {
+                Data.noArrowsMode = true;
+
+                noArrowsModeButton.BackColor = Color.Red;
+            }
+            else
+            {
+                Data.noArrowsMode = false;
+
+                noArrowsModeButton.BackColor = Color.Gray;
+
+            }
+
+            populateAllSongsForm(searchTextBox.Text);
+
+            // Add code to change the image of the button.
+        }
+
+        private void oneSaberModeButton_Click(object sender, EventArgs e)
+        {
+            if (!Data.OneSaberMode)
+            {
+                Data.OneSaberMode = true;
+
+                oneSaberModeButton.BackColor = Color.Red;
+            }
+            else
+            {
+                Data.OneSaberMode = false;
+
+                oneSaberModeButton.BackColor = Color.Gray;
+            }
+
+            populateAllSongsForm(searchTextBox.Text);
+
+            // Add code to change the image of the button.
+        }
+
+        private void ninetyDegreeModeButton_Click(object sender, EventArgs e)
+        {
+            if (!Data.ninetyDegreesMode)
+            {
+                Data.ninetyDegreesMode = true;
+
+                ninetyDegreeModeButton.BackColor = Color.Red;
+            }
+            else
+            {
+                Data.ninetyDegreesMode = false;
+
+                ninetyDegreeModeButton.BackColor = Color.Gray;
+
+            }
+
+            populateAllSongsForm(searchTextBox.Text);
+
+            // Add code to change the image of the button.
+        }
+
+        private void threeSixyModeButton_Click(object sender, EventArgs e)
+        {
+            if (!Data.threeSixtyDegreesMode)
+            {
+                Data.threeSixtyDegreesMode = true;
+
+                threeSixyModeButton.BackColor = Color.Red;
+            }
+            else
+            {
+                Data.threeSixtyDegreesMode = false;
+
+                threeSixyModeButton.BackColor = Color.Gray;
+
+            }
+
+            populateAllSongsForm(searchTextBox.Text);
+
+            // Add code to change the image of the button.
+        }
+
+        private void lightShowModeButton_Click(object sender, EventArgs e)
+        {
+            if (!Data.lightShowMode)
+            {
+                Data.lightShowMode = true;
+
+                lightShowModeButton.BackColor = Color.Red;
+
+            }
+            else
+            {
+                Data.lightShowMode = false;
+
+                lightShowModeButton.BackColor = Color.Gray;
+            }
+
+            populateAllSongsForm(searchTextBox.Text);
+
+            // Add code to change the image of the button.
+        }
+
+        #endregion
     }
 }
