@@ -70,7 +70,6 @@ namespace BeatSaber_Playlist_Master_V2
             this.runInDesktopButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
-            this.standardModeButton = new System.Windows.Forms.Button();
             this.noArrowsModeButton = new System.Windows.Forms.Button();
             this.oneSaberModeButton = new System.Windows.Forms.Button();
             this.ninetyDegreeModeButton = new System.Windows.Forms.Button();
@@ -579,21 +578,11 @@ namespace BeatSaber_Playlist_Master_V2
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // standardModeButton
-            // 
-            this.standardModeButton.Location = new System.Drawing.Point(531, 147);
-            this.standardModeButton.Name = "standardModeButton";
-            this.standardModeButton.Size = new System.Drawing.Size(72, 23);
-            this.standardModeButton.TabIndex = 44;
-            this.standardModeButton.Text = "Standard";
-            this.standardModeButton.UseVisualStyleBackColor = true;
-            this.standardModeButton.Click += new System.EventHandler(this.standardModeButton_Click);
-            // 
             // noArrowsModeButton
             // 
-            this.noArrowsModeButton.Location = new System.Drawing.Point(608, 147);
+            this.noArrowsModeButton.Location = new System.Drawing.Point(531, 140);
             this.noArrowsModeButton.Name = "noArrowsModeButton";
-            this.noArrowsModeButton.Size = new System.Drawing.Size(72, 23);
+            this.noArrowsModeButton.Size = new System.Drawing.Size(88, 30);
             this.noArrowsModeButton.TabIndex = 45;
             this.noArrowsModeButton.Text = "No Arrows";
             this.noArrowsModeButton.UseVisualStyleBackColor = true;
@@ -601,9 +590,9 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // oneSaberModeButton
             // 
-            this.oneSaberModeButton.Location = new System.Drawing.Point(686, 147);
+            this.oneSaberModeButton.Location = new System.Drawing.Point(623, 140);
             this.oneSaberModeButton.Name = "oneSaberModeButton";
-            this.oneSaberModeButton.Size = new System.Drawing.Size(72, 23);
+            this.oneSaberModeButton.Size = new System.Drawing.Size(88, 30);
             this.oneSaberModeButton.TabIndex = 46;
             this.oneSaberModeButton.Text = "One Saber";
             this.oneSaberModeButton.UseVisualStyleBackColor = true;
@@ -611,9 +600,9 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // ninetyDegreeModeButton
             // 
-            this.ninetyDegreeModeButton.Location = new System.Drawing.Point(764, 147);
+            this.ninetyDegreeModeButton.Location = new System.Drawing.Point(717, 140);
             this.ninetyDegreeModeButton.Name = "ninetyDegreeModeButton";
-            this.ninetyDegreeModeButton.Size = new System.Drawing.Size(72, 23);
+            this.ninetyDegreeModeButton.Size = new System.Drawing.Size(88, 30);
             this.ninetyDegreeModeButton.TabIndex = 47;
             this.ninetyDegreeModeButton.Text = "90°";
             this.ninetyDegreeModeButton.UseVisualStyleBackColor = true;
@@ -621,9 +610,9 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // threeSixyModeButton
             // 
-            this.threeSixyModeButton.Location = new System.Drawing.Point(842, 147);
+            this.threeSixyModeButton.Location = new System.Drawing.Point(811, 140);
             this.threeSixyModeButton.Name = "threeSixyModeButton";
-            this.threeSixyModeButton.Size = new System.Drawing.Size(72, 23);
+            this.threeSixyModeButton.Size = new System.Drawing.Size(88, 30);
             this.threeSixyModeButton.TabIndex = 48;
             this.threeSixyModeButton.Text = "360°";
             this.threeSixyModeButton.UseVisualStyleBackColor = true;
@@ -631,9 +620,9 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // lightShowModeButton
             // 
-            this.lightShowModeButton.Location = new System.Drawing.Point(920, 147);
+            this.lightShowModeButton.Location = new System.Drawing.Point(905, 140);
             this.lightShowModeButton.Name = "lightShowModeButton";
-            this.lightShowModeButton.Size = new System.Drawing.Size(72, 23);
+            this.lightShowModeButton.Size = new System.Drawing.Size(89, 30);
             this.lightShowModeButton.TabIndex = 49;
             this.lightShowModeButton.Text = "Lightshow";
             this.lightShowModeButton.UseVisualStyleBackColor = true;
@@ -685,7 +674,6 @@ namespace BeatSaber_Playlist_Master_V2
             this.Controls.Add(this.ninetyDegreeModeButton);
             this.Controls.Add(this.oneSaberModeButton);
             this.Controls.Add(this.noArrowsModeButton);
-            this.Controls.Add(this.standardModeButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.runInDesktopButton);
@@ -784,7 +772,6 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.Button runInDesktopButton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Button standardModeButton;
         private System.Windows.Forms.Button noArrowsModeButton;
         private System.Windows.Forms.Button oneSaberModeButton;
         private System.Windows.Forms.Button ninetyDegreeModeButton;

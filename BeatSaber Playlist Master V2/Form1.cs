@@ -505,6 +505,58 @@ namespace BeatSaber_Playlist_Master_V2
         #region Other miscellaneous button functions 
 
 
+        private void changeInstallLocation_Click(object sender, EventArgs e)
+        {
+
+            using (var pathSelectionDialog = new FolderBrowserDialog())
+            {
+                DialogResult result = pathSelectionDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(pathSelectionDialog.SelectedPath))
+                {
+                    if (File.Exists(pathSelectionDialog.SelectedPath + @"\Beat Saber.exe"))
+                    {
+                        Properties.Settings.Default.InstallPath = pathSelectionDialog.SelectedPath;
+                        Properties.Settings.Default.Save();
+                        MessageBox.Show("Path changed successfuly, application will now restart");
+                        Application.Restart();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid path - Please enter the path that contains Beat Saber.exe");
+                    }
+                }
+            }
+
+        }
+
+        // Event to run when the application exits - saves the user path setting
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
+        // Link label function to open Github page
+        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = @"https://github.com/Zoobumafu/Playlist-Saber",
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+                //System.Diagnostics.Process.Start(urlEncoded);
+            }
+            catch
+            {
+                MessageBox.Show("There was an error opening the site, could it be that you don't have a default browser? \nYou can find us by searching 'Playlist Saber' on Google");
+            }
+
+            //System.ComponentModel.Win32Exception: 'The system cannot find the file specified.'
+        }
+
         // Check if song is already in playlist        
         // Create a playlist by opening the New Playlist Form
         private void CreatePlaylistButton_Click(object sender, EventArgs e)
@@ -806,28 +858,6 @@ namespace BeatSaber_Playlist_Master_V2
 
         #region Buttons to control mode filter flags.
 
-        private void standardModeButton_Click(object sender, EventArgs e)
-        {
-            if (!Data.standardMode)
-            {
-                Data.standardMode = true;
-
-                standardModeButton.BackColor = Color.Red;
-
-            }
-            else
-            {
-                Data.standardMode = false;
-
-                standardModeButton.BackColor = Color.Gray;
-
-            }
-
-            populateAllSongsForm(searchTextBox.Text);
-
-            // Add code to change the image of the button.
-        }
-
         private void noArrowsModeButton_Click(object sender, EventArgs e)
         {
             if (!Data.noArrowsMode)
@@ -934,61 +964,14 @@ namespace BeatSaber_Playlist_Master_V2
 
         #endregion
 
-        // Event to run when the application exits - saves the user path setting
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Properties.Settings.Default.Save();
-        }
 
-        private void changeInstallLocation_Click(object sender, EventArgs e)
-        {
 
-            using (var pathSelectionDialog = new FolderBrowserDialog())
-            {
-                DialogResult result = pathSelectionDialog.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(pathSelectionDialog.SelectedPath))
-                {
-                    if (File.Exists(pathSelectionDialog.SelectedPath + @"\Beat Saber.exe"))
-                    {
-                        Properties.Settings.Default.InstallPath = pathSelectionDialog.SelectedPath;
-                        Properties.Settings.Default.Save();
-                        MessageBox.Show("Path changed successfuly, application will now restart");
-                        Application.Restart();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid path - Please enter the path that contains Beat Saber.exe");
-                    }
-                }
-            }
-
-        }
 
         private void linkLabel1_ControlAdded(object sender, ControlEventArgs e)
         {
 
         }
 
-        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            string urlEncoded = @"https://github.com/Zoobumafu/Playlist-Saber";
-            try
-            {
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = @"https://github.com/Zoobumafu/Playlist-Saber",
-                    UseShellExecute = true
-                };
-                Process.Start(psi);
-                //System.Diagnostics.Process.Start(urlEncoded);
-            }
-            catch(System.ComponentModel.Win32Exception ex)
-            {
-                System.Diagnostics.Process.Start(urlEncoded);
-            }
-
-            //System.ComponentModel.Win32Exception: 'The system cannot find the file specified.'
-        }
+        
     }
 }

@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <PackageReference Include="BeatSaverSharp" Version="2.0.1" />
-    <PackageReference Include="MaterialSkin.2" Version="2.1.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
