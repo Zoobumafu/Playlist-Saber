@@ -19,7 +19,6 @@ namespace BeatSaber_Playlist_Master_V2
     {
         // BeatsaverSharp parameters
 
-        HttpOptions options;
         BeatSaver beatSaver;
 
         /// <summary>
@@ -248,6 +247,10 @@ namespace BeatSaber_Playlist_Master_V2
         {
             if (thisSong.file != null)
             {
+                if (thisSong.hash != null)
+                {
+                    return thisSong.hash;
+                }
                 List<string> fileNames = new List<string>();
                 fileNames.Add("info.dat");
                 try
@@ -271,30 +274,8 @@ namespace BeatSaber_Playlist_Master_V2
                                         MessageBox.Show(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat");
                                     }
 
-                                    // THIS IS THE OLD WAY, I FOUND A BETTER ONE (right above this line).
-
-                                    ////STANDARD
-                                    //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "Standard")
-                                    //{
-                                    //    // Check if file exists with the addition of "Standard" to it's name
-                                    //    if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat"))
-                                    //    {
-                                    //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
-                                    //    }
-                                    //    // If not, add the song file without the difficulty name
-                                    //    else
-                                    //    {
-                                    //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty);
-                                    //    }
-                                    //}
-
-                                    ////ONE SABER
-                                    //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "OneSaber")
-                                    //{
-                                    //    fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
-                                    //}
                                 }
-                                //MessageBox.Show(String.Join("\n", fileNames));
+
                             }
 
 

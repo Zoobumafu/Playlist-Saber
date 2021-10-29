@@ -16,6 +16,18 @@
           "lib/netstandard2.1/BeatSaverSharp.dll": {}
         }
       },
+      "BeatSaverSharper/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/BeatSaverSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BeatSaverSharp.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.1": {
         "type": "package",
         "compile": {
@@ -80,6 +92,20 @@
         "lib/netstandard2.0/BeatSaverSharp.xml",
         "lib/netstandard2.1/BeatSaverSharp.dll",
         "lib/netstandard2.1/BeatSaverSharp.xml"
+      ]
+    },
+    "BeatSaverSharper/3.0.2": {
+      "sha512": "Y2yXrFlab/NP2g0uGj7zB6UPQWSykgxdpkLpigEFAO+Su6tw3tcgdaUREox4h0eGINutBXgvHFEI9/sjQke2Hg==",
+      "type": "package",
+      "path": "beatsaversharper/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "beatsaversharper.3.0.2.nupkg.sha512",
+        "beatsaversharper.nuspec",
+        "lib/netstandard2.0/BeatSaverSharp.dll",
+        "lib/netstandard2.0/BeatSaverSharp.xml"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
@@ -319,7 +345,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "BeatSaverSharp >= 2.0.1"
+      "BeatSaverSharp >= 2.0.1",
+      "BeatSaverSharper >= 3.0.2"
     ]
   },
   "packageFolders": {
@@ -369,6 +396,10 @@
           "BeatSaverSharp": {
             "target": "Package",
             "version": "[2.0.1, )"
+          },
+          "BeatSaverSharper": {
+            "target": "Package",
+            "version": "[3.0.2, )"
           }
         },
         "imports": [

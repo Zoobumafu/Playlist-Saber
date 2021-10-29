@@ -8,26 +8,28 @@ using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using System.Windows.Forms;
-using BeatSaverSharp;
 using System.Drawing;
 using System.Diagnostics;
+using BeatSaverSharp;
 
 
 namespace BeatSaber_Playlist_Master_V2
 {
     // *** UI ***
-    // Keep colorings saved in a text file, in order to keep playlists coloring the same from session to session.
     // Help Button on top with screenshots
-    // Add missing / corrupted songs to song list, with the message that their files are missing and need to be redownloaded
-    // Add some colorings to top buttons
-    // Distance the icons from the text in the buttons
     // Change the playlist image icon to upload icon 
-    
+    // Add a label that a song is missing it's file.
+    // Hide the song details and playlist details by a toggle button
+    // Increase text size for search functions
+
 
     //*** Functionality ***
-    // Allow running the app with another path
-    // Add a label that a song is missing it's file.
-    
+    // Add search functionality to playlists
+    // Scroll down to the button of the playlist treeview when adding a song
+    // Add the ability to the know which BeatSaber directory you are working with
+
+
+
     public partial class Form1 : Form
     {
 
@@ -45,6 +47,9 @@ namespace BeatSaber_Playlist_Master_V2
         // Helper value for brush, to change the marking color of a treenode
         SolidBrush brush;
         Color nodeForeColor;
+
+        // Object to download songs
+        Downloader downloader;
 
         public Form1()
         {
@@ -73,8 +78,7 @@ namespace BeatSaber_Playlist_Master_V2
 
 
             // Assaigning BeatSaverSharp parameters
-            options = new HttpOptions(Data.appName, Data.version);
-            beatSaver = new BeatSaver(options);
+            downloader = new Downloader();
             
             // UI 
             // Removing top bar
@@ -471,7 +475,6 @@ namespace BeatSaber_Playlist_Master_V2
             songNameLabel.Text = currentSong.songName;
             songAuthorLabel.Text = "by " + currentSong.uploader;
 
-
             if (currentSong.file != null)
             {
                 // Set Image
@@ -495,7 +498,26 @@ namespace BeatSaber_Playlist_Master_V2
                 songPictureBox.Image = null;
             }
 
-            
+            // Hide or show download button if the files are missing
+            if (Directory.Exists(currentSong.file.folderPath) || downloader.isInQueue(currentSong))
+            {
+                downloadSongButton.Visible = false;
+
+            }
+            else
+            {
+                downloadSongButton.Visible = true;
+            }
+
+            // Hide or show donloading notification
+            if (downloader.isInQueue(currentSong))
+            {
+                downloadingSongLabel.Visible = true;
+            }
+            else
+            {
+                downloadingSongLabel.Visible = false;
+            }
         }
 
 
@@ -962,16 +984,19 @@ namespace BeatSaber_Playlist_Master_V2
             // Add code to change the image of the button.
         }
 
+
         #endregion
 
-
-
-
-        private void linkLabel1_ControlAdded(object sender, ControlEventArgs e)
+        private void downloadSongButton_Click(object sender, EventArgs e)
         {
-
+            downloader.addSongToQueue(lastSelectedSong);
+            downloadSongButton.Visible = false;
+            downloadingSongLabel.Visible = true;
         }
 
-        
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            PreviewPlayer player = new PreviewPlayer(lastSelectedSong);
+        }
     }
 }
