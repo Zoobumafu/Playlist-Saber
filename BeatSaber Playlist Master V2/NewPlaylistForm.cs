@@ -87,7 +87,8 @@ namespace BeatSaber_Playlist_Master_V2
                     }
                     playlist.songs = new List<PlaylistSong>();
                     mainform.playlists.Add(playlist);
-                    mainform.populatePlaylists(mainform.playlists);
+
+                    mainform.populatePlaylists(mainform.playlists, mainform.playlistTreeView);
                     this.Close();
                 }
             Data.isSaved = false;

@@ -51,6 +51,8 @@ namespace BeatSaber_Playlist_Master_V2
         // Object to download songs
         Downloader downloader;
 
+        // Creating the finder form
+        songFinder songFinder;
         public Form1()
         {
 
@@ -73,7 +75,7 @@ namespace BeatSaber_Playlist_Master_V2
             MergeSongs(allSongs, playlists);
 
             // Populate GUI
-            populatePlaylists(playlists);
+            populatePlaylists(playlists, playlistTreeView);
             populateAllSongsForm();
 
 
@@ -100,6 +102,9 @@ namespace BeatSaber_Playlist_Master_V2
             runInDesktopButton.TextAlign = ContentAlignment.MiddleCenter;
             runInDesktopButton.ImageAlign = ContentAlignment.MiddleCenter;
 
+            // Creating the song searcher form
+            songFinder = new songFinder(this);
+
         }
 
 
@@ -109,16 +114,23 @@ namespace BeatSaber_Playlist_Master_V2
         /// Add playlists to the treeview control
         /// </summary>
         /// <param name="playlists"></param>
-        public void populatePlaylists(List<Playlist> playlists)
+        public void populatePlaylists(List<Playlist> playlists, TreeView treeView, bool addOutOfPlaylistNode = false)
         {
-            playlistTreeView.Nodes.Clear();
+            treeView.Nodes.Clear();
+            if (addOutOfPlaylistNode)
+            {
+                TreeNode treeNode = new TreeNode();
+                treeNode.Text = "Don't add playlist";
+                treeNode.ForeColor = Playlist.getColor();
+                treeView.Nodes.Add(treeNode);
+            }
             for (int i = 0; i < playlists.Count; i++)
             {
                 TreeNode treeNode = new TreeNode();
                 treeNode.Text = playlists[i].playlistTitle;
                 treeNode.Tag = playlists[i];
                 treeNode.ForeColor = Playlist.getColor();
-                playlistTreeView.Nodes.Add(treeNode);
+                treeView.Nodes.Add(treeNode);
             }
         }
 
@@ -209,7 +221,7 @@ namespace BeatSaber_Playlist_Master_V2
         // Populate playlist information textboxes, and enable them on first use.
         private void playlistTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            PopulateSongsInPlaylist();
+            PopulateSongsInPlaylist((Playlist)playlistTreeView.SelectedNode.Tag);
             selectedPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
 
             playlistNameTextBox.Enabled = true;
@@ -376,17 +388,17 @@ namespace BeatSaber_Playlist_Master_V2
         }
 
         // Update songs in Playlists TreeView after playlist selection
-        public void PopulateSongsInPlaylist()
+        public void PopulateSongsInPlaylist(Playlist playlist)
         {
             songsInPlaylistTreeView.Nodes.Clear();
-            Playlist currentPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
+            //Playlist currentPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
             if (playlistTreeView.SelectedNode != null)
             {
-                for (int i = 0; i < currentPlaylist.songs.Count; i++)
+                for (int i = 0; i < playlist.songs.Count; i++)
                 {
                     TreeNode node = new TreeNode();
-                    node.Tag = currentPlaylist.songs[i];
-                    node.Text = currentPlaylist.songs[i].songName;
+                    node.Tag = playlist.songs[i];
+                    node.Text = playlist.songs[i].songName;
                     songsInPlaylistTreeView.Nodes.Add(node);
                 }
             }
@@ -590,6 +602,7 @@ namespace BeatSaber_Playlist_Master_V2
         private void allSongsTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             AddSong();
+            playlistTreeView.Nodes[0].EnsureVisible();
         }
 
         private void songsInPlaylistTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -645,7 +658,7 @@ namespace BeatSaber_Playlist_Master_V2
                     File.Delete(selectedPlaylist.filePath);
                     playlists.Remove(selectedPlaylist);
                     playlistTreeView.SelectedNode.Remove();
-                    populatePlaylists(playlists);
+                    populatePlaylists(playlists, playlistTreeView);
                     Data.isSaved = false;
                 }
             }
@@ -661,7 +674,7 @@ namespace BeatSaber_Playlist_Master_V2
             if (selectedPlaylist != null)
             {
                 selectedPlaylist.songs = selectedPlaylist.songs.Distinct().ToList();
-                PopulateSongsInPlaylist();
+                PopulateSongsInPlaylist((Playlist) playlistTreeView.SelectedNode.Tag);
             }
         }
 
@@ -673,7 +686,7 @@ namespace BeatSaber_Playlist_Master_V2
                 {
                     Playlist playlistToClear = (Playlist)playlistTreeView.SelectedNode.Tag;
                     playlistToClear.songs.Clear();
-                    PopulateSongsInPlaylist();
+                    PopulateSongsInPlaylist((Playlist)playlistTreeView.SelectedNode.Tag);
 
                 }
             }
@@ -997,6 +1010,16 @@ namespace BeatSaber_Playlist_Master_V2
         private void previewButton_Click(object sender, EventArgs e)
         {
             PreviewPlayer player = new PreviewPlayer(lastSelectedSong);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openSongFinderButton_Click(object sender, EventArgs e)
+        {
+            songFinder.ShowDialog();
         }
     }
 }

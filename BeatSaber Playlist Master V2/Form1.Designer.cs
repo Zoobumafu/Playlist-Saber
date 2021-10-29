@@ -81,6 +81,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.downloadSongButton = new System.Windows.Forms.Button();
             this.downloadingSongLabel = new System.Windows.Forms.Label();
             this.previewButton = new System.Windows.Forms.Button();
+            this.openSongFinderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playlistPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
@@ -124,7 +125,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.songsInPlaylistTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.songsInPlaylistTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.songsInPlaylistTreeView.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.songsInPlaylistTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(118)))), ((int)(((byte)(124)))));
+            this.songsInPlaylistTreeView.ForeColor = System.Drawing.Color.White;
             this.songsInPlaylistTreeView.HideSelection = false;
             this.songsInPlaylistTreeView.Location = new System.Drawing.Point(12, 499);
             this.songsInPlaylistTreeView.Name = "songsInPlaylistTreeView";
@@ -142,7 +143,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.allSongsTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.allSongsTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.allSongsTreeView.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.allSongsTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(118)))), ((int)(((byte)(124)))));
+            this.allSongsTreeView.ForeColor = System.Drawing.Color.White;
             this.allSongsTreeView.HideSelection = false;
             this.allSongsTreeView.Location = new System.Drawing.Point(532, 172);
             this.allSongsTreeView.Name = "allSongsTreeView";
@@ -697,12 +698,23 @@ namespace BeatSaber_Playlist_Master_V2
             this.previewButton.UseVisualStyleBackColor = true;
             this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
             // 
+            // openSongFinderButton
+            // 
+            this.openSongFinderButton.Location = new System.Drawing.Point(409, 10);
+            this.openSongFinderButton.Name = "openSongFinderButton";
+            this.openSongFinderButton.Size = new System.Drawing.Size(139, 23);
+            this.openSongFinderButton.TabIndex = 57;
+            this.openSongFinderButton.Text = "Open Song Finder";
+            this.openSongFinderButton.UseVisualStyleBackColor = true;
+            this.openSongFinderButton.Click += new System.EventHandler(this.openSongFinderButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1006, 926);
+            this.Controls.Add(this.openSongFinderButton);
             this.Controls.Add(this.previewButton);
             this.Controls.Add(this.downloadingSongLabel);
             this.Controls.Add(this.downloadSongButton);
@@ -772,7 +784,6 @@ namespace BeatSaber_Playlist_Master_V2
         }
 
         #endregion
-        private System.Windows.Forms.TreeView playlistTreeView;
         private System.Windows.Forms.Button newPlaylistButton;
         private System.Windows.Forms.TreeView songsInPlaylistTreeView;
         private System.Windows.Forms.TreeView allSongsTreeView;
@@ -823,6 +834,8 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.Button downloadSongButton;
         private System.Windows.Forms.Label downloadingSongLabel;
         private System.Windows.Forms.Button previewButton;
+        public System.Windows.Forms.TreeView playlistTreeView;
+        private System.Windows.Forms.Button openSongFinderButton;
     }
 }
 
