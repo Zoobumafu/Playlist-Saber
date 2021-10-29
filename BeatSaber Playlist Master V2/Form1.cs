@@ -996,7 +996,7 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void previewButton_Click(object sender, EventArgs e)
         {
-            //PreviewPlayer player = new PreviewPlayer(lastSelectedSong);
+            PreviewPlayer player = new PreviewPlayer(lastSelectedSong);
         }
     }
 }
