@@ -128,5 +128,4 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\Beat
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.Wasapi.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.WinForms.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.WinMM.dll
-C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.songFinder.resources

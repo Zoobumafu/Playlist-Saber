@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yYiqynkFx979nZI26LSZ9xl6cJxykpmbM5rV8HTmD2PVm/dpbxMG7T24Zr+etU2bF09+UGx+Dave0xkWNEc+Eg==",
+  "dgSpecHash": "K4vVwrDCCA5jsLYqUfAxrFal6ATuL57ZM8L66YyxJK0ACKkHQxiy1d0faVwV89cNAs3/ZYPtcWe41IKQcmSdUA==",
   "success": true,
   "projectFilePath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,9 @@
     "C:\\Users\\atart\\.nuget\\packages\\naudio.winforms\\2.0.1\\naudio.winforms.2.0.1.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\naudio.winmm\\2.0.1\\naudio.winmm.2.0.1.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\atart\\.nuget\\packages\\runtime.any.system.runtime\\4.3.0\\runtime.any.system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\atart\\.nuget\\packages\\runtime.win.system.runtime.extensions\\4.3.0\\runtime.win.system.runtime.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\atart\\.nuget\\packages\\system.private.uri\\4.3.0\\system.private.uri.4.3.0.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\system.runtime\\4.3.1\\system.runtime.4.3.1.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\system.runtime.extensions\\4.3.1\\system.runtime.extensions.4.3.1.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",

@@ -31,11 +31,6 @@
             this.playlistTreeView = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
             this.songListView = new System.Windows.Forms.DataGridView();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Difficulties = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Download = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.songListView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,51 +67,12 @@
             this.songListView.AllowUserToDeleteRows = false;
             this.songListView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.songListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.songListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
-            this.Author,
-            this.Difficulties,
-            this.Rating,
-            this.Download});
             this.songListView.Location = new System.Drawing.Point(12, 201);
             this.songListView.Name = "songListView";
             this.songListView.RowHeadersVisible = false;
             this.songListView.RowTemplate.Height = 25;
             this.songListView.Size = new System.Drawing.Size(745, 424);
             this.songListView.TabIndex = 5;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.Width = 316;
-            // 
-            // Author
-            // 
-            this.Author.HeaderText = "Author";
-            this.Author.Name = "Author";
-            this.Author.ReadOnly = true;
-            // 
-            // Difficulties
-            // 
-            this.Difficulties.HeaderText = "Difficulties";
-            this.Difficulties.Name = "Difficulties";
-            this.Difficulties.ReadOnly = true;
-            this.Difficulties.Width = 150;
-            // 
-            // Rating
-            // 
-            this.Rating.HeaderText = "Rating";
-            this.Rating.Name = "Rating";
-            this.Rating.ReadOnly = true;
-            this.Rating.Width = 75;
-            // 
-            // Download
-            // 
-            this.Download.HeaderText = "Download";
-            this.Download.Name = "Download";
-            this.Download.ReadOnly = true;
             // 
             // songFinder
             // 
@@ -127,7 +83,7 @@
             this.Controls.Add(this.songListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.playlistTreeView);
-            //this.Name = "songFinder";
+            this.Name = "songFinder";
             this.Text = "songFinder";
             ((System.ComponentModel.ISupportInitialize)(this.songListView)).EndInit();
             this.ResumeLayout(false);
@@ -140,10 +96,5 @@
         private System.Windows.Forms.TreeView playlistTreeView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView songListView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Difficulties;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
-        private System.Windows.Forms.DataGridViewButtonColumn Download;
     }
 }

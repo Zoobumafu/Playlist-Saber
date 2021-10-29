@@ -38,7 +38,7 @@ namespace BeatSaber_Playlist_Master_V2
             DataGridViewCell nameCell = new DataGridViewHeaderCell();
 
             dataGridViewRow.Cells.Add(nameCell);
-            songListView.Rows.Add(dataGridViewRow);
+            //songListView.Rows.Add(dataGridViewRow);
 
 
             Button newButton = new Button();
@@ -80,7 +80,9 @@ namespace BeatSaber_Playlist_Master_V2
                 }
             }
 
-            songListView.Rows.Add("name1", "name2", "name3", "name4");
+            //songListView.Rows.Add("name1", "name2", "name3", "name4");
+          
+
 
 
         }

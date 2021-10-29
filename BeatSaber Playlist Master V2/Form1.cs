@@ -899,13 +899,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.noArrowsMode = true;
 
-                noArrowsModeButton.BackColor = Color.Red;
+                noArrowsModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.noArrowsMode = false;
 
-                noArrowsModeButton.BackColor = Color.Gray;
+                noArrowsModeButton.BackColor = Color.Transparent;
 
             }
 
@@ -920,13 +920,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.OneSaberMode = true;
 
-                oneSaberModeButton.BackColor = Color.Red;
+                oneSaberModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.OneSaberMode = false;
 
-                oneSaberModeButton.BackColor = Color.Gray;
+                oneSaberModeButton.BackColor = Color.Transparent;
             }
 
             populateAllSongsForm(searchTextBox.Text);
@@ -940,13 +940,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.ninetyDegreesMode = true;
 
-                ninetyDegreeModeButton.BackColor = Color.Red;
+                ninetyDegreeModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.ninetyDegreesMode = false;
 
-                ninetyDegreeModeButton.BackColor = Color.Gray;
+                ninetyDegreeModeButton.BackColor = Color.Transparent;
 
             }
 
@@ -961,13 +961,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.threeSixtyDegreesMode = true;
 
-                threeSixyModeButton.BackColor = Color.Red;
+                threeSixyModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.threeSixtyDegreesMode = false;
 
-                threeSixyModeButton.BackColor = Color.Gray;
+                threeSixyModeButton.BackColor = Color.Transparent;
 
             }
 
@@ -982,14 +982,14 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.lightShowMode = true;
 
-                lightShowModeButton.BackColor = Color.Red;
+                lightShowModeButton.BackColor = Color.Snow;
 
             }
             else
             {
                 Data.lightShowMode = false;
 
-                lightShowModeButton.BackColor = Color.Gray;
+                lightShowModeButton.BackColor = Color.Transparent;
             }
 
             populateAllSongsForm(searchTextBox.Text);

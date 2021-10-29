@@ -586,6 +586,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // noArrowsModeButton
             // 
+            this.noArrowsModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.noArrowsModeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.noArrowsModeButton.Location = new System.Drawing.Point(531, 107);
             this.noArrowsModeButton.Name = "noArrowsModeButton";
             this.noArrowsModeButton.Size = new System.Drawing.Size(88, 30);
@@ -596,6 +598,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // oneSaberModeButton
             // 
+            this.oneSaberModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.oneSaberModeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.oneSaberModeButton.Location = new System.Drawing.Point(623, 107);
             this.oneSaberModeButton.Name = "oneSaberModeButton";
             this.oneSaberModeButton.Size = new System.Drawing.Size(88, 30);
@@ -606,6 +610,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // ninetyDegreeModeButton
             // 
+            this.ninetyDegreeModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ninetyDegreeModeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.ninetyDegreeModeButton.Location = new System.Drawing.Point(717, 107);
             this.ninetyDegreeModeButton.Name = "ninetyDegreeModeButton";
             this.ninetyDegreeModeButton.Size = new System.Drawing.Size(88, 30);
@@ -616,6 +622,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // threeSixyModeButton
             // 
+            this.threeSixyModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.threeSixyModeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.threeSixyModeButton.Location = new System.Drawing.Point(811, 107);
             this.threeSixyModeButton.Name = "threeSixyModeButton";
             this.threeSixyModeButton.Size = new System.Drawing.Size(88, 30);
@@ -626,6 +634,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // lightShowModeButton
             // 
+            this.lightShowModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lightShowModeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lightShowModeButton.Location = new System.Drawing.Point(905, 107);
             this.lightShowModeButton.Name = "lightShowModeButton";
             this.lightShowModeButton.Size = new System.Drawing.Size(89, 30);
@@ -636,6 +646,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // changeInstallLocation
             // 
+            this.changeInstallLocation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.changeInstallLocation.ForeColor = System.Drawing.SystemColors.Highlight;
             this.changeInstallLocation.Location = new System.Drawing.Point(801, 74);
             this.changeInstallLocation.Name = "changeInstallLocation";
             this.changeInstallLocation.Size = new System.Drawing.Size(193, 23);
@@ -690,6 +702,8 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             // previewButton
             // 
+            this.previewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.previewButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.previewButton.Location = new System.Drawing.Point(878, 739);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(116, 23);
@@ -706,6 +720,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.openSongFinderButton.TabIndex = 57;
             this.openSongFinderButton.Text = "Open Song Finder";
             this.openSongFinderButton.UseVisualStyleBackColor = true;
+            this.openSongFinderButton.Visible = false;
             this.openSongFinderButton.Click += new System.EventHandler(this.openSongFinderButton_Click);
             // 
             // Form1
