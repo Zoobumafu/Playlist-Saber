@@ -8,26 +8,28 @@ using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using System.Windows.Forms;
-using BeatSaverSharp;
 using System.Drawing;
 using System.Diagnostics;
+using BeatSaverSharp;
 
 
 namespace BeatSaber_Playlist_Master_V2
 {
     // *** UI ***
-    // Keep colorings saved in a text file, in order to keep playlists coloring the same from session to session.
     // Help Button on top with screenshots
-    // Add missing / corrupted songs to song list, with the message that their files are missing and need to be redownloaded
-    // Add some colorings to top buttons
-    // Distance the icons from the text in the buttons
     // Change the playlist image icon to upload icon 
-    
+    // Add a label that a song is missing it's file.
+    // Hide the song details and playlist details by a toggle button
+    // Increase text size for search functions
+
 
     //*** Functionality ***
-    // Allow running the app with another path
-    // Add a label that a song is missing it's file.
-    
+    // Add search functionality to playlists
+    // Scroll down to the button of the playlist treeview when adding a song
+    // Add the ability to the know which BeatSaber directory you are working with
+
+
+
     public partial class Form1 : Form
     {
 
@@ -46,6 +48,11 @@ namespace BeatSaber_Playlist_Master_V2
         SolidBrush brush;
         Color nodeForeColor;
 
+        // Object to download songs
+        Downloader downloader;
+
+        // Creating the finder form
+        songFinder songFinder;
         public Form1()
         {
 
@@ -68,13 +75,12 @@ namespace BeatSaber_Playlist_Master_V2
             MergeSongs(allSongs, playlists);
 
             // Populate GUI
-            populatePlaylists(playlists);
+            populatePlaylists(playlists, playlistTreeView);
             populateAllSongsForm();
 
 
             // Assaigning BeatSaverSharp parameters
-            options = new HttpOptions(Data.appName, Data.version);
-            beatSaver = new BeatSaver(options);
+            downloader = new Downloader();
             
             // UI 
             // Removing top bar
@@ -96,6 +102,9 @@ namespace BeatSaber_Playlist_Master_V2
             runInDesktopButton.TextAlign = ContentAlignment.MiddleCenter;
             runInDesktopButton.ImageAlign = ContentAlignment.MiddleCenter;
 
+            // Creating the song searcher form
+            songFinder = new songFinder(this);
+
         }
 
 
@@ -105,16 +114,23 @@ namespace BeatSaber_Playlist_Master_V2
         /// Add playlists to the treeview control
         /// </summary>
         /// <param name="playlists"></param>
-        public void populatePlaylists(List<Playlist> playlists)
+        public void populatePlaylists(List<Playlist> playlists, TreeView treeView, bool addOutOfPlaylistNode = false)
         {
-            playlistTreeView.Nodes.Clear();
+            treeView.Nodes.Clear();
+            if (addOutOfPlaylistNode)
+            {
+                TreeNode treeNode = new TreeNode();
+                treeNode.Text = "Don't add playlist";
+                treeNode.ForeColor = Playlist.getColor();
+                treeView.Nodes.Add(treeNode);
+            }
             for (int i = 0; i < playlists.Count; i++)
             {
                 TreeNode treeNode = new TreeNode();
                 treeNode.Text = playlists[i].playlistTitle;
                 treeNode.Tag = playlists[i];
                 treeNode.ForeColor = Playlist.getColor();
-                playlistTreeView.Nodes.Add(treeNode);
+                treeView.Nodes.Add(treeNode);
             }
         }
 
@@ -205,7 +221,7 @@ namespace BeatSaber_Playlist_Master_V2
         // Populate playlist information textboxes, and enable them on first use.
         private void playlistTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            PopulateSongsInPlaylist();
+            PopulateSongsInPlaylist((Playlist)playlistTreeView.SelectedNode.Tag);
             selectedPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
 
             playlistNameTextBox.Enabled = true;
@@ -372,17 +388,17 @@ namespace BeatSaber_Playlist_Master_V2
         }
 
         // Update songs in Playlists TreeView after playlist selection
-        public void PopulateSongsInPlaylist()
+        public void PopulateSongsInPlaylist(Playlist playlist)
         {
             songsInPlaylistTreeView.Nodes.Clear();
-            Playlist currentPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
+            //Playlist currentPlaylist = (Playlist)playlistTreeView.SelectedNode.Tag;
             if (playlistTreeView.SelectedNode != null)
             {
-                for (int i = 0; i < currentPlaylist.songs.Count; i++)
+                for (int i = 0; i < playlist.songs.Count; i++)
                 {
                     TreeNode node = new TreeNode();
-                    node.Tag = currentPlaylist.songs[i];
-                    node.Text = currentPlaylist.songs[i].songName;
+                    node.Tag = playlist.songs[i];
+                    node.Text = playlist.songs[i].songName;
                     songsInPlaylistTreeView.Nodes.Add(node);
                 }
             }
@@ -471,7 +487,6 @@ namespace BeatSaber_Playlist_Master_V2
             songNameLabel.Text = currentSong.songName;
             songAuthorLabel.Text = "by " + currentSong.uploader;
 
-
             if (currentSong.file != null)
             {
                 // Set Image
@@ -495,7 +510,26 @@ namespace BeatSaber_Playlist_Master_V2
                 songPictureBox.Image = null;
             }
 
-            
+            // Hide or show download button if the files are missing
+            if (Directory.Exists(currentSong.file.folderPath) || downloader.isInQueue(currentSong))
+            {
+                downloadSongButton.Visible = false;
+
+            }
+            else
+            {
+                downloadSongButton.Visible = true;
+            }
+
+            // Hide or show donloading notification
+            if (downloader.isInQueue(currentSong))
+            {
+                downloadingSongLabel.Visible = true;
+            }
+            else
+            {
+                downloadingSongLabel.Visible = false;
+            }
         }
 
 
@@ -504,6 +538,58 @@ namespace BeatSaber_Playlist_Master_V2
 
         #region Other miscellaneous button functions 
 
+
+        private void changeInstallLocation_Click(object sender, EventArgs e)
+        {
+
+            using (var pathSelectionDialog = new FolderBrowserDialog())
+            {
+                DialogResult result = pathSelectionDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(pathSelectionDialog.SelectedPath))
+                {
+                    if (File.Exists(pathSelectionDialog.SelectedPath + @"\Beat Saber.exe"))
+                    {
+                        Properties.Settings.Default.InstallPath = pathSelectionDialog.SelectedPath;
+                        Properties.Settings.Default.Save();
+                        MessageBox.Show("Path changed successfuly, application will now restart");
+                        Application.Restart();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid path - Please enter the path that contains Beat Saber.exe");
+                    }
+                }
+            }
+
+        }
+
+        // Event to run when the application exits - saves the user path setting
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
+        // Link label function to open Github page
+        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = @"https://github.com/Zoobumafu/Playlist-Saber",
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+                //System.Diagnostics.Process.Start(urlEncoded);
+            }
+            catch
+            {
+                MessageBox.Show("There was an error opening the site, could it be that you don't have a default browser? \nYou can find us by searching 'Playlist Saber' on Google");
+            }
+
+            //System.ComponentModel.Win32Exception: 'The system cannot find the file specified.'
+        }
 
         // Check if song is already in playlist        
         // Create a playlist by opening the New Playlist Form
@@ -516,6 +602,7 @@ namespace BeatSaber_Playlist_Master_V2
         private void allSongsTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             AddSong();
+            playlistTreeView.Nodes[0].EnsureVisible();
         }
 
         private void songsInPlaylistTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -571,7 +658,7 @@ namespace BeatSaber_Playlist_Master_V2
                     File.Delete(selectedPlaylist.filePath);
                     playlists.Remove(selectedPlaylist);
                     playlistTreeView.SelectedNode.Remove();
-                    populatePlaylists(playlists);
+                    populatePlaylists(playlists, playlistTreeView);
                     Data.isSaved = false;
                 }
             }
@@ -587,7 +674,7 @@ namespace BeatSaber_Playlist_Master_V2
             if (selectedPlaylist != null)
             {
                 selectedPlaylist.songs = selectedPlaylist.songs.Distinct().ToList();
-                PopulateSongsInPlaylist();
+                PopulateSongsInPlaylist((Playlist) playlistTreeView.SelectedNode.Tag);
             }
         }
 
@@ -599,7 +686,7 @@ namespace BeatSaber_Playlist_Master_V2
                 {
                     Playlist playlistToClear = (Playlist)playlistTreeView.SelectedNode.Tag;
                     playlistToClear.songs.Clear();
-                    PopulateSongsInPlaylist();
+                    PopulateSongsInPlaylist((Playlist)playlistTreeView.SelectedNode.Tag);
 
                 }
             }
@@ -806,41 +893,19 @@ namespace BeatSaber_Playlist_Master_V2
 
         #region Buttons to control mode filter flags.
 
-        private void standardModeButton_Click(object sender, EventArgs e)
-        {
-            if (!Data.standardMode)
-            {
-                Data.standardMode = true;
-
-                standardModeButton.BackColor = Color.Red;
-
-            }
-            else
-            {
-                Data.standardMode = false;
-
-                standardModeButton.BackColor = Color.Gray;
-
-            }
-
-            populateAllSongsForm(searchTextBox.Text);
-
-            // Add code to change the image of the button.
-        }
-
         private void noArrowsModeButton_Click(object sender, EventArgs e)
         {
             if (!Data.noArrowsMode)
             {
                 Data.noArrowsMode = true;
 
-                noArrowsModeButton.BackColor = Color.Red;
+                noArrowsModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.noArrowsMode = false;
 
-                noArrowsModeButton.BackColor = Color.Gray;
+                noArrowsModeButton.BackColor = Color.Transparent;
 
             }
 
@@ -855,13 +920,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.OneSaberMode = true;
 
-                oneSaberModeButton.BackColor = Color.Red;
+                oneSaberModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.OneSaberMode = false;
 
-                oneSaberModeButton.BackColor = Color.Gray;
+                oneSaberModeButton.BackColor = Color.Transparent;
             }
 
             populateAllSongsForm(searchTextBox.Text);
@@ -875,13 +940,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.ninetyDegreesMode = true;
 
-                ninetyDegreeModeButton.BackColor = Color.Red;
+                ninetyDegreeModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.ninetyDegreesMode = false;
 
-                ninetyDegreeModeButton.BackColor = Color.Gray;
+                ninetyDegreeModeButton.BackColor = Color.Transparent;
 
             }
 
@@ -896,13 +961,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.threeSixtyDegreesMode = true;
 
-                threeSixyModeButton.BackColor = Color.Red;
+                threeSixyModeButton.BackColor = Color.Snow;
             }
             else
             {
                 Data.threeSixtyDegreesMode = false;
 
-                threeSixyModeButton.BackColor = Color.Gray;
+                threeSixyModeButton.BackColor = Color.Transparent;
 
             }
 
@@ -917,14 +982,14 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.lightShowMode = true;
 
-                lightShowModeButton.BackColor = Color.Red;
+                lightShowModeButton.BackColor = Color.Snow;
 
             }
             else
             {
                 Data.lightShowMode = false;
 
-                lightShowModeButton.BackColor = Color.Gray;
+                lightShowModeButton.BackColor = Color.Transparent;
             }
 
             populateAllSongsForm(searchTextBox.Text);
@@ -932,6 +997,29 @@ namespace BeatSaber_Playlist_Master_V2
             // Add code to change the image of the button.
         }
 
+
         #endregion
+
+        private void downloadSongButton_Click(object sender, EventArgs e)
+        {
+            downloader.addSongToQueue(lastSelectedSong);
+            downloadSongButton.Visible = false;
+            downloadingSongLabel.Visible = true;
+        }
+
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            PreviewPlayer player = new PreviewPlayer(lastSelectedSong);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openSongFinderButton_Click(object sender, EventArgs e)
+        {
+            songFinder.ShowDialog();
+        }
     }
 }

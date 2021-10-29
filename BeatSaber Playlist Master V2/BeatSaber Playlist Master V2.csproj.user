@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_LastSelectedProfileId>C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2 - Copy - Copy - Copy\Playlist-Saber\BeatSaber Playlist Master V2\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\Properties\PublishProfiles\FolderProfile2.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="DownloadForm.cs">
@@ -17,6 +17,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SongDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="songFinder.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

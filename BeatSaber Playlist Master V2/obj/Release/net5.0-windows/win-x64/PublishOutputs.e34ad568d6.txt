@@ -1,0 +1,11 @@
+C:\Playlist Saber Singlefile test1\BeatSaber Playlist Master V2.pdb
+C:\Playlist Saber Singlefile test1\clrcompression.dll
+C:\Playlist Saber Singlefile test1\clrjit.dll
+C:\Playlist Saber Singlefile test1\coreclr.dll
+C:\Playlist Saber Singlefile test1\mscordaccore.dll
+C:\Playlist Saber Singlefile test1\D3DCompiler_47_cor3.dll
+C:\Playlist Saber Singlefile test1\PenImc_cor3.dll
+C:\Playlist Saber Singlefile test1\PresentationNative_cor3.dll
+C:\Playlist Saber Singlefile test1\vcruntime140_cor3.dll
+C:\Playlist Saber Singlefile test1\wpfgfx_cor3.dll
+C:\Playlist Saber Singlefile test1\BeatSaber Playlist Master V2.exe

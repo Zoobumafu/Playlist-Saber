@@ -1,0 +1,1 @@
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win10-x64\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache

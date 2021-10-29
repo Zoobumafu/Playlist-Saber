@@ -12,13 +12,13 @@ using BeatSaverSharp;
 using System.Security.Cryptography;
 
 
+
 namespace BeatSaber_Playlist_Master_V2
 {
     public partial class Form1
     {
         // BeatsaverSharp parameters
 
-        HttpOptions options;
         BeatSaver beatSaver;
 
         /// <summary>
@@ -74,56 +74,69 @@ namespace BeatSaber_Playlist_Master_V2
             //string previousDirectory = "";  TO DELETE AFTER TESTING
             //bool correctDirectory = false; TO DELETE AFTER TESTING
 
-            // Check installation location by registry key
-            var hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
-            var myKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 620980");
-
-            if (myKey != null)
+            Properties.Settings.Default.Reload();
+            if (Properties.Settings.Default.InstallPath == "" || !File.Exists(Properties.Settings.Default.InstallPath + @"\Beat Saber.exe"))
             {
-                string value = (string)(myKey.GetValue("InstallLocation"));
-                if (File.Exists(@value + @"\Beat Saber.exe"))
+                // Check installation location by registry key
+                var hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+                var myKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 620980");
+
+                if (myKey != null)
                 {
-                    //correctDirectory = true; TO DELETE AFTER TESTING
-                    Data.installPath = @value;
+                    string value = (string)(myKey.GetValue("InstallLocation"));
+                    if (File.Exists(@value + @"\Beat Saber.exe"))
+                    {
+                        //correctDirectory = true; TO DELETE AFTER TESTING
+                        Data.installPath = @value;
+                    }
+                }
+
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Could not find the BeatSaber directory automatically, can you locate it?", "Oops!, BeatSaber was not found", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        bool located = false;
+                        while (!located)
+                        {
+                            // If the registry key cannot be found, prompt the user to input details
+                            FolderBrowserDialog dlg = new FolderBrowserDialog();
+                            dlg.Description = "Locate BeatSaber directory";
+                            dlg.ShowDialog();
+                            if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
+                            {
+                                located = true;
+                            }
+                            else
+                            {
+                                DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe", ":=(", MessageBoxButtons.YesNo);
+                                if (dialogResult2 == DialogResult.Yes)
+                                {
+                                    dlg.ShowDialog();
+                                }
+                                else
+                                {
+                                    Application.Exit();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+
+
                 }
             }
 
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Could not find the BeatSaber directory automatically, can you locate it?", "Oops!, BeatSaber was not found", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    bool located = false;
-                    while (!located)
-                    {
-                        // If the registry key cannot be found, prompt the user to input details
-                        FolderBrowserDialog dlg = new FolderBrowserDialog();
-                        dlg.Description = "Locate BeatSaber directory";
-                        dlg.ShowDialog();
-                        if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
-                        {
-                            located = true;
-                        }
-                        else
-                        {
-                            DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe", ":=(", MessageBoxButtons.YesNo);
-                            if (dialogResult2 == DialogResult.Yes)
-                            {
-                                dlg.ShowDialog();
-                            }
-                            else
-                            {
-                                Application.Exit();
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    Application.Exit();
-                }
-
+                Data.installPath = Properties.Settings.Default.InstallPath;
             }
+
+            Properties.Settings.Default.InstallPath = Data.installPath;
+            
         }
 
 
@@ -234,6 +247,10 @@ namespace BeatSaber_Playlist_Master_V2
         {
             if (thisSong.file != null)
             {
+                if (thisSong.hash != null)
+                {
+                    return thisSong.hash;
+                }
                 List<string> fileNames = new List<string>();
                 fileNames.Add("info.dat");
                 try
@@ -257,30 +274,8 @@ namespace BeatSaber_Playlist_Master_V2
                                         MessageBox.Show(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat");
                                     }
 
-                                    // THIS IS THE OLD WAY, I FOUND A BETTER ONE (right above this line).
-
-                                    ////STANDARD
-                                    //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "Standard")
-                                    //{
-                                    //    // Check if file exists with the addition of "Standard" to it's name
-                                    //    if (File.Exists(thisSong.file.folderPath + @"\" + thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName + ".dat"))
-                                    //    {
-                                    //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
-                                    //    }
-                                    //    // If not, add the song file without the difficulty name
-                                    //    else
-                                    //    {
-                                    //        fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty);
-                                    //    }
-                                    //}
-
-                                    ////ONE SABER
-                                    //if (thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName == "OneSaber")
-                                    //{
-                                    //    fileNames.Add(thisSong.file._difficultyBeatmapSets[i]._difficultyBeatmaps[j]._difficulty + thisSong.file._difficultyBeatmapSets[i]._beatmapCharacteristicName);
-                                    //}
                                 }
-                                //MessageBox.Show(String.Join("\n", fileNames));
+
                             }
 
 
