@@ -1,0 +1,11 @@
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\BeatSaber Playlist Master V2.pdb
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\clrcompression.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\clrjit.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\coreclr.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\mscordaccore.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\D3DCompiler_47_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\PenImc_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\PresentationNative_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\vcruntime140_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\wpfgfx_cor3.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\publish\win-x64\BeatSaber Playlist Master V2.exe

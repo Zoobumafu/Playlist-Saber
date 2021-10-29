@@ -29,7 +29,6 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\Beat
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\ref\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaber Playlist Master V2.pdb
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\BeatSaverSharp.dll
-C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\MaterialSkin.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Release\net5.0-windows\Newtonsoft.Json.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.Form1.resources
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.NewPlaylistForm.resources
@@ -122,3 +121,6 @@ C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\ref\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.pdb
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\Interop.WMPLib.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber Playlist Master V2.csproj.ResolveComReference.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Release\net5.0-windows\BeatSaber_Playlist_Master_V2.MusicPlayer.resources

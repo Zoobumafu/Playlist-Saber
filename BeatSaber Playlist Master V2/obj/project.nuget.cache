@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xYsEkrXetNKB9VerFT/feGr/99GIHNfHCoO4b3pxSKaADUl5Ofjr42rlxMlHhKxJu/WpeEK/1AQ/CYL406JVKA==",
+  "dgSpecHash": "DPmGXbdxRPR8xPNVIlBpBvrQypSITh5ajRkJDfxfz+7YetTDSZ6UClwMauH957oTUOL92Z5R2zzPtaFkkMjuqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,19 @@
     "C:\\Users\\atart\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\system.runtime\\4.3.1\\system.runtime.4.3.1.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\system.runtime.extensions\\4.3.1\\system.runtime.extensions.4.3.1.nupkg.sha512",
+    "C:\\Users\\atart\\.nuget\\packages\\wmplib\\1.0.0\\wmplib.1.0.0.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WMPLib 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "WMPLib",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

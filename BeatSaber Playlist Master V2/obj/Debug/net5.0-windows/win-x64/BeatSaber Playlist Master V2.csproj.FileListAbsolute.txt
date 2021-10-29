@@ -32,7 +32,6 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\Beat
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\ref\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.pdb
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\BeatSaverSharp.dll
-C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\MaterialSkin.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\Newtonsoft.Json.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber_Playlist_Master_V2.DownloadForm.resources
@@ -74,3 +73,5 @@ C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\ref\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.pdb
 C:\Users\atart\Documents\GitHub\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\win-x64\BeatSaber Playlist Master V2.genruntimeconfig.cache
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\AxInterop.WMPLib.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\win-x64\Interop.WMPLib.dll

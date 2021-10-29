@@ -10,8 +10,8 @@
       "BeatSaber Playlist Master V2/1.0.0": {
         "dependencies": {
           "BeatSaverSharp": "2.0.1",
-          "MaterialSkin.2": "2.1.3",
-          "Newtonsoft.Json": "13.0.1"
+          "BeatSaverSharper": "3.0.2",
+          "WMPLib": "1.0.0"
         },
         "runtime": {
           "BeatSaber Playlist Master V2.dll": {}
@@ -19,32 +19,29 @@
       },
       "BeatSaverSharp/2.0.1": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "12.0.3",
           "System.Runtime": "4.3.1",
           "System.Runtime.Extensions": "4.3.1"
-        },
-        "runtime": {
-          "lib/netstandard2.1/BeatSaverSharp.dll": {
-            "assemblyVersion": "2.0.1.0",
-            "fileVersion": "2.0.1.0"
-          }
         }
       },
-      "MaterialSkin.2/2.1.3": {
+      "BeatSaverSharper/3.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "runtime": {
-          "lib/net461/MaterialSkin.dll": {
-            "assemblyVersion": "2.1.2.0",
-            "fileVersion": "2.1.2.0"
+          "lib/netstandard2.0/BeatSaverSharp.dll": {
+            "assemblyVersion": "3.0.2.0",
+            "fileVersion": "3.0.2.0"
           }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.1": {},
       "Microsoft.NETCore.Targets/1.1.3": {},
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1.25517"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         }
       },
@@ -78,6 +75,18 @@
           "System.Runtime": "4.3.1",
           "runtime.win.System.Runtime.Extensions": "4.3.0"
         }
+      },
+      "WMPLib/1.0.0": {
+        "runtime": {
+          "lib/AxInterop.WMPLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/Interop.WMPLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -94,12 +103,12 @@
       "path": "beatsaversharp/2.0.1",
       "hashPath": "beatsaversharp.2.0.1.nupkg.sha512"
     },
-    "MaterialSkin.2/2.1.3": {
+    "BeatSaverSharper/3.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-06DeBtO2q89sWK9GFcV9Toc71LUUtBoxP62WUvPZG8ZtP261p3jKaNspMIYJcUdaSoyZ7v428CgVvb45uWn8mw==",
-      "path": "materialskin.2/2.1.3",
-      "hashPath": "materialskin.2.2.1.3.nupkg.sha512"
+      "sha512": "sha512-Y2yXrFlab/NP2g0uGj7zB6UPQWSykgxdpkLpigEFAO+Su6tw3tcgdaUREox4h0eGINutBXgvHFEI9/sjQke2Hg==",
+      "path": "beatsaversharper/3.0.2",
+      "hashPath": "beatsaversharper.3.0.2.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
       "type": "package",
@@ -115,12 +124,12 @@
       "path": "microsoft.netcore.targets/1.1.3",
       "hashPath": "microsoft.netcore.targets.1.1.3.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.1": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
-      "path": "newtonsoft.json/13.0.1",
-      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "runtime.any.System.Runtime/4.3.0": {
       "type": "package",
@@ -156,6 +165,13 @@
       "sha512": "sha512-qAtKMcHOAq9/zKkl0dwvF0T0pmgCQxX1rC49rJXoU8jq+lw6MC3uXy7nLFmjEI20T3Aq069eWz4LcYR64vEmJw==",
       "path": "system.runtime.extensions/4.3.1",
       "hashPath": "system.runtime.extensions.4.3.1.nupkg.sha512"
+    },
+    "WMPLib/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hhTCfENN7xrSfUG7hrd/A9YiXVMVGHAc3Hv0USe6SvpacIDxVwiBb1X3nVzELpLtewjqqFy5dsWHwImpUy3vyw==",
+      "path": "wmplib/1.0.0",
+      "hashPath": "wmplib.1.0.0.nupkg.sha512"
     }
   }
 }

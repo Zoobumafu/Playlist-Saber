@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+//using WMPLib;
+using System.Reflection;
+using System.IO;
+using System.Media;
 
 namespace BeatSaber_Playlist_Master_V2
 {
@@ -33,6 +37,7 @@ namespace BeatSaber_Playlist_Master_V2
                     Player.URL = filePath;
                     Player.controls.play();
                     musicFile = null;
+                    
                 }
 
 

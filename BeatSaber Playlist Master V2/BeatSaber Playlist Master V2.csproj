@@ -23,6 +23,10 @@
   <ItemGroup>
     <PackageReference Include="BeatSaverSharp" Version="2.0.1" />
     <PackageReference Include="BeatSaverSharper" Version="3.0.2" />
+    <PackageReference Include="WMPLib" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

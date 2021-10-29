@@ -9,7 +9,8 @@
       "BeatSaber Playlist Master V2/1.0.0": {
         "dependencies": {
           "BeatSaverSharp": "2.0.1",
-          "BeatSaverSharper": "3.0.2"
+          "BeatSaverSharper": "3.0.2",
+          "WMPLib": "1.0.0"
         },
         "runtime": {
           "BeatSaber Playlist Master V2.dll": {}
@@ -54,6 +55,18 @@
           "Microsoft.NETCore.Platforms": "1.1.1",
           "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.1"
+        }
+      },
+      "WMPLib/1.0.0": {
+        "runtime": {
+          "lib/AxInterop.WMPLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/Interop.WMPLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -112,6 +125,13 @@
       "sha512": "sha512-qAtKMcHOAq9/zKkl0dwvF0T0pmgCQxX1rC49rJXoU8jq+lw6MC3uXy7nLFmjEI20T3Aq069eWz4LcYR64vEmJw==",
       "path": "system.runtime.extensions/4.3.1",
       "hashPath": "system.runtime.extensions.4.3.1.nupkg.sha512"
+    },
+    "WMPLib/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hhTCfENN7xrSfUG7hrd/A9YiXVMVGHAc3Hv0USe6SvpacIDxVwiBb1X3nVzELpLtewjqqFy5dsWHwImpUy3vyw==",
+      "path": "wmplib/1.0.0",
+      "hashPath": "wmplib.1.0.0.nupkg.sha512"
     }
   }
 }
