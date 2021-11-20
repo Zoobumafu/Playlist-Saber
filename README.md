@@ -17,9 +17,8 @@ Adding and removing songs from playlist is done by doubleclicking on the song na
 
 ![image](https://user-images.githubusercontent.com/81674290/142729657-22febd94-2478-44bc-b086-3c49db89ae91.png)
 
-# Known Issues 
-- Currently, the "add results to playlist" button does not take the game mode filter into consideration.
-    
+# Known Bugs 
+- Currently none.    
    
 # Credit 
 
