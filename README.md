@@ -15,7 +15,7 @@ This is a fully featured playlist editor for BeatSaber, meant to replace the out
 Simply go to the [release page](https://github.com/Zoobumafu/Playlist-Saber/releases) and download the latest version, than install.
 Adding and removing songs from playlist is done by doubleclicking on the song name.
 
-![image](https://user-images.githubusercontent.com/81674290/139512395-f774817a-7166-4b42-a1c6-102a565e0c49.png)
+![image](https://user-images.githubusercontent.com/81674290/142729657-22febd94-2478-44bc-b086-3c49db89ae91.png)
 
 # Known Issues 
 - Currently, the "add results to playlist" button does not take the game mode filter into consideration.
@@ -26,4 +26,4 @@ Adding and removing songs from playlist is done by doubleclicking on the song na
 Ofek365 - Massive help in designing the program and testing for bugs.
 
 # Contact
-You can contact me on Zubumafu#2107 or open a ticket here on Github.
+You can contact me on Discord - Zubumafu#2107 or open a ticket here on Github.
