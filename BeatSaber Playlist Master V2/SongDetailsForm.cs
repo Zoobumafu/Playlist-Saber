@@ -15,7 +15,7 @@ namespace BeatSaber_Playlist_Master_V2
         public SongDetailsForm(PlaylistSong song, Color nodeColor, List<Playlist> playlists = null)
         {
             InitializeComponent();
-            songDetailsFormNameLabel.Text = song.songName;
+            songDetailsFormNameLabel.Text = song.name;
             songDetailsFormAuthorLabel.Text = song.uploader;
             songDetailsFormSongCreatorLabel.Text = song.artist;
             songDetailsFormDifficultiesLabel.Text = song.GetDifficultiesString();

@@ -187,7 +187,7 @@ namespace BeatSaber_Playlist_Master_V2
                 try
                 {
                     PlaylistSong newSong = new PlaylistSong();
-                    newSong.songName = songsInDirectory[i]._songName;
+                    newSong.name = songsInDirectory[i]._songName;
                     newSong.uploader = songsInDirectory[i]._levelAuthorName;
                     newSong.artist = songsInDirectory[i]._songAuthorName;
                     newSong.filePath = songsInDirectory[i].folderPath;
@@ -390,7 +390,7 @@ namespace BeatSaber_Playlist_Master_V2
                 // Add song to UI
                 TreeNode node = new TreeNode();
                 node.Tag = currentSong;
-                node.Text = currentSong.songName;
+                node.Text = currentSong.name;
                 songsInPlaylistTreeView.Nodes.Add(node);
             }
 

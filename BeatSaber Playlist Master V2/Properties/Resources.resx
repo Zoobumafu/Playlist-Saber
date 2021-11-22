@@ -118,43 +118,109 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pngfind.com-playlist-png-4990026" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\pngfind.com-playlist-png-4990026.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ClickMe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\ClickMe.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="38537d7f770f46341321a53ed988c219" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\38537d7f770f46341321a53ed988c219.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit_icon-icons.com_70975" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\exit_icon-icons.com_70975.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="save-icon-icon-with-png-and-vector-format-for-free-unlimited-270528" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\save-icon-icon-with-png-and-vector-format-for-free-unlimited-270528.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PngItem_16805482" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\PngItem_1680548.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PngItem_1680548" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\PngItem_1680548.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngfind1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\pngfind.com-playlist-png-4990026.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Remove Duplicates" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Remove Duplicates.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eba3aeb057bd0a5401d2dcd3ba6271a9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\eba3aeb057bd0a5401d2dcd3ba6271a9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="threeSixtyClicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\threeSixtyClicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add songs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Add songs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="More Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\More Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="One Saber Clicked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\One Saber Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PngItem_16805481" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\PngItem_1680548.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eba3aeb057bd0a5401d2dcd3ba6271a91" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\eba3aeb057bd0a5401d2dcd3ba6271a9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nintyDegreesClicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\nintyDegreesClicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PngItem_16805482" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\PngItem_1680548.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="One Saber Unclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\One Saber Unclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="No Arrows Clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\No Arrows Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClickMe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\ClickMe.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nintyDegreesUnclicked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\nintyDegreesUnclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="clipart2195449" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\clipart2195449.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PngItem_1680548" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\PngItem_1680548.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eba3aeb057bd0a5401d2dcd3ba6271a9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\eba3aeb057bd0a5401d2dcd3ba6271a9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eba3aeb057bd0a5401d2dcd3ba6271a91" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\eba3aeb057bd0a5401d2dcd3ba6271a9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="No Arrows Unclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\No Arrows Unclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="threeSixtyUnclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\threeSixtyUnclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="No Arrows Clicked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\No Arrows Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Open Song Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Open Song Folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngfind1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\pngfind.com-playlist-png-4990026.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save Changes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Save Changes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nintyDegreesUnclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\nintyDegreesUnclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit_icon-icons.com_70975" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media\Others\exit_icon-icons.com_70975.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Open Song Folder-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Open Song Folder-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngfind.com-playlist-png-4990026" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\pngfind.com-playlist-png-4990026.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="New Playlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\New Playlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="38537d7f770f46341321a53ed988c219" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media\Others\38537d7f770f46341321a53ed988c219.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Clean Playlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Clean Playlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="One Saber Clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\One Saber Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remove Playlists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Remove Playlists.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

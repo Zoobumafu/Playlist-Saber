@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BeatSaverSharp;
 
 namespace BeatSaber_Playlist_Master_V2
 {
     public partial class songFinder : Form
     {
+        BeatSaver beatSaver;
         Form1 mainForm;
-        public songFinder(Form1 form1)
-        {
+        Downloader thisDownloader;
+        List<PlaylistSong> songList; 
+
+        public songFinder(Form1 form1, Downloader downloader)
+        { 
             InitializeComponent();
             // Get access to main form resources
             mainForm = form1;
@@ -31,65 +36,96 @@ namespace BeatSaber_Playlist_Master_V2
              * 5 - Download
              */
 
-            //            DataGridViewColumn nameHeader = new DataGridViewComboBoxColumn();
+            // Getting API controller
+            BeatSaverOptions options = new BeatSaverOptions(Data.appName, Data.version);
+            beatSaver = new BeatSaver(options);
 
 
-            DataGridViewRow dataGridViewRow = new DataGridViewRow();
-            DataGridViewCell nameCell = new DataGridViewHeaderCell();
+            //populateGridView();
+            //songListView.Rows.Add("name1", "name2", "name3", "name4");
+            songList = new List<PlaylistSong>();
 
-            dataGridViewRow.Cells.Add(nameCell);
-            //songListView.Rows.Add(dataGridViewRow);
-
-
-            Button newButton = new Button();
-            this.Controls.Add(newButton);
-            newButton.Text = "Download";
-
-            int counter = 0;
-
-            //Create new button.
-            Button button = new Button();
-
-            //Set name for a button to recognize it later.
-            button.Name = "Butt" + counter;
-
-            // you can added other attribute here.
-            button.Text = "New";
-            button.Location = new Point(70, 70);
-            button.Size = new Size(100, 100);
-
-            // Increase counter for adding new button later.
-            counter++;
-
-            // add click event to the button.
-            button.Click += new EventHandler(NewButton_Click);
+            thisDownloader = mainForm.downloader;
 
 
-            void NewButton_Click(object sender, EventArgs e)
+        }
+
+        private async void getSearchResults(string searchKey = null, bool latest = true, string rating = null)
+        {
+            BeatSaverSharp.Models.Pages.Page page = null;
+            dataGridSongSearch.Enabled = false;
+            if (latest)
             {
-                Button btn = (Button)sender;
-
-                for (int i = 0; i < counter; i++)
-                {
-                    if (btn.Name == ("Butt" + i))
-                    {
-                        // When find specific button do what do you want.
-                        //Then exit from loop by break.
-                        break;
-                    }
-                }
+                page = await beatSaver.LatestBeatmaps(/* optionals for automapper querying */);
+            }
+            else
+            {
+                
             }
 
-            //songListView.Rows.Add("name1", "name2", "name3", "name4");
-          
+            populateGridView(page);
+            dataGridSongSearch.Enabled = true;
+        }
 
+        private async void populateGridView(BeatSaverSharp.Models.Pages.Page page)
+        {
+            dataGridSongSearch.Rows.Clear();
+            // Generate a list of songs
+            for (int i = 0; i < page.Beatmaps.Count; i++)
+            {
+                songList.Clear();
+                PlaylistSong song = new PlaylistSong();
+                song.name = page.Beatmaps[i].Name;
+                song.uploader = page.Beatmaps[i].Uploader.Name;
+                song.hash = page.Beatmaps[i].LatestVersion.Hash;
+                song.key = page.Beatmaps[i].LatestVersion.Key;
+                song.length = (int)page.Beatmaps[i].LatestVersion.Difficulties[0].Seconds;
+                var  myImage = await page.Beatmaps[i].LatestVersion.DownloadCoverImage();
+                song.image = (Bitmap)((new ImageConverter()).ConvertFrom(myImage));
+                songList.Add(song);
+            }
+            for (int i = 0; i < songList.Count; i++)
+            {
+                dataGridSongSearch.Rows.Add(
+                    // Picturebox
+                    songList[i].image,
+                    // Name
+                    songList[i].name,
+                    // Author
+                    songList[i].uploader,
+                    // Song, 
+                    songList[i].length / 60 + ":" + songList[i].length % 60,
+                    "",
+                    songList[i].difficultiesFromBeatSaver
 
-
+                    );
+                dataGridSongSearch.Rows[i].Tag = songList[i];
+                // Name
+            }
         }
 
         private void playlistTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void songListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Playlist playlistToSend = (Playlist)playlistTreeView.SelectedNode.Tag;
+            MessageBox.Show(playlistToSend.playlistTitle);
+            thisDownloader.addSongToQueue((PlaylistSong)dataGridSongSearch.Rows[e.RowIndex].Tag, playlistToSend);
+        }
+        
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            getSearchResults(null, true);
+        }
+
+        private void dataGridSongSearch_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Playlist playlistToSend = (Playlist)playlistTreeView.SelectedNode.Tag;
+            thisDownloader.addSongToQueue((PlaylistSong)dataGridSongSearch.Rows[e.RowIndex].Tag, playlistToSend);
         }
     }
 }

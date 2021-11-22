@@ -12,10 +12,14 @@ namespace BeatSaber_Playlist_Master_V2
         public string key { set; get; }
         public string uploader { set; get; }
         public string hash { set; get; }
-        public string songName { set; get; }
+        public string name { set; get; }
         public int _beatsPerMinute { set; get; }
         public string artist { set; get; }
         public string filePath;
+        public Image image {  set; get; }
+        public string difficultiesFromBeatSaver {  set; get; }
+        public int length {  set; get; }
+
 
         public string downloadURL;
 
@@ -67,7 +71,7 @@ namespace BeatSaber_Playlist_Master_V2
                     catch (Exception e)
                     {
                         bitmap = null;
-                        Console.WriteLine("Error finding image in " + songName + "\n" + e.Message);
+                        Console.WriteLine("Error finding image in " + name + "\n" + e.Message);
                     }
                 }
             }

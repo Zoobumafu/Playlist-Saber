@@ -49,7 +49,7 @@ namespace BeatSaber_Playlist_Master_V2
         Color nodeForeColor;
 
         // Object to download songs
-        Downloader downloader;
+        public Downloader downloader;
 
         // Creating the finder form
         songFinder songFinder;
@@ -80,7 +80,7 @@ namespace BeatSaber_Playlist_Master_V2
 
 
             // Assaigning BeatSaverSharp parameters
-            downloader = new Downloader();
+            downloader = new Downloader(this);
             
             // UI 
             // Removing top bar
@@ -103,7 +103,7 @@ namespace BeatSaber_Playlist_Master_V2
             runInDesktopButton.ImageAlign = ContentAlignment.MiddleCenter;
 
             // Creating the song searcher form
-            songFinder = new songFinder(this);
+            songFinder = new songFinder(this, downloader);
 
         }
 
@@ -120,7 +120,7 @@ namespace BeatSaber_Playlist_Master_V2
             if (addOutOfPlaylistNode)
             {
                 TreeNode treeNode = new TreeNode();
-                treeNode.Text = "Don't add playlist";
+                treeNode.Text = "Don't add to playlist";
                 treeNode.ForeColor = Playlist.getColor();
                 treeView.Nodes.Add(treeNode);
             }
@@ -147,7 +147,7 @@ namespace BeatSaber_Playlist_Master_V2
                 if (searchKey != null)
                 {
                     //Filter results, if search key is provided.
-                    if (allSongs[i].songName.IndexOf(searchKey, StringComparison.OrdinalIgnoreCase) >= 0 == false &&
+                    if (allSongs[i].name.IndexOf(searchKey, StringComparison.OrdinalIgnoreCase) >= 0 == false &&
                         allSongs[i].artist.IndexOf(searchKey, StringComparison.OrdinalIgnoreCase) >= 0 == false &&
                         allSongs[i].uploader.IndexOf(searchKey, StringComparison.OrdinalIgnoreCase) >= 0 == false)
                     {
@@ -269,7 +269,7 @@ namespace BeatSaber_Playlist_Master_V2
                     }
 
                     // Check by non unique parameters
-                    if (song.songName == playlists[i].songs[j].songName && song.artist == playlists[i].songs[j].artist && song.uploader == playlists[i].songs[j].uploader)
+                    if (song.name == playlists[i].songs[j].name && song.artist == playlists[i].songs[j].artist && song.uploader == playlists[i].songs[j].uploader)
                         return true;
                 }
             }
@@ -349,7 +349,7 @@ namespace BeatSaber_Playlist_Master_V2
             List<PlaylistSong> sortedList;
             if (nameRadioButton.Checked == true)
             {
-                sortedList = songsToList.OrderBy(x => x.songName).ToList();
+                sortedList = songsToList.OrderBy(x => x.name).ToList();
             }
             else if (dateRadioButton.Checked == true)
             {
@@ -378,7 +378,7 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 TreeNode node = new TreeNode();
                 node.Tag = song;
-                node.Text = song.songName;
+                node.Text = song.name;
                 allSongsTreeView.Nodes.Add(node);
             }
 
@@ -398,7 +398,7 @@ namespace BeatSaber_Playlist_Master_V2
                 {
                     TreeNode node = new TreeNode();
                     node.Tag = playlist.songs[i];
-                    node.Text = playlist.songs[i].songName;
+                    node.Text = playlist.songs[i].name;
                     songsInPlaylistTreeView.Nodes.Add(node);
                 }
             }
@@ -462,7 +462,7 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void addResultsButton_Click(object sender, EventArgs e)
         {
-            List<PlaylistSong> songsToAdd = searchResults(searchTextBox.Text);
+            List<PlaylistSong> songsToAdd = searchResults(searchTextBox.Text, getModeFilter());
             if (playlistTreeView.SelectedNode != null)
             {
                 foreach (PlaylistSong song in songsToAdd)
@@ -484,7 +484,7 @@ namespace BeatSaber_Playlist_Master_V2
         void updateSongDetails(TreeNode node)
         {
             PlaylistSong currentSong = (PlaylistSong)node.Tag;
-            songNameLabel.Text = currentSong.songName;
+            songNameLabel.Text = currentSong.name;
             songAuthorLabel.Text = "by " + currentSong.uploader;
 
             if (currentSong.file != null)
@@ -511,17 +511,21 @@ namespace BeatSaber_Playlist_Master_V2
             }
 
             // Hide or show download button if the files are missing
-            if (Directory.Exists(currentSong.file.folderPath) || downloader.isInQueue(currentSong))
+            if (currentSong.file != null)
             {
                 downloadSongButton.Visible = false;
-
+            }
+            else if (downloader.isInQueue(currentSong))
+            {
+                downloadSongButton.Visible = false;
             }
             else
             {
                 downloadSongButton.Visible = true;
             }
+            
 
-            // Hide or show donloading notification
+/*            // Hide or show donloading notification
             if (downloader.isInQueue(currentSong))
             {
                 downloadingSongLabel.Visible = true;
@@ -529,7 +533,7 @@ namespace BeatSaber_Playlist_Master_V2
             else
             {
                 downloadingSongLabel.Visible = false;
-            }
+            }*/
         }
 
 
@@ -898,14 +902,12 @@ namespace BeatSaber_Playlist_Master_V2
             if (!Data.noArrowsMode)
             {
                 Data.noArrowsMode = true;
-
-                noArrowsModeButton.BackColor = Color.Snow;
+                noArrowsModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.No_Arrows_Clicked;
             }
             else
             {
                 Data.noArrowsMode = false;
-
-                noArrowsModeButton.BackColor = Color.Transparent;
+                noArrowsModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.No_Arrows_Unclicked;
 
             }
 
@@ -920,13 +922,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.OneSaberMode = true;
 
-                oneSaberModeButton.BackColor = Color.Snow;
+                oneSaberModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.One_Saber_Clicked;
             }
             else
             {
                 Data.OneSaberMode = false;
 
-                oneSaberModeButton.BackColor = Color.Transparent;
+                oneSaberModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.One_Saber_Unclicked;
             }
 
             populateAllSongsForm(searchTextBox.Text);
@@ -940,13 +942,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.ninetyDegreesMode = true;
 
-                ninetyDegreeModeButton.BackColor = Color.Snow;
+                ninetyDegreeModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.nintyDegreesClicked;
             }
             else
             {
                 Data.ninetyDegreesMode = false;
 
-                ninetyDegreeModeButton.BackColor = Color.Transparent;
+                ninetyDegreeModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.nintyDegreesUnclicked;
 
             }
 
@@ -961,13 +963,13 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 Data.threeSixtyDegreesMode = true;
 
-                threeSixyModeButton.BackColor = Color.Snow;
+                threeSixyModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.threeSixtyClicked;
             }
             else
             {
                 Data.threeSixtyDegreesMode = false;
 
-                threeSixyModeButton.BackColor = Color.Transparent;
+                threeSixyModeButton.Image = BeatSaber_Playlist_Master_V2.Properties.Resources.threeSixtyUnclicked;
 
             }
 
@@ -1020,6 +1022,27 @@ namespace BeatSaber_Playlist_Master_V2
         private void openSongFinderButton_Click(object sender, EventArgs e)
         {
             songFinder.ShowDialog();
+        }
+
+        // ALLSONGS DOES NOT REGISTER SONGS THAT ARE IN PLAYLIST, BUT NOT IN THE FOLDER.
+        private void downloadAllMissingSongsButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < playlists.Count; i++)
+            {
+                for (int j = 0; j < playlists[i].songs.Count; j++)
+                {
+                    if (playlists[i].songs[j].file == null)
+                    {
+                        downloader.addSongToQueue(playlists[i].songs[j]);
+                    }
+                }
+                
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

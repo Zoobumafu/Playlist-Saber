@@ -11,18 +11,26 @@ using Newtonsoft.Json;
 
 namespace BeatSaber_Playlist_Master_V2
 {
-    internal class Downloader
+    // Struct for download queue items
+    struct downloadQueueItem
+    {
+        public PlaylistSong song;
+        public Playlist playlist;
+    }
+
+    public class Downloader
     {
         public static BeatSaver beatSaver;
 
-        private static List<PlaylistSong> downloadQueue = new List<PlaylistSong>();
+        private static List<downloadQueueItem> downloadQueue = new List<downloadQueueItem>();
          //HttpOptions options;
         static Task downloadTask;
         bool running;
         bool firstRun;
         public string downloadFeedbackMessage;
+        Form1 mainForm;
 
-        public Downloader()
+        public Downloader(Form1 callerForm)
         {
             //options = new HttpOptions(Data.appName, Data.version);
             BeatSaverOptions options = new BeatSaverOptions(Data.appName, Data.version);
@@ -31,32 +39,54 @@ namespace BeatSaber_Playlist_Master_V2
             running = false;
             firstRun = true;
             downloadFeedbackMessage = "";
+            mainForm = callerForm;
         }
 
 
         public  bool isInQueue(PlaylistSong song)
         {
-            if (downloadQueue.Contains(song))
+            for (int i = 0; i < downloadQueue.Count; i++)
             {
-                return true;
+                if (downloadQueue[i].song.Equals(song))
+                {
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
+            
+            return false;
         }
 
-        public  bool addSongToQueue(PlaylistSong song)
-        {
-            if (!isInQueue(song))
-            {
-                downloadQueue.Add(song);
 
+        /// <summary>
+        /// Specify the song you want to download, and the playlist you want it to be added (default is null, which means it won't be added to any playlist)
+        /// </summary>
+        /// <param name="songToDownload"></param>
+        /// <param name="playlist"></param>
+        /// <returns></returns>
+        public  bool addSongToQueue(PlaylistSong songToDownload, Playlist playlist = null)
+        {
+            songToDownload.name = validateName(songToDownload.name);
+            if (!isInQueue(songToDownload))
+            {
+                downloadQueueItem newDownloadQueueItem = new downloadQueueItem();
+                newDownloadQueueItem.song = songToDownload;
+                newDownloadQueueItem.playlist = playlist;
+                downloadQueue.Add(newDownloadQueueItem);
+                
                 if (!running)
                 {
                     if (!firstRun)
                     {
-                        downloadTask.Dispose();
+                        try
+                        {
+                            downloadTask.Dispose();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error disposing download task" + e.Message);
+                        }
+
+
                         downloadTask = new Task(runQueue);
                     }
                     downloadTask.Start();
@@ -81,15 +111,15 @@ namespace BeatSaber_Playlist_Master_V2
             }
         }
 
-        private async  Task downloadSong(PlaylistSong song)
+        private async  Task downloadSong(downloadQueueItem songToDownload)
         {
             // Fetching song details + aborting download if failing.
-            var myMap = await beatSaver.BeatmapByHash(song.hash);
+            var myMap = await beatSaver.BeatmapByHash(songToDownload.song.hash);
             if (myMap == null)
             {
-                Console.WriteLine("Error fetching metadata of " + song.songName);
-                MessageBox.Show("Error fetching metadata of " + song.songName);
-                downloadFeedbackMessage = "Error fetching metadata of " + song.songName + " song download aborted...";
+                Console.WriteLine("Error fetching metadata of " + songToDownload.song.name);
+                MessageBox.Show("Error fetching metadata of " + songToDownload.song.name);
+                downloadFeedbackMessage = "Error fetching metadata of " + songToDownload.song.name + " song download aborted...";
                 return;
             }
 
@@ -100,9 +130,9 @@ namespace BeatSaber_Playlist_Master_V2
 
             if (file == null)
             {
-                Console.WriteLine("Error downloading " + song.songName);
-                MessageBox.Show("Error downloading " + song.songName);
-                downloadFeedbackMessage ="Error downloading " + song.songName + " song download aborted...";
+                Console.WriteLine("Error downloading " + songToDownload.song.name);
+                MessageBox.Show("Error downloading " + songToDownload.song.name);
+                downloadFeedbackMessage ="Error downloading " + songToDownload.song.name + " song download aborted...";
                 return;
             }
 
@@ -125,9 +155,9 @@ namespace BeatSaber_Playlist_Master_V2
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error extracting " + song.songName + "\n" + e.Message);
-                MessageBox.Show("Error extracting " + song.songName);
-                downloadFeedbackMessage = "Error extracting " + song.songName + " song download aborted...";
+                Console.WriteLine("Error extracting " + songToDownload.song.name + "\n" + e.Message);
+                MessageBox.Show("Error extracting " + songToDownload.song.name);
+                downloadFeedbackMessage = "Error extracting " + songToDownload.song.name + " song download aborted...";
                 return;
             }
             zip.Dispose();
@@ -138,19 +168,31 @@ namespace BeatSaber_Playlist_Master_V2
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error deleting zip " + song.songName + "\nSong has likely been downloaded with no issues\n" + e.Message);
+                Console.WriteLine("Error deleting zip " + songToDownload.song.name + "\nSong has likely been downloaded with no issues\n" + e.Message);
             }
 
-            // TO-DO replace the song file with this new file
             SongFile thisSongFile= new SongFile();
             string jsonString = File.ReadAllText(@newPath + @"\info.dat");   
             SongFile newSongFile = JsonConvert.DeserializeObject<SongFile>(jsonString);
-            song.file = newSongFile;
+            songToDownload.song.file = newSongFile;
             DirectoryInfo info = new DirectoryInfo(@newPath);
-            song.filePath = info.FullName;
-            song.file.folderPath = info.FullName;
-            song.file.lastModified = info.LastWriteTime;
-            Form1.CreateHash(song);
+            songToDownload.song.filePath = info.FullName;
+            songToDownload.song.file.folderPath = info.FullName;
+            songToDownload.song.file.lastModified = info.LastWriteTime;
+            Form1.CreateHash(songToDownload.song);
+
+            // Add song to the currect playlist and to all songs.
+            if (!mainForm.allSongs.Contains(songToDownload.song))
+            {
+                mainForm.allSongs.Add(songToDownload.song);
+            }
+            if (songToDownload.playlist != null)
+            {
+                songToDownload.playlist.songs.Add(songToDownload.song);
+            }
+
+
+            
         }
         
         private async void runQueue()
@@ -162,6 +204,18 @@ namespace BeatSaber_Playlist_Master_V2
                 downloadQueue.RemoveAt(0);
             }
             running = false; 
+        }
+
+        private string validateName(string name)
+        {
+            var charsToRemove = new string[] { "@", ",", ".", ";", "'" };
+            //^(.*?/|.*?\\)?([^\./|^\.\\]+)(?:\.([^\\]*)|)$
+            string validName = name;
+            if (name != null)
+            {
+                validName = new string(name.Where(Char.IsLetter).ToArray());
+            }
+            return validName;
         }
 
 
