@@ -23,8 +23,8 @@ namespace BeatSaber_Playlist_Master_V2
         public static bool isSaved = true;
 
         // Flags to track if search mode filters
-        // DON'T EDIT 1 ARRAY WITHOUT THE OTHER!
 
+        
         public static bool standardMode = false; // Standard
         public static bool OneSaberMode = false; // OneSaber
         public static bool ninetyDegreesMode = false; // 90Degree

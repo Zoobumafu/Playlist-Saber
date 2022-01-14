@@ -103,9 +103,10 @@ namespace BeatSaber_Playlist_Master_V2
                             FolderBrowserDialog dlg = new FolderBrowserDialog();
                             dlg.Description = "Locate BeatSaber directory";
                             dlg.ShowDialog();
-                            if (File.Exists(dlg.SelectedPath + @"\Beatsaber.exe"))
+                            if (File.Exists(dlg.SelectedPath + @"\BeatSaber.exe") || File.Exists(dlg.SelectedPath + @"\Beat Saber.exe"))
                             {
                                 located = true;
+                                Data.installPath = dlg.SelectedPath;
                             }
                             else
                             {
