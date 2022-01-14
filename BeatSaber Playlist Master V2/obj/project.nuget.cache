@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fQcpF4GO0MZyBDoMLhOspLa7FXkLdztD9jsTEdb+LK8Px3Jer648pj1dV15Djkv0q7DDDAoQfdWC5mSPdcmoJQ==",
+  "dgSpecHash": "67pAV3Bsu58un6WbuwEnggIyaXcmRorpKozJohiu+U2ce7NdkpZWrpPb/3wM9VuQRNwtUR3Bz5392QByD9bMjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
   "expectedPackageFiles": [
@@ -25,7 +25,7 @@
     "C:\\Users\\atart\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\atart\\.nuget\\packages\\wmplib\\1.0.0\\wmplib.1.0.0.nupkg.sha512",
-    "C:\\Users\\atart\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
+    "C:\\Users\\atart\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\5.0.9\\microsoft.netcore.app.host.win-x86.5.0.9.nupkg.sha512"
   ],
   "logs": [
     {

@@ -239,7 +239,7 @@
         }
       }
     },
-    "net5.0-windows7.0/win-x64": {
+    "net5.0-windows7.0/win-x86": {
       "BeatSaverSharp/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -1155,7 +1155,7 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "name": "Microsoft.NETCore.App.Host.win-x86",
             "version": "[5.0.9, 5.0.9]"
           }
         ],
@@ -1171,7 +1171,7 @@
       }
     },
     "runtimes": {
-      "win-x64": {
+      "win-x86": {
         "#import": []
       }
     }

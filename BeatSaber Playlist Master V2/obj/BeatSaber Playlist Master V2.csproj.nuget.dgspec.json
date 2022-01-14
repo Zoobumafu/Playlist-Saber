@@ -76,7 +76,7 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "name": "Microsoft.NETCore.App.Host.win-x86",
               "version": "[5.0.9, 5.0.9]"
             }
           ],
@@ -92,7 +92,7 @@
         }
       },
       "runtimes": {
-        "win-x64": {
+        "win-x86": {
           "#import": []
         }
       }
