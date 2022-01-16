@@ -11,7 +11,7 @@ This is a fully featured playlist editor for BeatSaber, meant to replace the out
 
 
 ## Download && Usage
-Simply go to the [release page](https://github.com/Zoobumafu/Playlist-Saber/releases) and download the latest version, than install.
+Simply go to the [release page](https://github.com/Zoobumafu/Playlist-Saber/releases) and download the latest version.
 Adding and removing songs from playlist is done by doubleclicking on the song name.
 
 ![image](https://user-images.githubusercontent.com/81674290/142729657-22febd94-2478-44bc-b086-3c49db89ae91.png)
