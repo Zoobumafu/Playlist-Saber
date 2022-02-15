@@ -145,9 +145,6 @@
   <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\buttonIcons\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="One Saber Clicked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\buttonIcons\One Saber Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PngItem_16805481" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\PngItem_1680548.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,8 +160,8 @@
   <data name="One Saber Unclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\buttonIcons\One Saber Unclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="No Arrows Clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\buttonIcons\No Arrows Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Remove Playlists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Remove Playlists.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ClickMe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\ClickMe.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,6 +184,9 @@
   <data name="No Arrows Clicked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\buttonIcons\No Arrows Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="nintyDegreesUnclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\nintyDegreesUnclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Open Song Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\buttonIcons\Open Song Folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,14 +196,17 @@
   <data name="Save Changes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\buttonIcons\Save Changes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nintyDegreesUnclicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\buttonIcons\nintyDegreesUnclicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="No Arrows Clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\No Arrows Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Open Song Folder-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\Open Song Folder-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\toppng.com-folder-icon-png-transparent-black-and-white-folder-ico-1589x1366.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Open Song Folder-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\buttonIcons\Open Song Folder-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="One Saber Clicked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\buttonIcons\One Saber Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngfind.com-playlist-png-4990026" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media\Others\pngfind.com-playlist-png-4990026.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,7 +223,7 @@
   <data name="One Saber Clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\buttonIcons\One Saber Clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Remove Playlists" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\buttonIcons\Remove Playlists.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="light-saber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\light-saber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

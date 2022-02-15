@@ -53,15 +53,21 @@ namespace BeatSaber_Playlist_Master_V2
 
         // Creating the finder form
         songFinder songFinder;
+
         public Form1()
         {
 
+           
             InitializeComponent();
 
             // Startup processes
 
             // Find directory
             FindBeatSaberDirectory();
+
+            LoadingForm loadingForm = new LoadingForm();
+            loadingForm.Show();
+            loadingForm.Refresh();
 
             // Read previous playlists into object
             ReadPlaylist(playlists);
@@ -77,6 +83,8 @@ namespace BeatSaber_Playlist_Master_V2
             // Populate GUI
             populatePlaylists(playlists, playlistTreeView);
             populateAllSongsForm();
+
+            loadingForm.Close();
 
 
             // Assaigning BeatSaverSharp parameters
@@ -541,7 +549,6 @@ namespace BeatSaber_Playlist_Master_V2
         #endregion
 
         #region Other miscellaneous button functions 
-
 
         private void changeInstallLocation_Click(object sender, EventArgs e)
         {
