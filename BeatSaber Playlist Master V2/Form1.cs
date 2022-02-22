@@ -1051,5 +1051,10 @@ namespace BeatSaber_Playlist_Master_V2
         {
 
         }
+
+        private void playlistExportButton_Click(object sender, EventArgs e)
+        {
+            exportPlaylists(playlists, "C:\\");
+        }
     }
 }

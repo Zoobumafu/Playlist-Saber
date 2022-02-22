@@ -131,3 +131,38 @@ C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\Beat
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.CopyComplete
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\refint\BeatSaber Playlist Master V2.dll
 C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.LoadingForm.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.AssemblyReference.cache
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.Form1.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.LoadingForm.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.NewPlaylistForm.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.Properties.Resources.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.SongDetailsForm.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.songFinder.resources
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.GenerateResource.cache
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.AssemblyInfoInputs.cache
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.AssemblyInfo.cs
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.CoreCompileInputs.cache
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\refint\BeatSaber Playlist Master V2.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.pdb
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaber Playlist Master V2.exe
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaber Playlist Master V2.deps.json
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaber Playlist Master V2.runtimeconfig.json
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaber Playlist Master V2.runtimeconfig.dev.json
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaber Playlist Master V2.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaber Playlist Master V2.pdb
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\BeatSaverSharp.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.Asio.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.Core.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.Midi.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.Wasapi.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.WinForms.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\NAudio.WinMM.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\AxInterop.WMPLib.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5.0-windows\Interop.WMPLib.dll
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.CopyComplete
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
+C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\ref\BeatSaber Playlist Master V2.dll

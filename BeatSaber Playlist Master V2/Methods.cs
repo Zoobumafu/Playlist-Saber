@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 using BeatSaverSharp;
 using System.Security.Cryptography;
-
+using System.IO.Compression;
 
 
 namespace BeatSaber_Playlist_Master_V2
@@ -110,21 +110,22 @@ namespace BeatSaber_Playlist_Master_V2
                             }
                             else
                             {
-                                DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe", ":=(", MessageBoxButtons.YesNo);
+                                DialogResult dialogResult2 = MessageBox.Show("Wrong path (you need to pick the folder that contains the BeatSaber launcher, BeatSaber.exe)", ":=(", MessageBoxButtons.YesNo);
                                 if (dialogResult2 == DialogResult.Yes)
                                 {
                                     dlg.ShowDialog();
                                 }
                                 else
                                 {
-                                    Application.Exit();
+                                    Environment.Exit(1);
+                                    
                                 }
                             }
                         }
                     }
                     else
                     {
-                        Application.Exit();
+                        Environment.Exit(0);
                     }
 
 
@@ -458,6 +459,64 @@ namespace BeatSaber_Playlist_Master_V2
 
                 }
             }
+        }
+
+        void exportPlaylists(List<Playlist> playlists, string path)
+        {
+            string zipName = "Playlists ";
+            foreach (Playlist p in playlists)
+                zipName += p.playlistTitle + " ";
+            zipName += ".zip";
+            // Create a temporary directory to copy all files to
+            string tempDirectory = Path.GetTempPath() + "\\Playlist Saber Temporary Directory";
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory);
+            Directory.CreateDirectory(tempDirectory);
+
+            for (int i = 0; i < playlists.Count; i++)
+            {
+                File.Copy(playlists[i].filePath, tempDirectory);
+                for (int j = 0; j < playlists[i].songs.Count; j++)
+                {
+                    string playlistDirectoryPath = tempDirectory + "\\" + playlists[i].songs[i].file.folderPath;
+                    Directory.CreateDirectory(playlistDirectoryPath);
+                    foreach (string dirPath in Directory.GetDirectories(playlists[i].songs[i].file.folderPath, "*", SearchOption.AllDirectories))
+                    {
+                        Directory.CreateDirectory(dirPath.Replace(playlists[i].songs[i].file.folderPath, playlistDirectoryPath));
+                    }
+
+                    //Copy all the files & Replaces any files with the same name
+                    foreach (string newPath in Directory.GetFiles(playlists[i].songs[i].file.folderPath, "*.*", SearchOption.AllDirectories))
+                    {
+                        File.Copy(newPath, newPath.Replace(playlists[i].songs[i].file.folderPath, playlistDirectoryPath), true);
+                    }
+                }
+                //TODO
+
+            }
+
+            // Create and open a new ZIP file
+            var zip = ZipFile.Open(path + "\\" + zipName, ZipArchiveMode.Create);
+            foreach (var file in Directory.GetFiles(tempDirectory, "*.*", SearchOption.AllDirectories))
+            {
+                // Add the entry for each file
+                zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+            }
+            // Dispose of the object when we are done
+            zip.Dispose();
+
+
+            /* // Create and open a new ZIP file
+             var zip = ZipFile.Open(path + zipName + ".zip", ZipArchiveMode.Create);
+             foreach (var file in files)
+             {
+                 // Add the entry for each file
+                 zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+             }
+             // Dispose of the object when we are done
+             zip.Dispose();
+
+             myZip = ZipFile.CreateFromDirectory(dirPath, zipFile);*/
         }
     }
 
