@@ -461,7 +461,7 @@ namespace BeatSaber_Playlist_Master_V2
             }
         }
 
-        void exportPlaylists(List<Playlist> playlists, string path)
+        public void exportPlaylists(List<Playlist> playlists, string path)
         {
             // ADD CODE TO DEAL WITH TRYING TO SAVE ZIP TO A PATH WITH NO ACCESS
 
@@ -543,6 +543,7 @@ namespace BeatSaber_Playlist_Master_V2
 
         void importPlaylists(string zipPath)
         {
+            
             string tempDirectory = Path.GetTempPath() + "\\Playlist Saber Temporary Directory";
             if (Directory.Exists(tempDirectory))
                 Directory.Delete(tempDirectory, true);
@@ -550,7 +551,22 @@ namespace BeatSaber_Playlist_Master_V2
 
             ZipFile.ExtractToDirectory(zipPath, tempDirectory);
 
-            // TO DO - COPY AND DELETE ALL FILES ENDING WITH BPLIST AND JSON TO BS PLAYLIST FOLDER, AND ALL OTHERS TO CUSTOM DATA
+            string[] filePaths = Directory.GetFiles(tempDirectory);
+
+            for (int i = 0; i < filePaths.Length; i++)
+            {
+                if (filePaths[i].Substring(filePaths[i].Length - 6, 5) == ".json" || filePaths[i].Substring(filePaths[i].Length - 6, 5) == ".bplist")
+                {
+                    File.Copy(filePaths[i], Data.installPath + "\\playlists"); // TO COMPLETE
+                    File.Delete(filePaths[i]);
+                }
+            }
+            string[] songFolders = Directory.GetDirectories(tempDirectory);
+            for (int i = 0; i < songFolders.Length; i++)
+                Directory.Move(songFolders[i], Data.installPath + "\\Beat Saber_Data\\CustomLevels\\");
+
+            Directory.Delete(tempDirectory, true);
+
         }
     }
 

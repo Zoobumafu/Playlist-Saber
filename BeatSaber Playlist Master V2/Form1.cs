@@ -1054,11 +1054,17 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void playlistExportButton_Click(object sender, EventArgs e)
         {
-            exportPlaylists(playlists, "C:\\more junk");
+            ExportForm exportForm = new ExportForm(this);
+            exportForm.ShowDialog();
+            //exportForm.Refresh();
         }
 
         private void importPlaylistsButton_Click(object sender, EventArgs e)
         {
+            LoadingForm loadingForm = new LoadingForm("Importing playlists, We will restart the program when done", "This will take a while...");
+            loadingForm.Show();
+            loadingForm.Refresh();
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
             openFileDialog.Filter = "zip files (*.zip)|*.zip|All files (*.*)|*.*";
@@ -1072,6 +1078,10 @@ namespace BeatSaber_Playlist_Master_V2
 
                 importPlaylists(filePath);
             }
+
+            loadingForm.Dispose();
+
+            Application.Restart();
         }
     }
 }
