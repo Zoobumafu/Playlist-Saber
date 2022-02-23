@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Tomer Atar\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Tomer Atar\\.nuget\\packages",
+      "C:\\Users\\atart\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\atart\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

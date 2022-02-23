@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tomer Atar\\Documents\\GitHub\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {}
+    "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tomer Atar\\Documents\\GitHub\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {
+    "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tomer Atar\\Documents\\GitHub\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+        "projectUniqueName": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
         "projectName": "BeatSaber Playlist Master V2",
-        "projectPath": "C:\\Users\\Tomer Atar\\Documents\\GitHub\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
-        "packagesPath": "C:\\Users\\Tomer Atar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tomer Atar\\Documents\\GitHub\\BeatSaber Playlist Master V2\\obj\\",
+        "projectPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\BeatSaber Playlist Master V2.csproj",
+        "packagesPath": "C:\\Users\\atart\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\atart\\Documents\\GitHub\\BeatSaber Playlist Master V2\\Playlist-Saber\\BeatSaber Playlist Master V2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tomer Atar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\atart\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.stride3d.net/nuget": {}
         },
         "frameworks": {
           "net5.0-windows7.0": {
@@ -81,7 +82,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200-preview.22055.15\\RuntimeIdentifierGraph.json"
         }
       }
     }

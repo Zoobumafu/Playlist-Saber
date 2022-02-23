@@ -12,9 +12,11 @@ namespace BeatSaber_Playlist_Master_V2
 {
     public partial class LoadingForm : Form
     {
-        public LoadingForm()
+        public LoadingForm(string topText, string bottomText)
         {
             InitializeComponent();
+            topLabel.Text = topText;
+            bottomLabel.Text = bottomText;
         }
     }
 }

@@ -65,7 +65,7 @@ namespace BeatSaber_Playlist_Master_V2
             // Find directory
             FindBeatSaberDirectory();
 
-            LoadingForm loadingForm = new LoadingForm();
+            LoadingForm loadingForm = new LoadingForm("Playlist Saber is reading your playlists", "Please wait....");
             loadingForm.Show();
             loadingForm.Refresh();
 
@@ -1054,7 +1054,24 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void playlistExportButton_Click(object sender, EventArgs e)
         {
-            exportPlaylists(playlists, "C:\\");
+            exportPlaylists(playlists, "C:\\more junk");
+        }
+
+        private void importPlaylistsButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "zip files (*.zip)|*.zip|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                string filePath = openFileDialog.FileName;
+
+                importPlaylists(filePath);
+            }
         }
     }
 }

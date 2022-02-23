@@ -463,60 +463,94 @@ namespace BeatSaber_Playlist_Master_V2
 
         void exportPlaylists(List<Playlist> playlists, string path)
         {
+            // ADD CODE TO DEAL WITH TRYING TO SAVE ZIP TO A PATH WITH NO ACCESS
+
+            LoadingForm loadingForm = new LoadingForm("Exporting playlists", "This will take a while...");
+            loadingForm.Show();
+            loadingForm.Refresh();
+
             string zipName = "Playlists ";
-            foreach (Playlist p in playlists)
-                zipName += p.playlistTitle + " ";
+            for (int i = 0; i < playlists.Count && i < 2; i++)
+                zipName += playlists[i].playlistTitle + " ";
             zipName += ".zip";
             // Create a temporary directory to copy all files to
             string tempDirectory = Path.GetTempPath() + "\\Playlist Saber Temporary Directory";
             if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory);
+                Directory.Delete(tempDirectory, true);
             Directory.CreateDirectory(tempDirectory);
 
             for (int i = 0; i < playlists.Count; i++)
             {
-                File.Copy(playlists[i].filePath, tempDirectory);
+                File.Copy(playlists[i].filePath, tempDirectory + "\\" + playlists[i]._filename);
                 for (int j = 0; j < playlists[i].songs.Count; j++)
                 {
-                    string playlistDirectoryPath = tempDirectory + "\\" + playlists[i].songs[i].file.folderPath;
-                    Directory.CreateDirectory(playlistDirectoryPath);
-                    foreach (string dirPath in Directory.GetDirectories(playlists[i].songs[i].file.folderPath, "*", SearchOption.AllDirectories))
+                    string tempSongDirectory = tempDirectory + "\\" + playlists[i].songs[j].name; tempSongDirectory = tempSongDirectory.Trim();
+                    string songFolderPath = playlists[i].songs[j].filePath;
+                    
+                    // Check for invalid characters, and remove them if found
+                    //tempSongDirectory = string.Join("_", tempSongDirectory.Split(Path.GetInvalidFileNameChars()));
+
+                    string illegal = "*?<>|";
+                    //string invalid = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+
+                    foreach (char c in illegal)
                     {
-                        Directory.CreateDirectory(dirPath.Replace(playlists[i].songs[i].file.folderPath, playlistDirectoryPath));
+                        tempSongDirectory = tempSongDirectory.Replace(c, ' ');
                     }
 
-                    //Copy all the files & Replaces any files with the same name
-                    foreach (string newPath in Directory.GetFiles(playlists[i].songs[i].file.folderPath, "*.*", SearchOption.AllDirectories))
+                    //MessageBox.Show(tempSongDirectory);
+
+
+
+
+                    Directory.CreateDirectory(tempSongDirectory);
+                    if (songFolderPath != null)
                     {
-                        File.Copy(newPath, newPath.Replace(playlists[i].songs[i].file.folderPath, playlistDirectoryPath), true);
+                        foreach (string dirPath in Directory.GetDirectories(songFolderPath, "*", SearchOption.AllDirectories))
+                        {
+                            Directory.CreateDirectory(dirPath.Replace(songFolderPath, tempSongDirectory));
+                        }
+
+                        //Copy all the files & Replaces any files with the same name
+                        foreach (string newPath in Directory.GetFiles(songFolderPath, "*.*", SearchOption.AllDirectories))
+                        {
+                            File.Copy(newPath, newPath.Replace(songFolderPath, tempSongDirectory), true);
+                        }
                     }
+                    
                 }
                 //TODO
 
             }
 
-            // Create and open a new ZIP file
+            /*// Create and open a new ZIP file
             var zip = ZipFile.Open(path + "\\" + zipName, ZipArchiveMode.Create);
             foreach (var file in Directory.GetFiles(tempDirectory, "*.*", SearchOption.AllDirectories))
             {
                 // Add the entry for each file
                 zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
-            }
+            }*/
+
+            ZipFile.CreateFromDirectory(tempDirectory, path + "\\" + zipName);
+
             // Dispose of the object when we are done
-            zip.Dispose();
 
+            Directory.Delete(tempDirectory, true);
 
-            /* // Create and open a new ZIP file
-             var zip = ZipFile.Open(path + zipName + ".zip", ZipArchiveMode.Create);
-             foreach (var file in files)
-             {
-                 // Add the entry for each file
-                 zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
-             }
-             // Dispose of the object when we are done
-             zip.Dispose();
+            loadingForm.Dispose();
 
-             myZip = ZipFile.CreateFromDirectory(dirPath, zipFile);*/
+        }
+
+        void importPlaylists(string zipPath)
+        {
+            string tempDirectory = Path.GetTempPath() + "\\Playlist Saber Temporary Directory";
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            Directory.CreateDirectory(tempDirectory);
+
+            ZipFile.ExtractToDirectory(zipPath, tempDirectory);
+
+            // TO DO - COPY AND DELETE ALL FILES ENDING WITH BPLIST AND JSON TO BS PLAYLIST FOLDER, AND ALL OTHERS TO CUSTOM DATA
         }
     }
 
