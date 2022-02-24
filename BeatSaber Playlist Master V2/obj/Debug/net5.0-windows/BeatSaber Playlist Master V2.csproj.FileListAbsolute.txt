@@ -166,3 +166,4 @@ C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\bin\Debug\net5
 C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.csproj.CopyComplete
 C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber Playlist Master V2.genruntimeconfig.cache
 C:\Users\Tomer Atar\Documents\GitHub\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\ref\BeatSaber Playlist Master V2.dll
+C:\Users\atart\Documents\GitHub\BeatSaber Playlist Master V2\Playlist-Saber\BeatSaber Playlist Master V2\obj\Debug\net5.0-windows\BeatSaber_Playlist_Master_V2.ExportForm.resources

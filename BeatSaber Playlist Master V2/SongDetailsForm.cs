@@ -24,7 +24,11 @@ namespace BeatSaber_Playlist_Master_V2
             {
                 songDetailsFormMapVersionLabel.Text = song.file._version;
                 songDetailsFormDefaultEvironment.Text = song.file._environmentName;
+                if (song.file.lastModified != null)
+                    lastModifiedLabel.Text = song.file.lastModified.ToString();
             }
+
+            
 
             // Get and set image
             

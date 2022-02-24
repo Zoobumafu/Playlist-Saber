@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using BeatSaverSharp;
 using System.Security.Cryptography;
 using System.IO.Compression;
+using Microsoft.VisualBasic;
 
 
 namespace BeatSaber_Playlist_Master_V2
@@ -544,7 +545,7 @@ namespace BeatSaber_Playlist_Master_V2
         void importPlaylists(string zipPath)
         {
             
-            string tempDirectory = Path.GetTempPath() + "\\Playlist Saber Temporary Directory";
+            string tempDirectory = Path.GetTempPath() + "Playlist Saber Temporary Directory";
             if (Directory.Exists(tempDirectory))
                 Directory.Delete(tempDirectory, true);
             Directory.CreateDirectory(tempDirectory);
@@ -555,16 +556,26 @@ namespace BeatSaber_Playlist_Master_V2
 
             for (int i = 0; i < filePaths.Length; i++)
             {
-                if (filePaths[i].Substring(filePaths[i].Length - 6, 5) == ".json" || filePaths[i].Substring(filePaths[i].Length - 6, 5) == ".bplist")
+                if (string.Equals(filePaths[i].Substring(filePaths[i].Length - 5, 5), ".json") || string.Equals(filePaths[i].Substring(filePaths[i].Length - 7, 7),".bplist"))
                 {
-                    File.Copy(filePaths[i], Data.installPath + "\\playlists"); // TO COMPLETE
+                    File.Copy(filePaths[i], Data.installPath + "\\playlists\\" + Path.GetFileName(filePaths[i]), true);
                     File.Delete(filePaths[i]);
                 }
             }
             string[] songFolders = Directory.GetDirectories(tempDirectory);
-            for (int i = 0; i < songFolders.Length; i++)
-                Directory.Move(songFolders[i], Data.installPath + "\\Beat Saber_Data\\CustomLevels\\");
 
+            // This is the only solution that works, why da fuck is copying a directory so complicated???
+            //Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(tempDirectory, Data.installPath + "\\Beat Saber_Data\\CustomLevels\\");
+            string destination = Data.installPath + "\\Beat Saber_Data\\CustomLevels";
+            string cmdCommand = "\"" + @tempDirectory + "\"" + " " + "\"" + @destination + "\"" + @" /E /H /C /I";
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            proc.StartInfo.UseShellExecute = true;
+            proc.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            proc.StartInfo.FileName = Path.Combine(Environment.SystemDirectory, "xcopy.exe");
+            proc.StartInfo.Arguments = cmdCommand;
+            proc.Start();
+            proc.WaitForExit();
+ 
             Directory.Delete(tempDirectory, true);
 
         }

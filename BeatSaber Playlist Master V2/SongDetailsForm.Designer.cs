@@ -44,6 +44,8 @@ namespace BeatSaber_Playlist_Master_V2
             this.songDetailsFormPlaylistsTreeView = new System.Windows.Forms.TreeView();
             this.label7 = new System.Windows.Forms.Label();
             this.songDetailsFormPictureBox = new System.Windows.Forms.PictureBox();
+            this.lastModifiedLabel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.songDetailsFormPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +103,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Linen;
-            this.label6.Location = new System.Drawing.Point(13, 108);
+            this.label6.Location = new System.Drawing.Point(13, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 15);
             this.label6.TabIndex = 5;
@@ -111,7 +113,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songDetailsFormNameLabel.AutoSize = true;
             this.songDetailsFormNameLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songDetailsFormNameLabel.Location = new System.Drawing.Point(141, 13);
+            this.songDetailsFormNameLabel.Location = new System.Drawing.Point(163, 13);
             this.songDetailsFormNameLabel.Name = "songDetailsFormNameLabel";
             this.songDetailsFormNameLabel.Size = new System.Drawing.Size(0, 15);
             this.songDetailsFormNameLabel.TabIndex = 6;
@@ -120,7 +122,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songDetailsFormAuthorLabel.AutoSize = true;
             this.songDetailsFormAuthorLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songDetailsFormAuthorLabel.Location = new System.Drawing.Point(141, 32);
+            this.songDetailsFormAuthorLabel.Location = new System.Drawing.Point(163, 32);
             this.songDetailsFormAuthorLabel.Name = "songDetailsFormAuthorLabel";
             this.songDetailsFormAuthorLabel.Size = new System.Drawing.Size(0, 15);
             this.songDetailsFormAuthorLabel.TabIndex = 7;
@@ -129,7 +131,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songDetailsFormSongCreatorLabel.AutoSize = true;
             this.songDetailsFormSongCreatorLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songDetailsFormSongCreatorLabel.Location = new System.Drawing.Point(141, 51);
+            this.songDetailsFormSongCreatorLabel.Location = new System.Drawing.Point(163, 51);
             this.songDetailsFormSongCreatorLabel.Name = "songDetailsFormSongCreatorLabel";
             this.songDetailsFormSongCreatorLabel.Size = new System.Drawing.Size(0, 15);
             this.songDetailsFormSongCreatorLabel.TabIndex = 8;
@@ -138,7 +140,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songDetailsFormDefaultEvironment.AutoSize = true;
             this.songDetailsFormDefaultEvironment.ForeColor = System.Drawing.Color.Linen;
-            this.songDetailsFormDefaultEvironment.Location = new System.Drawing.Point(141, 70);
+            this.songDetailsFormDefaultEvironment.Location = new System.Drawing.Point(163, 70);
             this.songDetailsFormDefaultEvironment.Name = "songDetailsFormDefaultEvironment";
             this.songDetailsFormDefaultEvironment.Size = new System.Drawing.Size(0, 15);
             this.songDetailsFormDefaultEvironment.TabIndex = 9;
@@ -147,7 +149,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songDetailsFormMapVersionLabel.AutoSize = true;
             this.songDetailsFormMapVersionLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songDetailsFormMapVersionLabel.Location = new System.Drawing.Point(141, 89);
+            this.songDetailsFormMapVersionLabel.Location = new System.Drawing.Point(163, 89);
             this.songDetailsFormMapVersionLabel.Name = "songDetailsFormMapVersionLabel";
             this.songDetailsFormMapVersionLabel.Size = new System.Drawing.Size(0, 15);
             this.songDetailsFormMapVersionLabel.TabIndex = 10;
@@ -156,7 +158,7 @@ namespace BeatSaber_Playlist_Master_V2
             // 
             this.songDetailsFormDifficultiesLabel.AutoSize = true;
             this.songDetailsFormDifficultiesLabel.ForeColor = System.Drawing.Color.Linen;
-            this.songDetailsFormDifficultiesLabel.Location = new System.Drawing.Point(141, 108);
+            this.songDetailsFormDifficultiesLabel.Location = new System.Drawing.Point(163, 135);
             this.songDetailsFormDifficultiesLabel.Name = "songDetailsFormDifficultiesLabel";
             this.songDetailsFormDifficultiesLabel.Size = new System.Drawing.Size(0, 15);
             this.songDetailsFormDifficultiesLabel.TabIndex = 11;
@@ -188,12 +190,33 @@ namespace BeatSaber_Playlist_Master_V2
             this.songDetailsFormPictureBox.TabIndex = 14;
             this.songDetailsFormPictureBox.TabStop = false;
             // 
+            // lastModifiedLabel
+            // 
+            this.lastModifiedLabel.AutoSize = true;
+            this.lastModifiedLabel.ForeColor = System.Drawing.Color.Linen;
+            this.lastModifiedLabel.Location = new System.Drawing.Point(163, 108);
+            this.lastModifiedLabel.Name = "lastModifiedLabel";
+            this.lastModifiedLabel.Size = new System.Drawing.Size(0, 15);
+            this.lastModifiedLabel.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Linen;
+            this.label9.Location = new System.Drawing.Point(13, 108);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(140, 15);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Last Modified (or added):";
+            // 
             // SongDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(551, 346);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lastModifiedLabel);
             this.Controls.Add(this.songDetailsFormPictureBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.songDetailsFormPlaylistsTreeView);
@@ -234,5 +257,7 @@ namespace BeatSaber_Playlist_Master_V2
         private System.Windows.Forms.TreeView songDetailsFormPlaylistsTreeView;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox songDetailsFormPictureBox;
+        private System.Windows.Forms.Label lastModifiedLabel;
+        private System.Windows.Forms.Label label9;
     }
 }

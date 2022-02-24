@@ -36,24 +36,58 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void allPlaylistsTreeView_DoubleClick(object sender, EventArgs e)
         {
-            playlistsToExportTreeview.Nodes.Add(allPlaylistsTreeView.SelectedNode);
+            TreeNode nodeToTransfer = allPlaylistsTreeView.SelectedNode;
+            allPlaylistsTreeView.Nodes.Remove(nodeToTransfer);
+            playlistsToExportTreeview.Nodes.Add(nodeToTransfer);
         }
 
-        private void playlistsToExportTreeview_AfterSelect(object sender, TreeViewEventArgs e)
+       /* private void playlistsToExportTreeview_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            playlistsToExportTreeview.Nodes.Remove(playlistsToExportTreeview.SelectedNode);
-        }
+            TreeNode nodeToTransfer = playlistsToExportTreeview.SelectedNode;
+            playlistsToExportTreeview.Nodes.Remove(nodeToTransfer);
+            allPlaylistsTreeView.Nodes.Add(nodeToTransfer);
+        }*/
 
         private void exportButton_Click(object sender, EventArgs e)
         {
             List<Playlist> playlistsToExport = new List<Playlist>();
-            for (int i = 0; i < playlistsToExportTreeview.Nodes.Count; i++)
-                playlistsToExport.Add((Playlist)playlistsToExportTreeview.Nodes[i].Tag);
+            
+            if (allPlaylistsCheckBox.Checked)
+                playlistsToExport = mainForm.playlists;
+            else
+                for (int i = 0; i < playlistsToExportTreeview.Nodes.Count; i++)
+                    playlistsToExport.Add((Playlist)playlistsToExportTreeview.Nodes[i].Tag);
 
             mainForm.exportPlaylists(playlistsToExport, pathTextbox.Text);
 
             this.Close();
             this.Dispose();
+        }
+
+        private void playlistsToExportTreeview_DoubleClick(object sender, EventArgs e)
+        {
+            TreeNode nodeToTransfer = playlistsToExportTreeview.SelectedNode;
+            playlistsToExportTreeview.SelectedNode.Remove();
+            allPlaylistsTreeView.Nodes.Add(nodeToTransfer);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void allPlaylistsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (allPlaylistsCheckBox.Checked)
+            {
+                allPlaylistsTreeView.Enabled = false;
+                playlistsToExportTreeview.Enabled = false;
+            }
+            else
+            {
+                allPlaylistsTreeView.Enabled = true;
+                playlistsToExportTreeview.Enabled = true;
+            }
         }
     }
 }

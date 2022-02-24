@@ -824,7 +824,7 @@ namespace BeatSaber_Playlist_Master_V2
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1006, 791);
+            this.ClientSize = new System.Drawing.Size(1006, 929);
             this.Controls.Add(this.importPlaylistsButton);
             this.Controls.Add(this.playlistExportButton);
             this.Controls.Add(this.downloadAllMissingSongsButton);

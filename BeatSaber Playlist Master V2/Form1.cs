@@ -32,6 +32,7 @@ namespace BeatSaber_Playlist_Master_V2
 
     public partial class Form1 : Form
     {
+        
 
         public List<Playlist> playlists = new List<Playlist>();
         public List<PlaylistSong> allSongs = new List<PlaylistSong>();
@@ -59,7 +60,6 @@ namespace BeatSaber_Playlist_Master_V2
 
            
             InitializeComponent();
-
             // Startup processes
 
             // Find directory
@@ -112,7 +112,6 @@ namespace BeatSaber_Playlist_Master_V2
 
             // Creating the song searcher form
             songFinder = new songFinder(this, downloader);
-
         }
 
 
@@ -1061,27 +1060,35 @@ namespace BeatSaber_Playlist_Master_V2
 
         private void importPlaylistsButton_Click(object sender, EventArgs e)
         {
-            LoadingForm loadingForm = new LoadingForm("Importing playlists, We will restart the program when done", "This will take a while...");
-            loadingForm.Show();
-            loadingForm.Refresh();
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "zip files (*.zip)|*.zip|All files (*.*)|*.*";
+            openFileDialog.Filter = "zip files (*.zip)|*.zip";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
-
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                if (!File.Exists(openFileDialog.FileName))
+                    return;
+
                 //Get the path of specified file
                 string filePath = openFileDialog.FileName;
-
+                LoadingForm loadingForm = new LoadingForm("Importing playlists, We will restart the program when done", "This will take a while...");
+                loadingForm.Show();
+                loadingForm.Refresh();
                 importPlaylists(filePath);
+
+                loadingForm.Dispose();
+
+                Application.Restart();
             }
+            else
+                return;
 
-            loadingForm.Dispose();
+            
 
-            Application.Restart();
+            
+
+
         }
     }
 }
