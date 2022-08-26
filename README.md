@@ -1,3 +1,7 @@
+## Notice
+The software works on .net 5, you probably already have it, but if not, you will need to install it from here - 
+https://dotnet.microsoft.com/en-us/download/dotnet/5.0 - The SDK version
+
 # Playlist-Saber
 This is a fully featured playlist editor for BeatSaber, meant to replace the out of order BeatList.
 
