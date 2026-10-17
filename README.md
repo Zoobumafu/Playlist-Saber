@@ -1,3 +1,8 @@
+# NOT MAINTAINED
+
+This was designed for a very old version of the game and might now work anymore, it is completely untested on the latest versions and potentially could destroy your current playlists if used, use at your own risk
+
+
 ## Notice
 The software works on .net 5, you probably already have it, but if not, you will need to install it from here - 
 https://dotnet.microsoft.com/en-us/download/dotnet/5.0 - The SDK version
